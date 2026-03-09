@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIxSpace — Space AI Research Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+<style>
+  :root {
+    --black: #050508;
+    --deep: #080b14;
+    --surface: #0d1220;
+    --card: #111827;
+    --border: rgba(255,255,255,0.07);
+    --cyan: #00d4ff;
+    --cyan-dim: rgba(0, 212, 255, 0.1);
+    --amber: #f59e0b;
+    --green: #10b981;
+    --white: #f0f4ff;
+    --muted: rgba(240, 244, 255, 0.65);
+    --very-muted: rgba(240, 244, 255, 0.38);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { min-height: 100%; }
+  body { background: var(--black); color: var(--white); font-family: 'IBM Plex Mono', 'Courier New', monospace; overflow-x: hidden; cursor: none; }
+  .cursor { width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s ease; mix-blend-mode: screen; }
+  .cursor-ring { width: 32px; height: 32px; border: 1px solid rgba(0,212,255,0.4); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transition: all 0.15s ease; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(0,212,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.025) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; background: rgba(5,5,8,0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Syne', 'Arial Black', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; color: var(--white); text-decoration: none; }
+  .nav-logo span { color: var(--cyan); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--cyan); }
+  .nav-cta { background: transparent; border: 1px solid var(--cyan); color: var(--cyan); padding: 8px 20px; font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: none; transition: all 0.2s; text-decoration: none; }
+  .nav-cta:hover { background: var(--cyan); color: var(--black); }
+
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 40px 80px; position: relative; overflow: hidden; }
+  .hero-tag { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--cyan); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+  .hero-tag::before { content: ''; display: block; width: 40px; height: 1px; background: var(--cyan); }
+  .hero h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(48px, 7.5vw, 108px); line-height: 0.92; letter-spacing: -3px; margin-bottom: 28px; max-width: 900px; }
+  .hero h1 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--cyan); font-weight: 400; }
+  .hero-sub { font-size: 13px; line-height: 1.85; color: var(--muted); max-width: 520px; margin-bottom: 48px; }
+  .hero-actions { display: flex; gap: 16px; align-items: center; }
+  .btn-primary { background: var(--cyan); color: var(--black); padding: 14px 32px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; cursor: none; display: inline-block; }
+  .btn-primary:hover { background: #fff; }
+  .btn-ghost { color: var(--muted); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 8px; cursor: none; }
+  .btn-ghost:hover { color: var(--white); }
+  .hero-orbit { position: absolute; right: -100px; top: 50%; transform: translateY(-50%); width: 600px; height: 600px; border: 1px solid rgba(0,212,255,0.06); border-radius: 50%; animation: rotate 30s linear infinite; }
+  .hero-orbit::before { content: ''; position: absolute; top: -4px; left: 50%; width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; box-shadow: 0 0 20px var(--cyan); }
+  .hero-orbit-2 { position: absolute; right: -40px; top: 50%; transform: translateY(-50%); width: 400px; height: 400px; border: 1px solid rgba(245,158,11,0.05); border-radius: 50%; animation: rotate 20s linear infinite reverse; }
+  @keyframes rotate { from { transform: translateY(-50%) rotate(0deg); } to { transform: translateY(-50%) rotate(360deg); } }
+
+  section { position: relative; z-index: 1; }
+  .section-inner { max-width: 1200px; margin: 0 auto; padding: 100px 40px; }
+  .section-tag { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--amber); }
+  .section-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 50px); letter-spacing: -2px; line-height: 1; margin-bottom: 56px; }
+
+  .vision-section { background: var(--deep); }
+  .vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .vision-card { background: var(--card); padding: 36px; border: 1px solid var(--border); transition: border-color 0.3s, background 0.3s; position: relative; overflow: hidden; }
+  .vision-card::before { content: attr(data-num); position: absolute; top: 20px; right: 20px; font-family: 'Syne', sans-serif; font-size: 56px; font-weight: 800; color: rgba(255,255,255,0.03); line-height: 1; }
+  .vision-card:hover { border-color: rgba(0,212,255,0.2); background: rgba(0,212,255,0.03); }
+  .vision-card h3 { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+  .vision-card p { font-size: 12px; line-height: 1.85; color: var(--muted); }
+
+  .research-section { background: var(--black); }
+  .paper-card { border: 1px solid var(--border); padding: 36px; margin-bottom: 2px; background: var(--card); display: flex; gap: 32px; align-items: flex-start; transition: border-color 0.3s; }
+  .paper-card:hover { border-color: rgba(0,212,255,0.2); }
+  .paper-num { font-family: 'Syne', sans-serif; font-size: 44px; font-weight: 800; color: rgba(255,255,255,0.05); min-width: 56px; line-height: 1; }
+  .paper-content { flex: 1; }
+  .paper-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; }
+  .paper-title { font-family: 'Syne', sans-serif; font-size: 19px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; line-height: 1.3; }
+  .paper-abstract { font-size: 12px; line-height: 1.85; color: var(--muted); margin-bottom: 18px; }
+  .paper-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+  .paper-meta-item { font-size: 10px; letter-spacing: 1px; color: var(--very-muted); text-transform: uppercase; }
+  .paper-meta-item span { color: var(--amber); }
+
+  .tracks-section { background: var(--deep); }
+  .track-card { border: 1px solid var(--border); background: var(--card); margin-bottom: 2px; overflow: hidden; transition: border-color 0.3s; }
+  .track-card:hover { border-color: rgba(0,212,255,0.15); }
+  .track-header { padding: 28px 32px; display: flex; justify-content: space-between; align-items: center; cursor: none; user-select: none; }
+  .track-header:hover { background: rgba(255,255,255,0.02); }
+  .track-left { flex: 1; }
+  .track-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--cyan); margin-bottom: 6px; }
+  .track-name { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px; }
+  .track-lead { font-size: 11px; color: var(--muted); }
+  .track-lead span { color: var(--amber); }
+  .track-desc { font-size: 12px; color: var(--muted); line-height: 1.8; max-width: 600px; margin-top: 8px; }
+  .track-toggle { font-size: 10px; letter-spacing: 2px; color: var(--very-muted); display: flex; align-items: center; gap: 8px; flex-shrink: 0; padding-left: 20px; }
+  .track-toggle .arrow { display: inline-block; transition: transform 0.3s; font-size: 14px; color: var(--cyan); }
+  .track-card.open .track-toggle .arrow { transform: rotate(180deg); }
+  .track-members { display: none; padding: 0 32px 28px; border-top: 1px solid var(--border); }
+  .track-card.open .track-members { display: block; }
+  .members-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--very-muted); margin: 20px 0 14px; }
+  .members-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .member-chip { font-size: 11px; padding: 5px 12px; border: 1px solid var(--border); color: var(--muted); background: var(--surface); white-space: nowrap; }
+
+  .leadership-section { background: var(--black); }
+  .leadership-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2px; margin-bottom: 2px; }
+  .lead-card { background: var(--card); border: 1px solid var(--border); padding: 26px; transition: all 0.3s; }
+  .lead-card:hover { border-color: rgba(0,212,255,0.2); transform: translateY(-2px); }
+  .lead-role { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--cyan); margin-bottom: 8px; }
+  .lead-name { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+  .lead-affil { font-size: 11px; color: var(--very-muted); }
+  .advisor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .advisor-card { background: rgba(245,158,11,0.05); border: 1px solid rgba(245,158,11,0.1); padding: 22px 26px; transition: all 0.3s; }
+  .advisor-card:hover { border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.08); }
+  .advisor-role { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+  .advisor-name { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; }
+  .divider-label { display: flex; align-items: center; gap: 16px; margin: 36px 0 16px; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--very-muted); }
+  .divider-label::before, .divider-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .collab-section { background: var(--deep); }
+  .collab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2px; margin-top: 48px; }
+  .collab-card { background: var(--card); border: 1px solid var(--border); padding: 28px 24px; transition: all 0.3s; }
+  .collab-card:hover { border-color: rgba(0,212,255,0.2); background: rgba(0,212,255,0.03); }
+  .collab-name { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .collab-desc { font-size: 11px; color: var(--very-muted); line-height: 1.6; }
+
+  .projects-section { background: var(--black); }
+  .track-group-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--very-muted); margin: 40px 0 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .project-card { border: 1px solid var(--border); background: var(--card); margin-bottom: 2px; transition: border-color 0.3s; }
+  .project-card:hover { border-color: rgba(0,212,255,0.2); }
+  .project-header { padding: 22px 28px; display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+  .project-code { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 6px; }
+  .project-name { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: -0.3px; line-height: 1.35; }
+  .project-status { display: inline-flex; align-items: center; gap: 6px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border: 1px solid rgba(16,185,129,0.3); color: var(--green); white-space: nowrap; flex-shrink: 0; }
+  .project-status::before { content: ''; width: 4px; height: 4px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .apply-to-project { display: inline-flex; align-items: center; gap: 6px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); text-decoration: none; border: 1px solid rgba(0,212,255,0.15); padding: 6px 14px; margin: 0 28px 20px; transition: all 0.2s; cursor: none; width: fit-content; }
+  .apply-to-project:hover { background: var(--cyan-dim); border-color: var(--cyan); }
+
+  .apply-section { background: var(--deep); }
+  .apply-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .apply-info h2 { font-family: 'Syne', sans-serif; font-size: clamp(26px, 3vw, 40px); font-weight: 800; letter-spacing: -2px; margin-bottom: 20px; line-height: 1.1; }
+  .apply-info p { font-size: 12px; line-height: 1.9; color: var(--muted); margin-bottom: 16px; }
+  .apply-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+  .apply-option-btn { padding: 14px 18px; border: 1px solid var(--border); background: var(--card); color: var(--white); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px; cursor: none; text-align: left; transition: all 0.2s; display: flex; align-items: center; gap: 12px; }
+  .apply-option-btn:hover, .apply-option-btn.active { border-color: var(--cyan); background: var(--cyan-dim); }
+  .apply-option-btn .opt-icon { font-size: 16px; flex-shrink: 0; }
+  .apply-option-btn .opt-label { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; display: block; margin-bottom: 2px; }
+  .apply-option-btn .opt-desc { font-size: 10px; color: var(--muted); letter-spacing: 0; }
+  .discord-link { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border: 1px solid var(--border); background: var(--card); text-decoration: none; color: var(--white); font-size: 11px; transition: all 0.2s; cursor: none; width: fit-content; }
+  .discord-link:hover { border-color: rgba(88,101,242,0.5); }
+  .discord-dot { width: 18px; height: 18px; background: #5865F2; border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; }
+  .form-card { background: var(--card); border: 1px solid var(--border); padding: 36px; }
+  .form-title { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 28px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+  .form-group { margin-bottom: 18px; }
+  label { display: block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+  input, select, textarea { width: 100%; background: var(--surface); border: 1px solid var(--border); color: var(--white); font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 11px 14px; outline: none; transition: border-color 0.2s; appearance: none; }
+  input:focus, select:focus, textarea:focus { border-color: rgba(0,212,255,0.4); }
+  input::placeholder, textarea::placeholder { color: var(--very-muted); }
+  select option { background: var(--card); color: var(--white); }
+  textarea { resize: vertical; min-height: 90px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-section { display: none; }
+  .form-section.active { display: block; }
+  .submit-btn { width: 100%; background: var(--cyan); color: var(--black); border: none; padding: 15px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; cursor: none; transition: all 0.2s; margin-top: 6px; }
+  .submit-btn:hover { background: #fff; }
+  .form-note { font-size: 10px; color: var(--very-muted); margin-top: 10px; text-align: center; line-height: 1.6; }
+  .form-success { display: none; text-align: center; padding: 40px 20px; }
+  .form-success .s-icon { font-size: 32px; margin-bottom: 14px; }
+  .form-success h3 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .form-success p { font-size: 12px; color: var(--muted); }
+
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  footer { background: var(--black); border-top: 1px solid var(--border); padding: 40px; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
+  .footer-logo span { color: var(--cyan); }
+  .footer-copy { font-size: 10px; color: var(--very-muted); text-align: center; line-height: 1.7; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 10px; color: var(--very-muted); text-decoration: none; letter-spacing: 1px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--cyan); }
+
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.3); }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .section-inner { padding: 60px 20px; }
+    .vision-grid, .apply-wrapper, .form-row { grid-template-columns: 1fr; }
+    .advisor-grid { grid-template-columns: 1fr; }
+    .hero-orbit, .hero-orbit-2 { display: none; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+    .paper-card { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="#" class="nav-logo">AIx<span>Space</span></a>
+  <ul class="nav-links">
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#tracks">Tracks</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#apply">Get Involved</a></li>
+  </ul>
+  <a href="#apply" class="nav-cta">Get Involved</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-orbit"></div>
+  <div class="hero-orbit-2"></div>
+  <div class="hero-tag">Space AI Research Group</div>
+  <h1>Building <em>trustworthy</em><br>AI for the<br>final frontier</h1>
+  <p class="hero-sub">We develop autonomous, interpretable AI systems for space missions — from onboard inference on resource-constrained CubeSats to formal verification of mission-critical decision-making. Pre-deployment validation, not post-incident response.</p>
+  <div class="hero-actions">
+    <a href="#research" class="btn-primary">View Research</a>
+    <a href="#apply" class="btn-ghost">Get involved →</a>
+  </div>
+</section>
+
+<section class="vision-section" id="vision">
+  <div class="section-inner">
+    <div class="section-tag">Our Philosophy</div>
+    <h2 class="section-title">Why we exist</h2>
+    <div class="vision-grid fade-in">
+      <div class="vision-card" data-num="I">
+        <h3>Pre-Deployment Validation</h3>
+        <p>Our methodology centers on interpretable AI validated before launch. We engineer systems that explain their decision pathways — not after something goes wrong, but before it ever could.</p>
+      </div>
+      <div class="vision-card" data-num="II">
+        <h3>Full-Stack AI Engineering</h3>
+        <p>From ML model architecture through deployment pipelines — covering onboard inference, satellite health monitoring, and Earth observation analytics across hardware constraints and radiation-hardened computing.</p>
+      </div>
+      <div class="vision-card" data-num="III">
+        <h3>Mission-Critical Safety</h3>
+        <p>Formal verification for AI in life-critical systems. Mars rover decision-making, satellite collision avoidance — mathematical proofs of behavior bounds, not just security hardening.</p>
+      </div>
+      <div class="vision-card" data-num="IV">
+        <h3>Explainability as Requirement</h3>
+        <p>XAI in space isn't academic — when a satellite autonomously changes orbit, operators need to understand why. We're building the language for human-AI communication in space operations.</p>
+      </div>
+      <div class="vision-card" data-num="V">
+        <h3>Quantum-Classical Hybrid Computing</h3>
+        <p>Our QML division explores quantum algorithms for remote sensing and optimization in orbital mechanics — at the intersection of theoretical computer science and practical space engineering.</p>
+      </div>
+      <div class="vision-card" data-num="VI">
+        <h3>Hands-On Mission Integration</h3>
+        <p>Real hardware, real launches, real data. Debugging edge computing on 10cm³ satellites, optimizing power budgets for neural networks, handling intermittent ground station contacts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="research-section" id="research">
+  <div class="section-inner">
+    <div class="section-tag">Publications & Ongoing Work</div>
+    <h2 class="section-title">Research output</h2>
+    <div class="fade-in">
+      <div class="paper-card">
+        <div class="paper-num">01</div>
+        <div class="paper-content">
+          <div class="paper-tag">Space Mission Risk · IAC 2026</div>
+          <div class="paper-title">AI-Powered Space Mission Risk Prediction: Real-Time Failure Detection and Adaptive Contingency Planning</div>
+          <p class="paper-abstract">A modular AI-driven framework integrating failure prediction, anomaly detection, and a decision support system for CubeSat platforms (1U–6U). Combines XGBoost, Time-Series Transformers, LSTM Autoencoders, and a PPO reinforcement learning agent with SHAP/LIME explainability throughout. Achieves 89.5–94.1% accuracy across platform classes. Aligned with UNOOSA and COSPAR guidelines.</p>
+          <div class="paper-meta">
+            <div class="paper-meta-item">Status: <span>v1 Complete · v2 In Progress</span></div>
+            <div class="paper-meta-item">Stage: <span>TRL 2–3</span></div>
+            <div class="paper-meta-item">Venue: <span>International Astronautical Congress 2026</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="paper-card">
+        <div class="paper-num">02</div>
+        <div class="paper-content">
+          <div class="paper-tag">AgriTech · AI Systems · Ongoing</div>
+          <div class="paper-title">AgroTwin — AI-Powered Digital Twin for Precision Agriculture</div>
+          <p class="paper-abstract">An ongoing initiative developing a digital twin framework for precision agriculture, leveraging satellite remote sensing and AI-based environmental modelling to support real-time crop monitoring, resource optimization, and climate-resilient farming decisions.</p>
+          <div class="paper-meta">
+            <div class="paper-meta-item">Status: <span>Ongoing</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="paper-card">
+        <div class="paper-num">03</div>
+        <div class="paper-content">
+          <div class="paper-tag">UAV Systems · Ongoing</div>
+          <div class="paper-title">Fixed Wing UAV — Autonomous Systems Research</div>
+          <p class="paper-abstract">Ongoing research into fixed-wing UAV autonomous systems, focusing on onboard AI decision-making, flight control, and mission planning under resource constraints — extending our core expertise in edge AI inference to aerial platforms.</p>
+          <div class="paper-meta">
+            <div class="paper-meta-item">Status: <span>Ongoing</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tracks-section" id="tracks">
+  <div class="section-inner">
+    <div class="section-tag">How We're Organized</div>
+    <h2 class="section-title">Research tracks</h2>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:48px;line-height:1.8;max-width:580px;">Each track operates independently with a dedicated lead, contributing to our shared research output. Tap any track to see its members.</p>
+    <div class="fade-in">
+
+      <div class="track-card" onclick="toggleTrack(this)">
+        <div class="track-header">
+          <div class="track-left">
+            <div class="track-label">Coordination & Communication</div>
+            <div class="track-name">CnC — Operations & Outreach</div>
+            <div class="track-lead">Lead: <span>Anh (Jinny) Truong</span></div>
+            <div class="track-desc">Manages internal coordination, scheduling, communication pipelines, and external outreach. Keeps the group aligned across timezones and disciplines.</div>
+          </div>
+          <div class="track-toggle">Members <span class="arrow">↓</span></div>
+        </div>
+        <div class="track-members">
+          <div class="members-label">Members</div>
+          <div class="members-grid">
+            <div class="member-chip">Anh Truong</div>
+            <div class="member-chip">Chidinma Amanna</div>
+            <div class="member-chip">Charlotte Nguyen</div>
+            <div class="member-chip">Lucrezia Meris</div>
+            <div class="member-chip">Sanjukta Deshpande</div>
+            <div class="member-chip">Marcus Nguyen</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-card" onclick="toggleTrack(this)">
+        <div class="track-header">
+          <div class="track-left">
+            <div class="track-label">Literature Review</div>
+            <div class="track-name">LR — State of the Art</div>
+            <div class="track-lead">Lead: <span>Isabel LaCoss</span> · Embry-Riddle Aeronautical University</div>
+            <div class="track-desc">Surveys existing research across space AI, anomaly detection, and autonomous systems to ground our work in the current state of the field and identify research gaps.</div>
+          </div>
+          <div class="track-toggle">Members <span class="arrow">↓</span></div>
+        </div>
+        <div class="track-members">
+          <div class="members-label">Members</div>
+          <div class="members-grid">
+            <div class="member-chip">Isabel LaCoss</div>
+            <div class="member-chip">Abdelmalek Saadi-Drissi</div>
+            <div class="member-chip">Bhuvan Ravikumar</div>
+            <div class="member-chip">Emil Velichka</div>
+            <div class="member-chip">Hsien Hao Lai</div>
+            <div class="member-chip">Jimin Choi</div>
+            <div class="member-chip">Robert Larini</div>
+            <div class="member-chip">Sanjukta Deshpande</div>
+            <div class="member-chip">Leyli Oliver</div>
+            <div class="member-chip">Amuzu Justice</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-card" onclick="toggleTrack(this)">
+        <div class="track-header">
+          <div class="track-left">
+            <div class="track-label">Methodology Writing</div>
+            <div class="track-name">MW — Research Design & Writing</div>
+            <div class="track-lead">Lead: <span>Paarvi Wadhwa</span> · University of Delhi &nbsp;·&nbsp; Co-Lead: <span>Karthikeya Moyye</span></div>
+            <div class="track-desc">Develops the methodological foundations of our papers — experimental design, data strategy, mathematical formulation, and academic writing.</div>
+          </div>
+          <div class="track-toggle">Members <span class="arrow">↓</span></div>
+        </div>
+        <div class="track-members">
+          <div class="members-label">Members</div>
+          <div class="members-grid">
+            <div class="member-chip">Paarvi Wadhwa</div>
+            <div class="member-chip">Karthikeya Moyye</div>
+            <div class="member-chip">Abdelmalek Saadi-Drissi</div>
+            <div class="member-chip">Anish Mahapatra</div>
+            <div class="member-chip">Aryan Kumar Srivastav</div>
+            <div class="member-chip">Hasibul Hasan Shanto</div>
+            <div class="member-chip">Meghana Sannapareddy</div>
+            <div class="member-chip">Om Atmaram Khairnar</div>
+            <div class="member-chip">Paula Ixquiac</div>
+            <div class="member-chip">Tanvi Gupta</div>
+            <div class="member-chip">Vidhi Jain</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-card" onclick="toggleTrack(this)">
+        <div class="track-header">
+          <div class="track-left">
+            <div class="track-label">Policy & Ethics</div>
+            <div class="track-name">PE — Governance & Oversight</div>
+            <div class="track-lead">Lead: <span>Hassan Sajjad Khan</span></div>
+            <div class="track-desc">Develops governance frameworks for AI in space — regulatory compliance, ethical oversight, human-AI accountability, alignment with UNOOSA and COSPAR guidelines.</div>
+          </div>
+          <div class="track-toggle">Members <span class="arrow">↓</span></div>
+        </div>
+        <div class="track-members">
+          <div class="members-label">Members</div>
+          <div class="members-grid">
+            <div class="member-chip">Hassan Sajjad Khan</div>
+            <div class="member-chip">M. Abdullah Khan</div>
+            <div class="member-chip">Anh Truong</div>
+            <div class="member-chip">Sulekha Komeravelli</div>
+            <div class="member-chip">Benjamin Brumm</div>
+            <div class="member-chip">Romane Croizet Fontane</div>
+            <div class="member-chip">Jessica Durbano</div>
+            <div class="member-chip">Rachita Agarwal</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-card" onclick="toggleTrack(this)">
+        <div class="track-header">
+          <div class="track-left">
+            <div class="track-label">Systems Architecture</div>
+            <div class="track-name">SA — Architecture & Integration</div>
+            <div class="track-lead">Lead: <span>Bhuvan Ravikumar</span> · USC &nbsp;·&nbsp; Co-Lead: <span>Giustina Di Donato</span></div>
+            <div class="track-desc">Designs overall system architecture — hardware deployment constraints, modular AI integration, satellite subsystem interfaces, and ground segment pipelines.</div>
+          </div>
+          <div class="track-toggle">Members <span class="arrow">↓</span></div>
+        </div>
+        <div class="track-members">
+          <div class="members-label">Members</div>
+          <div class="members-grid">
+            <div class="member-chip">Bhuvan Ravikumar</div>
+            <div class="member-chip">Giustina Di Donato</div>
+            <div class="member-chip">Carlos Morales-Ramirez</div>
+            <div class="member-chip">Floris Weyand</div>
+            <div class="member-chip">Chidinma Amanna</div>
+            <div class="member-chip">Tanmay Sharma</div>
+            <div class="member-chip">Benjamin Brumm</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-card" onclick="toggleTrack(this)">
+        <div class="track-header">
+          <div class="track-left">
+            <div class="track-label">Onboard Intelligence & Systems</div>
+            <div class="track-name">TF — Technical Frameworks & AI Engineering</div>
+            <div class="track-lead">Co-Leads: <span>Vidhi Jain</span> &nbsp;·&nbsp; <span>Manish R. Tiwari</span> · IIT Mandi</div>
+            <div class="track-desc">Builds and validates AI models — failure prediction, anomaly detection, RL-based decision support, XAI pipelines, and edge inference optimization for resource-constrained satellite platforms.</div>
+          </div>
+          <div class="track-toggle">Members <span class="arrow">↓</span></div>
+        </div>
+        <div class="track-members">
+          <div class="members-label">Members</div>
+          <div class="members-grid">
+            <div class="member-chip">Vidhi Jain</div>
+            <div class="member-chip">Manish R. Tiwari</div>
+            <div class="member-chip">Anish Mahapatra</div>
+            <div class="member-chip">Aryan Kumar Srivastav</div>
+            <div class="member-chip">Hasibul Hasan Shanto</div>
+            <div class="member-chip">Jeeval Shah</div>
+            <div class="member-chip">Karthikeya Moyye</div>
+            <div class="member-chip">Vivekini Mata</div>
+            <div class="member-chip">Meghana Sannapareddy</div>
+            <div class="member-chip">Mudit Khater</div>
+            <div class="member-chip">Sanjukta Deshpande</div>
+            <div class="member-chip">Swayam Sanjay Pawar</div>
+            <div class="member-chip">Yassine Yousfi</div>
+            <div class="member-chip">Floris Weyand</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="leadership-section" id="team">
+  <div class="section-inner">
+    <div class="section-tag">People</div>
+    <h2 class="section-title">Leadership board</h2>
+    <div class="leadership-grid fade-in">
+      <div class="lead-card"><div class="lead-role">PG Lead</div><div class="lead-name">Samrat Chakraborty</div><div class="lead-affil">Indian Association for the Cultivation of Science</div></div>
+      <div class="lead-card"><div class="lead-role">PG Co-Lead</div><div class="lead-name">Alizay Fatima</div><div class="lead-affil">Institute of Space Technology, Pakistan</div></div>
+      <div class="lead-card"><div class="lead-role">Coordination & Communication Lead</div><div class="lead-name">Anh (Jinny) Truong</div><div class="lead-affil">Foreign Trade University / University of Northampton</div></div>
+      <div class="lead-card"><div class="lead-role">Literature Review Lead</div><div class="lead-name">Isabel LaCoss</div><div class="lead-affil">Embry-Riddle Aeronautical University</div></div>
+      <div class="lead-card"><div class="lead-role">Methodology Writing Lead</div><div class="lead-name">Paarvi Wadhwa</div><div class="lead-affil">University of Delhi</div></div>
+      <div class="lead-card"><div class="lead-role">Methodology Writing Co-Lead</div><div class="lead-name">Karthikeya Moyye</div><div class="lead-affil">Independent Researcher</div></div>
+      <div class="lead-card"><div class="lead-role">Policy / Ethics Lead</div><div class="lead-name">Hassan Sajjad Khan</div><div class="lead-affil">—</div></div>
+      <div class="lead-card"><div class="lead-role">Systems Architecture Lead</div><div class="lead-name">Bhuvan Ravikumar</div><div class="lead-affil">University of Southern California</div></div>
+      <div class="lead-card"><div class="lead-role">Systems Co-Lead</div><div class="lead-name">Giustina Di Donato</div><div class="lead-affil">—</div></div>
+      <div class="lead-card"><div class="lead-role">Technical Frameworks Co-Lead</div><div class="lead-name">Vidhi Jain</div><div class="lead-affil">—</div></div>
+      <div class="lead-card"><div class="lead-role">Technical Frameworks Co-Lead</div><div class="lead-name">Manish R. Tiwari</div><div class="lead-affil">IIT Mandi (CCE)</div></div>
+    </div>
+    <div class="divider-label">Advisor Board</div>
+    <div class="advisor-grid fade-in">
+      <div class="advisor-card"><div class="advisor-role">Cybersecurity Advisor</div><div class="advisor-name">Romane Croizet Fontane</div></div>
+      <div class="advisor-card"><div class="advisor-role">Legal Advisor</div><div class="advisor-name">Joseph Turano</div></div>
+      <div class="advisor-card"><div class="advisor-role">Senior Technical Advisor</div><div class="advisor-name">Jimin Choi</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="collab-section" id="collab">
+  <div class="section-inner">
+    <div class="section-tag">Partners</div>
+    <h2 class="section-title">Collaborations</h2>
+    <div class="collab-grid fade-in">
+      <div class="collab-card">
+        <div class="collab-name">SGAC</div>
+        <div class="collab-desc">Space Generation Advisory Council — our primary institutional partner and global network for young space professionals.</div>
+      </div>
+      <div class="collab-card">
+        <div class="collab-name">UC Berkeley — REYES Program</div>
+        <div class="collab-desc">Research Experience for Young Engineers and Scientists — academic inspiration and support during our framework development.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects-section" id="projects">
+  <div class="section-inner">
+    <div class="section-tag">Active Work</div>
+    <h2 class="section-title">Ongoing projects</h2>
+    <div class="fade-in">
+
+      <div class="track-group-label">Literature Review Track</div>
+      <div class="project-card">
+        <div class="project-header"><div><div class="project-code">LR1</div><div class="project-name">An Autonomous On-Board Processing Architecture for Early Wildfire Detection Using a Structured CubeSat Formation</div></div><div class="project-status">In Progress</div></div>
+        <a href="#apply" class="apply-to-project" onclick="setProject('lr1')">Apply to this project →</a>
+      </div>
+
+      <div class="track-group-label">Methodology Writing Track</div>
+      <div class="project-card">
+        <div class="project-header"><div><div class="project-code">MW1</div><div class="project-name">Resilient Space Architecture under Extreme Conditions</div></div><div class="project-status">In Progress</div></div>
+        <a href="#apply" class="apply-to-project" onclick="setProject('mw1')">Apply to this project →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-header"><div><div class="project-code">MW2</div><div class="project-name">Review of Greenhouse Gas Production Using AI Models</div></div><div class="project-status">In Progress</div></div>
+        <a href="#apply" class="apply-to-project" onclick="setProject('mw2')">Apply to this project →</a>
+      </div>
+
+      <div class="track-group-label">Policy / Ethics Track</div>
+      <div class="project-card">
+        <div class="project-header"><div><div class="project-code">PE1</div><div class="project-name">Explainable AI for Climate-Resilient Space Operations: A Framework for Trust and Oversight in High-Stakes Decision-Making</div></div><div class="project-status">In Progress</div></div>
+        <a href="#apply" class="apply-to-project" onclick="setProject('pe1')">Apply to this project →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-header"><div><div class="project-code">PE2</div><div class="project-name">Operationalizing Ethical Governance: A SNO-based Data Harmonization Pipeline for Technically Robust and Equitable Climate AI</div></div><div class="project-status">In Progress</div></div>
+        <a href="#apply" class="apply-to-project" onclick="setProject('pe2')">Apply to this project →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-header"><div><div class="project-code">PE3</div><div class="project-name">From Monoculture to Resilience: Engineering Diverse AI Architecture for Robust Climate Monitoring and Equitable Adaptation</div></div><div class="project-status">In Progress</div></div>
+        <a href="#apply" class="apply-to-project" onclick="setProject('pe3')">Apply to this project →</a>
+      </div>
+
+      <div class="track-group-label">Onboard Intelligence & Systems Track</div>
+      <div class="project-card">
+        <div class="project-header"><div><div class="project-code">SA1</div><div class="project-name">Optimized Ground Segment Framework for Efficient Processing of Copernicus Sentinel-2 Data Streams</div></div><div class="project-status">In Progress</div></div>
+        <a href="#apply" class="apply-to-project" onclick="setProject('sa1')">Apply to this project →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-header"><div><div class="project-code">TF1</div><div class="project-name">Leveraging MethaneSAT Insights for Finer Methane Emission Mapping</div></div><div class="project-status">In Progress</div></div>
+        <a href="#apply" class="apply-to-project" onclick="setProject('tf1')">Apply to this project →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-header"><div><div class="project-code">TF2</div><div class="project-name">Lightweight Optical and Microwave Preprocessing Framework for Flood Monitoring Using CubeSat and Sentinel Data</div></div><div class="project-status">In Progress</div></div>
+        <a href="#apply" class="apply-to-project" onclick="setProject('tf2')">Apply to this project →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-header"><div><div class="project-code">TF3</div><div class="project-name">A Cloud-Agnostic, Multi-Temporal Framework for Robust Environmental Change Detection and Alerting Using Sentinel and CubeSat Data</div></div><div class="project-status">In Progress</div></div>
+        <a href="#apply" class="apply-to-project" onclick="setProject('tf3')">Apply to this project →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="apply-section" id="apply">
+  <div class="section-inner">
+    <div class="apply-wrapper">
+      <div class="apply-info fade-in">
+        <div class="section-tag">Get Involved</div>
+        <h2>Work on problems that actually matter</h2>
+        <p>We're a distributed team across 12+ countries. Whether your background is ML, aerospace, policy, or you just build things — there's likely a place here.</p>
+        <p>Choose how you want to engage:</p>
+        <div class="apply-options">
+          <button class="apply-option-btn active" onclick="switchMode('join', this)">
+            <span class="opt-icon">🛰</span>
+            <div><span class="opt-label">Join a project</span><span class="opt-desc">Become a member and contribute to an active research track</span></div>
+          </button>
+          <button class="apply-option-btn" onclick="switchMode('propose', this)">
+            <span class="opt-icon">💡</span>
+            <div><span class="opt-label">Propose a project</span><span class="opt-desc">Have an idea? Bring it under our umbrella</span></div>
+          </button>
+          <button class="apply-option-btn" onclick="switchMode('collab', this)">
+            <span class="opt-icon">🤝</span>
+            <div><span class="opt-label">Collaborate with us</span><span class="opt-desc">Organizations, labs, and institutions welcome</span></div>
+          </button>
+        </div>
+        <a href="https://discord.gg/placeholder" class="discord-link" target="_blank">
+          <div class="discord-dot">D</div>
+          Or join our Discord directly
+        </a>
+      </div>
+
+      <div class="form-card fade-in">
+        <div id="formWrap">
+          <div class="form-section active" id="mode-join">
+            <div class="form-title">Join a project</div>
+            <div class="form-row">
+              <div class="form-group"><label>First Name *</label><input type="text" id="j-first" placeholder="Ada"></div>
+              <div class="form-group"><label>Last Name *</label><input type="text" id="j-last" placeholder="Lovelace"></div>
+            </div>
+            <div class="form-group"><label>Email *</label><input type="email" id="j-email" placeholder="ada@university.edu"></div>
+            <div class="form-group"><label>Background / Affiliation</label><input type="text" id="j-affil" placeholder="MSc AI, University of X"></div>
+            <div class="form-group">
+              <label>Project *</label>
+              <select id="j-project">
+                <option value="">Select a project...</option>
+                <optgroup label="Literature Review"><option value="lr1">LR1 — Early Wildfire Detection Using CubeSat Formation</option></optgroup>
+                <optgroup label="Methodology Writing"><option value="mw1">MW1 — Resilient Space Architecture</option><option value="mw2">MW2 — Greenhouse Gas Production Using AI Models</option></optgroup>
+                <optgroup label="Policy / Ethics"><option value="pe1">PE1 — Explainable AI for Climate-Resilient Space Ops</option><option value="pe2">PE2 — SNO-based Data Harmonization Pipeline</option><option value="pe3">PE3 — Diverse AI Architecture for Climate Monitoring</option></optgroup>
+                <optgroup label="Onboard Intelligence & Systems"><option value="sa1">SA1 — Sentinel-2 Ground Segment Framework</option><option value="tf1">TF1 — MethaneSAT Methane Emission Mapping</option><option value="tf2">TF2 — Flood Monitoring with CubeSat and Sentinel</option><option value="tf3">TF3 — Environmental Change Detection Framework</option></optgroup>
+                <option value="general">General interest / open role</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Why this project? What do you bring? *</label><textarea id="j-why" placeholder="Be direct. What have you built, what are you thinking about, and why this project?"></textarea></div>
+            <div class="form-group"><label>GitHub / Portfolio (optional)</label><input type="text" id="j-link" placeholder="github.com/yourprofile"></div>
+            <button class="submit-btn" onclick="submitForm('join')">Submit Application</button>
+            <p class="form-note">Reviewed by the PG Lead. We'll follow up via Discord or email.</p>
+          </div>
+
+          <div class="form-section" id="mode-propose">
+            <div class="form-title">Propose a project</div>
+            <div class="form-row">
+              <div class="form-group"><label>Your Name *</label><input type="text" id="p-name" placeholder="Ada Lovelace"></div>
+              <div class="form-group"><label>Email *</label><input type="email" id="p-email" placeholder="ada@university.edu"></div>
+            </div>
+            <div class="form-group"><label>Affiliation</label><input type="text" id="p-affil" placeholder="University / Organization"></div>
+            <div class="form-group"><label>Project Title *</label><input type="text" id="p-title" placeholder="Your proposed project name"></div>
+            <div class="form-group">
+              <label>Which track does it fall under?</label>
+              <select id="p-track">
+                <option value="">Select a track...</option>
+                <option value="literature">Literature Review</option>
+                <option value="methodology">Methodology Writing</option>
+                <option value="policy">Policy / Ethics</option>
+                <option value="systems">Onboard Intelligence & Systems</option>
+                <option value="new">Potentially a new track</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Brief description & motivation *</label><textarea id="p-desc" placeholder="What is the research question, why does it matter, and why does it belong under AIxSpace?"></textarea></div>
+            <button class="submit-btn" onclick="submitForm('propose')">Submit Proposal</button>
+            <p class="form-note">Project proposals are reviewed by the leadership board.</p>
+          </div>
+
+          <div class="form-section" id="mode-collab">
+            <div class="form-title">Collaborate with us</div>
+            <div class="form-row">
+              <div class="form-group"><label>Your Name *</label><input type="text" id="c-name" placeholder="Dr. Jane Smith"></div>
+              <div class="form-group"><label>Email *</label><input type="email" id="c-email" placeholder="jsmith@institution.edu"></div>
+            </div>
+            <div class="form-group"><label>Organization / Institution *</label><input type="text" id="c-org" placeholder="University / Agency / Company"></div>
+            <div class="form-group">
+              <label>Type of collaboration</label>
+              <select id="c-type">
+                <option value="">Select...</option>
+                <option value="academic">Academic / Research partnership</option>
+                <option value="data">Data / Dataset sharing</option>
+                <option value="hardware">Hardware / Testbed access</option>
+                <option value="funding">Funding / Grant collaboration</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label>What are you proposing? *</label><textarea id="c-desc" placeholder="Tell us about your organization and what kind of collaboration you have in mind."></textarea></div>
+            <button class="submit-btn" onclick="submitForm('collab')">Send Inquiry</button>
+            <p class="form-note">Collaboration inquiries go directly to the PG Lead and Co-Lead.</p>
+          </div>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="s-icon">✦</div>
+          <h3>Received</h3>
+          <p>We'll review and get back to you via Discord or email.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">AIx<span>Space</span></div>
+  <div class="footer-copy">Space AI Research Group<br><span style="font-size:9px;">© 2026 AIxSpace</span></div>
+  <div class="footer-links">
+    <a href="#vision">Vision</a>
+    <a href="#research">Research</a>
+    <a href="#tracks">Tracks</a>
+    <a href="#apply">Get Involved</a>
+  </div>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx - 4 + 'px'; cursor.style.top = my - 4 + 'px';
+  });
+  (function animRing() {
+    rx += (mx - rx - 16) * 0.12; ry += (my - ry - 16) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
+  })();
+  document.querySelectorAll('a, button, .track-card, .vision-card, .paper-card, .lead-card, .project-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2.5)'; ring.style.transform = 'scale(1.4)'; ring.style.borderColor = 'rgba(0,212,255,0.7)'; });
+    el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; ring.style.transform = 'scale(1)'; ring.style.borderColor = 'rgba(0,212,255,0.4)'; });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  function toggleTrack(card) { card.classList.toggle('open'); }
+
+  function switchMode(mode, btn) {
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.apply-option-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('mode-' + mode).classList.add('active');
+    if (btn) btn.classList.add('active');
+  }
+
+  function setProject(val) {
+    document.querySelectorAll('.apply-option-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.apply-option-btn')[0].classList.add('active');
+    switchMode('join', null);
+    document.querySelectorAll('.apply-option-btn')[0].classList.add('active');
+    setTimeout(() => { const sel = document.getElementById('j-project'); if (sel) sel.value = val; }, 150);
+  }
+
+  function submitForm(type) {
+    const WEBHOOK = 'YOUR_DISCORD_WEBHOOK_URL_HERE';
+    let name, email, desc, extra = '';
+    if (type === 'join') {
+      name = (document.getElementById('j-first').value + ' ' + document.getElementById('j-last').value).trim();
+      email = document.getElementById('j-email').value.trim();
+      desc = document.getElementById('j-why').value.trim();
+      extra = 'Project: ' + document.getElementById('j-project').value + '\nAffiliation: ' + document.getElementById('j-affil').value;
+    } else if (type === 'propose') {
+      name = document.getElementById('p-name').value.trim();
+      email = document.getElementById('p-email').value.trim();
+      desc = document.getElementById('p-desc').value.trim();
+      extra = 'Title: ' + document.getElementById('p-title').value + '\nTrack: ' + document.getElementById('p-track').value;
+    } else {
+      name = document.getElementById('c-name').value.trim();
+      email = document.getElementById('c-email').value.trim();
+      desc = document.getElementById('c-desc').value.trim();
+      extra = 'Org: ' + document.getElementById('c-org').value + '\nType: ' + document.getElementById('c-type').value;
+    }
+    if (!name || !email || !desc) { alert('Please fill in all required fields.'); return; }
+    const titles = { join: '📡 New Application', propose: '💡 Project Proposal', collab: '🤝 Collaboration Inquiry' };
+    const payload = { embeds: [{ title: titles[type], color: 0x00d4ff, fields: [{ name: 'Name', value: name, inline: true }, { name: 'Email', value: email, inline: true }, { name: 'Details', value: extra || '—' }, { name: 'Message', value: desc }], timestamp: new Date().toISOString() }] };
+    if (WEBHOOK !== 'YOUR_DISCORD_WEBHOOK_URL_HERE') fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(() => {});
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
