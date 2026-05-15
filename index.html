@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIxSpace — Space AI Research Group</title>
+<title>SpacexAI — Space AI Research Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -12,67 +12,85 @@
   /* ─── THEME TOKENS ─────────────────────────────── */
   :root {
     --black:#050508;--deep:#080b14;--surface:#0d1220;--card:#111827;
-    --border:rgba(255,255,255,0.07);--cyan:#00d4ff;--cyan-dim:rgba(0,212,255,0.1);
-    --cyan-glow:rgba(0,212,255,0.25);--amber:#f59e0b;--amber-dim:rgba(245,158,11,0.12);
+    --border:rgba(255,255,255,0.07);
+    --cyan:#7e3f61; /* Rose-Plum */
+    --cyan-dim:rgba(126,63,97,0.1);
+    --cyan-glow:rgba(126,63,97,0.25);
+    --amber:#34d399; /* Emerald */
+    --amber-dim:rgba(52,211,153,0.12);
     --green:#10b981;--violet:#8b5cf6;--white:#f0f4ff;
     --muted:rgba(240,244,255,0.65);--very-muted:rgba(240,244,255,0.38);
-    --grid-line:rgba(0,212,255,0.025);
-    --hero-glow:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(0,212,255,0.07) 0%,transparent 70%);
-    --tt:background 0.4s cubic-bezier(0.4,0,0.2,1),color 0.4s cubic-bezier(0.4,0,0.2,1),border-color 0.4s cubic-bezier(0.4,0,0.2,1);
+    --grid-line:rgba(126,63,97,0.025);
+    --hero-glow:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(126,63,97,0.07) 0%,transparent 70%);
+    --bg-ambient: radial-gradient(circle at 15% 10%, rgba(0, 212, 255, 0.04) 0%, transparent 40%), radial-gradient(circle at 85% 90%, rgba(126, 63, 97, 0.05) 0%, transparent 40%);
+    --tt:background 0.4s cubic-bezier(0.4,0,0.2,1),color 0.4s cubic-bezier(0.4,0,0.2,1),border-color 0.4s cubic-bezier(0.4,0,0.2,1),box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
   }
   html.light {
     --black:#f8f9ff;--deep:#eef0f8;--surface:#e4e8f4;--card:#ffffff;
-    --border:rgba(0,0,0,0.08);--cyan:#0088cc;--cyan-dim:rgba(0,136,204,0.08);
-    --cyan-glow:rgba(0,136,204,0.2);--amber:#d97706;--amber-dim:rgba(217,119,6,0.1);
+    --border:rgba(0,0,0,0.08);
+    --cyan:#5d2a45; /* Darker Rose-Plum for Light Mode */
+    --cyan-dim:rgba(93,42,69,0.08);
+    --cyan-glow:rgba(93,42,69,0.2);
+    --amber:#059669; /* Darker Emerald for Light Mode */
+    --amber-dim:rgba(5,150,105,0.1);
     --green:#059669;--violet:#7c3aed;--white:#0f172a;
     --muted:rgba(15,23,42,0.65);--very-muted:rgba(15,23,42,0.42);
-    --grid-line:rgba(0,136,204,0.04);
-    --hero-glow:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(0,136,204,0.06) 0%,transparent 70%);
+    --grid-line:rgba(93,42,69,0.04);
+    --hero-glow:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(93,42,69,0.06) 0%,transparent 70%);
+    --bg-ambient: radial-gradient(circle at 15% 10%, rgba(0, 136, 204, 0.03) 0%, transparent 40%), radial-gradient(circle at 85% 90%, rgba(93, 42, 69, 0.04) 0%, transparent 40%);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   html,body{min-height:100%;}
-  body{background:var(--black);color:var(--white);font-family:'IBM Plex Mono','Courier New',monospace;overflow-x:hidden;cursor:none;transition:var(--tt);}
+  body{background-color:var(--black);background-image:var(--bg-ambient);color:var(--white);font-family:'IBM Plex Mono','Courier New',monospace;overflow-x:hidden;cursor:none;transition:var(--tt);}
   .cursor{width:8px;height:8px;background:var(--cyan);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform 0.12s cubic-bezier(0.16,1,0.3,1);mix-blend-mode:screen;}
   html.light .cursor{mix-blend-mode:multiply;}
   .cursor-ring{width:34px;height:34px;border:1px solid var(--cyan-glow);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;}
   body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;transition:opacity 0.4s;}
 
   /* NOTICE BANNER */
-  .secretariat-btn{border-color:rgba(0,212,255,0.25)!important;background:rgba(0,212,255,0.04)!important;}
-  .secretariat-btn .opt-label{color:var(--cyan)!important;}background:linear-gradient(90deg,rgba(245,158,11,0.12),rgba(245,158,11,0.06));border-bottom:1px solid rgba(245,158,11,0.25);padding:0;cursor:pointer;position:relative;z-index:101;transition:background 0.3s;}
-  .notice-banner:hover{background:linear-gradient(90deg,rgba(245,158,11,0.18),rgba(245,158,11,0.1));}
+  .notice-banner{background:linear-gradient(90deg,rgba(52,211,153,0.12),rgba(52,211,153,0.06));border-bottom:1px solid rgba(52,211,153,0.25);padding:0;cursor:pointer;position:relative;z-index:101;transition:background 0.3s;}
+  .notice-banner:hover{background:linear-gradient(90deg,rgba(52,211,153,0.18),rgba(52,211,153,0.1));}
   .notice-banner-bar{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 40px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);}
   .notice-banner-bar::before{content:'⚠';font-size:12px;}
   .notice-banner-expand{display:none;padding:0 40px 20px;max-width:900px;margin:0 auto;}
   .notice-banner.open .notice-banner-expand{display:block;}
-  .notice-expand-inner{background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);padding:20px 24px;font-size:12px;line-height:1.9;color:var(--muted);}
+  .notice-expand-inner{background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.2);padding:20px 24px;font-size:12px;line-height:1.9;color:var(--muted);border-radius:4px;}
   .notice-expand-inner strong{color:var(--amber);}
   .notice-expand-inner a{color:var(--cyan);text-decoration:none;}
   .notice-expand-inner a:hover{text-decoration:underline;}
-  .notice-tag{display:inline-block;font-size:8px;letter-spacing:3px;text-transform:uppercase;background:var(--amber);color:#050508;padding:2px 8px;margin-bottom:12px;font-weight:700;}
+  .notice-tag{display:inline-block;font-size:8px;letter-spacing:3px;text-transform:uppercase;background:var(--amber);color:#050508;padding:2px 8px;margin-bottom:12px;font-weight:700;border-radius:2px;}
+
+  /* SITE NAVIGATOR */
+  .site-nav { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 16px; z-index: 999; }
+  .site-nav a { width: 6px; height: 6px; border-radius: 50%; background: var(--very-muted); transition: all 0.3s; position: relative; cursor: none; }
+  .site-nav a:hover { background: var(--cyan); transform: scale(1.5); box-shadow:0 0 10px var(--cyan-glow);}
+  .site-nav a::after { content: attr(title); position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: var(--card); border: 1px solid var(--border); padding: 4px 10px; font-size: 10px; color: var(--white); opacity: 0; pointer-events: none; transition: 0.3s; white-space: nowrap; font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:1px; border-radius:3px; }
+  .site-nav a:hover::after { opacity: 1; right: 15px; }
 
   /* CLOSED PROJECT */
-  .project-card.closed{opacity:0.5;pointer-events:none;}
+  .project-card.closed{opacity:0.6;pointer-events:none;}
+  .project-card.closed .project-header{pointer-events:auto;}
   .project-card.closed .project-status{border-color:rgba(255,100,100,0.3);color:#ff6464;}
   .project-card.closed .project-status::before{background:#ff6464;animation:none;}
-  .closed-flash{display:none;margin:0 28px 20px;padding:10px 16px;background:rgba(255,100,100,0.08);border:1px solid rgba(255,100,100,0.25);font-size:10px;letter-spacing:1px;color:#ff9999;line-height:1.7;}
+  .closed-flash{display:none;margin:0 28px 20px;padding:10px 16px;background:rgba(255,100,100,0.08);border:1px solid rgba(255,100,100,0.25);font-size:10px;letter-spacing:1px;color:#ff9999;line-height:1.7;border-radius:4px;}
   .closed-flash a{color:var(--cyan);text-decoration:none;}
+  .project-card.closed.open .closed-flash{display:block;}
 
   /* NAV */
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,5,8,0.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:var(--tt),padding 0.3s;}
-  html.light nav{background:rgba(248,249,255,0.92);}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,5,8,0.7);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:var(--tt),padding 0.3s;}
+  html.light nav{background:rgba(248,249,255,0.75);}
   .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;letter-spacing:-0.5px;color:var(--white);text-decoration:none;transition:var(--tt);}
   .nav-logo span{color:var(--cyan);}
   .nav-links{display:flex;gap:32px;list-style:none;}
-  .nav-links a{color:var(--muted);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;font-weight:500;}
   .nav-links a:hover{color:var(--cyan);}
   .nav-right{display:flex;align-items:center;gap:12px;}
-  .nav-cta{background:transparent;border:1px solid var(--cyan);color:var(--cyan);padding:8px 20px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:none;transition:all 0.2s;text-decoration:none;}
-  .nav-cta:hover{background:var(--cyan);color:#050508;}
+  .nav-cta{background:rgba(126,63,97,0.05);border:1px solid var(--cyan);color:var(--cyan);padding:8px 20px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:none;transition:all 0.3s;text-decoration:none;border-radius:3px;}
+  .nav-cta:hover{background:var(--cyan);color:var(--white);box-shadow:0 0 15px var(--cyan-glow);}
 
   /* THEME TOGGLE */
-  .theme-toggle{width:40px;height:40px;border:1px solid var(--border);background:var(--card);cursor:none;display:flex;align-items:center;justify-content:center;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;flex-shrink:0;}
+  .theme-toggle{width:40px;height:40px;border:1px solid var(--border);background:var(--card);cursor:none;display:flex;align-items:center;justify-content:center;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;flex-shrink:0;border-radius:4px;}
   .theme-toggle:hover{border-color:var(--cyan);background:var(--cyan-dim);}
   .theme-toggle svg{width:16px;height:16px;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1),opacity 0.3s;}
   .icon-moon{position:absolute;color:var(--cyan);}
@@ -84,201 +102,229 @@
   .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 40px 80px;position:relative;overflow:hidden;}
   .hero::after{content:'';position:absolute;inset:0;background:var(--hero-glow);pointer-events:none;z-index:0;}
   .hero>*{position:relative;z-index:1;}
-  .hero-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--cyan);margin-bottom:32px;display:flex;align-items:center;gap:12px;}
+  .hero-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--cyan);margin-bottom:32px;display:flex;align-items:center;gap:12px;font-weight:600;}
   .hero-tag::before{content:'';display:block;width:40px;height:1px;background:var(--cyan);}
   .hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(38px,5.5vw,78px);line-height:1.02;letter-spacing:-2px;margin-bottom:28px;max-width:920px;}
   .hero h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;background:linear-gradient(135deg,var(--cyan) 0%,#7dd3fc 50%,var(--violet) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
   html.light .hero h1 em{background:linear-gradient(135deg,var(--cyan) 0%,#0ea5e9 60%,var(--violet) 100%);-webkit-background-clip:text;background-clip:text;}
-  .hero-sub{font-size:14px;line-height:1.9;color:var(--muted);max-width:520px;margin-bottom:24px;}
-  .hero-tagline{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--white);letter-spacing:0.5px;margin-bottom:36px;display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--amber-dim),transparent);border-left:2px solid var(--amber);padding:10px 16px;max-width:fit-content;}
-  .hero-tagline::before{content:'//';color:var(--amber);font-family:'IBM Plex Mono',monospace;font-size:11px;}
-  .hero-manifesto{margin-bottom:36px;max-width:640px;border:1px solid rgba(0,212,255,0.15);background:linear-gradient(135deg,rgba(0,212,255,0.04) 0%,rgba(139,92,246,0.03) 100%);padding:24px 28px;position:relative;overflow:hidden;}
-  .hero-manifesto::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--cyan),var(--violet));}
-  .manifesto-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:0;}
-  .manifesto-accent{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:var(--cyan);letter-spacing:-0.3px;}
-  .manifesto-text{font-size:13px;color:var(--muted);letter-spacing:0.5px;}
-  .manifesto-divider{width:100%;height:1px;background:var(--border);margin:14px 0;}
-  .manifesto-line-2{font-size:13px;line-height:1.9;color:var(--muted);font-family:'IBM Plex Mono',monospace;}
-  .manifesto-line-2 em{font-style:normal;color:var(--white);font-weight:600;}
+  .hero-sub{font-size:14px;line-height:1.9;color:var(--muted);max-width:520px;margin-bottom:48px;}
   .hero-actions{display:flex;gap:16px;align-items:center;}
-  .btn-primary{background:var(--cyan);color:#050508;padding:14px 32px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.25s cubic-bezier(0.16,1,0.3,1);cursor:none;display:inline-block;position:relative;overflow:hidden;}
-  .btn-primary::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.15);transform:translateX(-100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);}
+  .btn-primary{background:var(--cyan);color:var(--white);padding:14px 32px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);cursor:none;display:inline-block;position:relative;overflow:hidden;border-radius:3px;box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
+  .btn-primary::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.15);transform:translateX(-100%);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
   .btn-primary:hover::after{transform:translateX(0);}
-  .btn-primary:hover{box-shadow:0 0 32px var(--cyan-glow),0 0 64px rgba(0,212,255,0.1);transform:translateY(-1px);}
-  .btn-ghost{color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:color 0.2s;display:flex;align-items:center;gap:8px;cursor:none;}
+  .btn-primary:hover{box-shadow:0 8px 32px var(--cyan-glow),0 0 64px rgba(126,63,97,0.15);transform:translateY(-2px);color:var(--white);}
+  .btn-ghost{color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:color 0.2s;display:flex;align-items:center;gap:8px;cursor:none;font-weight:500;}
   .btn-ghost:hover{color:var(--white);}
-  .hero-orbit{position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:600px;height:600px;border:1px solid rgba(0,212,255,0.06);border-radius:50%;animation:rotate 30s linear infinite;}
+  .hero-orbit{position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:600px;height:600px;border:1px solid rgba(126,63,97,0.15);border-radius:50%;animation:rotate 30s linear infinite;}
   .hero-orbit::before{content:'';position:absolute;top:-4px;left:50%;width:8px;height:8px;background:var(--cyan);border-radius:50%;box-shadow:0 0 20px var(--cyan),0 0 40px var(--cyan-glow);}
   .hero-orbit-2{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:420px;height:420px;border:1px solid rgba(139,92,246,0.06);border-radius:50%;animation:rotate 22s linear infinite reverse;}
   .hero-orbit-2::before{content:'';position:absolute;top:-3px;left:50%;width:6px;height:6px;background:var(--violet);border-radius:50%;box-shadow:0 0 16px var(--violet);}
   @keyframes rotate{from{transform:translateY(-50%) rotate(0deg);}to{transform:translateY(-50%) rotate(360deg);}}
 
-  /* STATS */
+  /* STATS (Restored original blue & yellow accents) */
   .stats-row{margin-top:56px;display:flex;gap:0;flex-wrap:wrap;max-width:960px;border-top:1px solid var(--border);padding-top:44px;}
   .stat-block{padding:0 52px 0 0;margin-right:52px;border-right:1px solid var(--border);}
   .stat-block:last-of-type{border-right:none;padding-right:0;margin-right:0;}
   .stat-number{font-family:'Syne',sans-serif;font-size:56px;font-weight:800;line-height:1;letter-spacing:-3px;}
-  .stat-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--very-muted);margin-top:10px;}
+  .stat-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--very-muted);margin-top:10px;font-weight:600;}
   .stat-badges{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:0 0 0 52px;}
-  .badge-pill{display:inline-flex;align-items:center;gap:9px;padding:9px 18px;border:1px solid;transition:all 0.3s;}
-  .badge-pill.cyan{background:rgba(0,212,255,0.06);border-color:rgba(0,212,255,0.2);}
-  .badge-pill.amber{background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.18);}
-  html.light .badge-pill.cyan{background:rgba(0,136,204,0.06);border-color:rgba(0,136,204,0.2);}
-  html.light .badge-pill.amber{background:rgba(217,119,6,0.06);border-color:rgba(217,119,6,0.2);}
+  .badge-pill{display:inline-flex;align-items:center;gap:9px;padding:9px 18px;border:1px solid;transition:all 0.3s;border-radius:4px;}
+  
+  /* Restored Original Hero Blue/Yellow Colors */
+  .badge-pill.stat-cyan{background:rgba(0,212,255,0.06);border-color:rgba(0,212,255,0.2);}
+  .badge-pill.stat-amber{background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.2);}
+  html.light .badge-pill.stat-cyan{background:rgba(0,136,204,0.06);border-color:rgba(0,136,204,0.2);}
+  html.light .badge-pill.stat-amber{background:rgba(217,119,6,0.06);border-color:rgba(217,119,6,0.2);}
   .badge-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;animation:pulse 2.5s ease-in-out infinite;}
-  .badge-dot.cyan{background:var(--cyan);box-shadow:0 0 10px var(--cyan);}
-  .badge-dot.amber{background:var(--amber);box-shadow:0 0 10px var(--amber);}
+  .badge-dot.stat-cyan{background:#00d4ff;box-shadow:0 0 10px #00d4ff;}
+  .badge-dot.stat-amber{background:#f59e0b;box-shadow:0 0 10px #f59e0b;}
   .badge-text{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.5px;}
-  .badge-text.cyan{color:var(--cyan);}
-  .badge-text.amber{color:var(--amber);}
+  .badge-text.stat-cyan{color:#00d4ff;}
+  .badge-text.stat-amber{color:#f59e0b;}
+  html.light .badge-text.stat-cyan{color:#0088cc;}
+  html.light .badge-text.stat-amber{color:#d97706;}
+  html.light .badge-dot.stat-cyan{background:#0088cc;}
+  html.light .badge-dot.stat-amber{background:#d97706;}
 
   /* SECTIONS */
   section{position:relative;z-index:1;transition:var(--tt);}
   .section-inner{max-width:1200px;margin:0 auto;padding:100px 40px;}
-  .section-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--amber);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+  .section-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--amber);margin-bottom:16px;display:flex;align-items:center;gap:12px;font-weight:600;}
   .section-tag::before{content:'';display:block;width:24px;height:1px;background:var(--amber);}
   .section-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,46px);letter-spacing:-1px;line-height:1.1;margin-bottom:56px;}
 
-  /* HIGHLIGHT CALLOUT */
-  .highlight-callout{background:linear-gradient(135deg,rgba(0,212,255,0.06) 0%,rgba(139,92,246,0.04) 100%);border:1px solid rgba(0,212,255,0.15);padding:28px 32px;margin-bottom:48px;display:flex;align-items:center;gap:20px;position:relative;overflow:hidden;}
-  .highlight-callout::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--cyan),var(--violet));}
-  html.light .highlight-callout{background:linear-gradient(135deg,rgba(0,136,204,0.05) 0%,rgba(124,58,237,0.03) 100%);border-color:rgba(0,136,204,0.15);}
-  .callout-icon{font-size:28px;flex-shrink:0;}
-  .callout-text{font-size:13px;line-height:1.8;color:var(--muted);}
-  .callout-text strong{color:var(--white);font-family:'Syne',sans-serif;}
-
   /* VISION */
   .vision-section{background:var(--deep);}
-  .vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
-  .vision-card{background:var(--card);padding:36px;border:1px solid var(--border);position:relative;overflow:hidden;transition:border-color 0.4s cubic-bezier(0.16,1,0.3,1),background 0.4s cubic-bezier(0.16,1,0.3,1),transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;}
+  .vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
+  .vision-card{background:var(--card);padding:36px;border:1px solid var(--border);position:relative;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);border-radius:6px;backdrop-filter:blur(10px);}
   .vision-card::before{content:attr(data-num);position:absolute;top:16px;right:16px;font-family:'Syne',sans-serif;font-size:64px;font-weight:800;color:rgba(255,255,255,0.03);line-height:1;transition:color 0.3s;}
   html.light .vision-card::before{color:rgba(0,0,0,0.03);}
-  .vision-card:hover{border-color:rgba(0,212,255,0.25);background:rgba(0,212,255,0.03);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,212,255,0.08);}
-  .vision-card h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:12px;color:var(--white);transition:color 0.3s;}
+  .vision-card:hover{border-color:rgba(126,63,97,0.25);background:rgba(126,63,97,0.03);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3), 0 0 20px rgba(126,63,97,0.05);}
+  html.light .vision-card:hover {box-shadow:0 12px 40px rgba(0,0,0,0.05), 0 0 20px rgba(93,42,69,0.05);}
+  .vision-card h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:12px;color:var(--white);transition:color 0.3s;}
   .vision-card:hover h3{color:var(--cyan);}
   .vision-card p{font-size:13px;line-height:1.9;color:var(--muted);}
 
   /* RESEARCH */
-  .research-section{background:var(--black);}
-  .paper-card{border:1px solid var(--border);padding:36px;margin-bottom:2px;background:var(--card);display:flex;gap:32px;align-items:flex-start;transition:border-color 0.4s,box-shadow 0.4s,transform 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;}
+  .research-section{background:transparent;}
+  .paper-card{border:1px solid var(--border);padding:36px;margin-bottom:4px;background:var(--card);display:flex;gap:32px;align-items:flex-start;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;border-radius:6px;backdrop-filter:blur(10px);}
   .paper-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--cyan-dim) 0%,transparent 50%);opacity:0;transition:opacity 0.4s;pointer-events:none;}
-  .paper-card:hover{border-color:rgba(0,212,255,0.25);box-shadow:0 4px 40px rgba(0,212,255,0.07);transform:translateX(2px);}
+  .paper-card:hover{border-color:rgba(126,63,97,0.25);box-shadow:0 12px 40px rgba(0,0,0,0.3);transform:translateX(3px);}
+  html.light .paper-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.05);}
   .paper-card:hover::before{opacity:1;}
-  .paper-card.featured{border-color:rgba(0,212,255,0.2);background:linear-gradient(135deg,rgba(0,212,255,0.04) 0%,var(--card) 60%);}
-  html.light .paper-card.featured{background:linear-gradient(135deg,rgba(0,136,204,0.04) 0%,var(--card) 60%);}
+  .paper-card.featured{border-color:rgba(126,63,97,0.2);background:linear-gradient(135deg,rgba(126,63,97,0.04) 0%,var(--card) 60%);}
+  html.light .paper-card.featured{background:linear-gradient(135deg,rgba(93,42,69,0.04) 0%,var(--card) 60%);}
   .paper-num{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;color:rgba(255,255,255,0.05);min-width:56px;line-height:1;transition:color 0.3s;}
   html.light .paper-num{color:rgba(0,0,0,0.05);}
-  .paper-card:hover .paper-num{color:rgba(0,212,255,0.12);}
+  .paper-card:hover .paper-num{color:rgba(126,63,97,0.12);}
   .paper-content{flex:1;}
-  .paper-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;}
+  .paper-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;font-weight:600;}
   .paper-title{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;margin-bottom:12px;letter-spacing:-0.5px;line-height:1.3;color:var(--white);transition:color 0.3s;}
   .paper-card:hover .paper-title{color:var(--cyan);}
+  
+  .paper-toggle{cursor:pointer; font-size:10px; color:var(--cyan); text-transform:uppercase; letter-spacing:2px; display:inline-flex; align-items:center; gap:6px; margin-top:8px; font-weight:600; padding:6px 0;}
+  .paper-toggle .arrow {transition: transform 0.3s;}
+  .paper-card.open .paper-toggle .arrow {transform: rotate(180deg);}
+  .paper-details {display:none; margin-top: 18px; padding-top: 18px; border-top: 1px dashed var(--border);}
+  .paper-card.open .paper-details {display:block; animation: fadeIn 0.4s ease;}
+  @keyframes fadeIn { from{opacity:0; transform:translateY(-5px);} to{opacity:1; transform:translateY(0);} }
+
   .paper-abstract{font-size:13px;line-height:1.9;color:var(--muted);margin-bottom:18px;}
   .paper-meta{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
-  .paper-meta-item{font-size:10px;letter-spacing:1px;color:var(--very-muted);text-transform:uppercase;}
+  .paper-meta-item{font-size:10px;letter-spacing:1px;color:var(--very-muted);text-transform:uppercase;font-weight:500;}
   .paper-meta-item span{color:var(--amber);}
-  .recognition-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,rgba(0,212,255,0.1),rgba(139,92,246,0.06));border:1px solid rgba(0,212,255,0.25);padding:7px 14px;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:1px;text-transform:uppercase;position:relative;overflow:hidden;}
+  .recognition-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,rgba(126,63,97,0.1),rgba(139,92,246,0.06));border:1px solid rgba(126,63,97,0.25);padding:7px 14px;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:1px;text-transform:uppercase;position:relative;overflow:hidden;border-radius:4px;}
   .recognition-badge::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--cyan),var(--violet));}
   .recognition-badge .r-dot{width:5px;height:5px;background:var(--cyan);border-radius:50%;box-shadow:0 0 8px var(--cyan);animation:pulse 2s infinite;}
 
   /* TRACKS */
   .tracks-section{background:var(--deep);}
-  .track-card{border:1px solid var(--border);background:var(--card);margin-bottom:2px;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;}
-  .track-card:hover{border-color:rgba(0,212,255,0.15);box-shadow:0 2px 20px rgba(0,212,255,0.05);}
+  .track-card{border:1px solid var(--border);background:var(--card);margin-bottom:4px;overflow:hidden;transition:all 0.3s ease;border-radius:6px;}
+  .track-card:hover{border-color:rgba(126,63,97,0.2);box-shadow:0 8px 30px rgba(0,0,0,0.25);}
+  html.light .track-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.05);}
   .track-header{padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;cursor:none;}
   .track-left{flex:1;}
-  .track-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;}
-  .track-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:6px;letter-spacing:-0.3px;color:var(--white);}
-  .track-lead{font-size:10px;color:var(--very-muted);margin-bottom:8px;letter-spacing:0.5px;}
-  .track-lead span{color:var(--amber);}
-  .track-desc{font-size:12px;line-height:1.8;color:var(--muted);}
-  .track-toggle{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--very-muted);display:flex;align-items:center;gap:8px;white-space:nowrap;}
+  .track-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;font-weight:600;}
+  .track-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;letter-spacing:-0.3px;color:var(--white);}
+  .track-lead{font-size:11px;color:var(--very-muted);margin-bottom:10px;letter-spacing:0.5px;}
+  .track-lead span{color:var(--amber);font-weight:500;}
+  .track-desc{font-size:13px;line-height:1.8;color:var(--muted);}
+  .track-toggle{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--very-muted);display:flex;align-items:center;gap:8px;white-space:nowrap;font-weight:600;}
   .arrow{display:inline-block;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);font-size:14px;}
-  .track-card.open .arrow{transform:rotate(180deg);}
-  .track-members{display:none;padding:0 32px 28px;border-top:1px solid var(--border);}
-  .track-card.open .track-members{display:block;}
-  .members-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--very-muted);margin:18px 0 12px;}
-  .members-grid{display:flex;flex-wrap:wrap;gap:6px;}
-  .member-chip{background:var(--surface);border:1px solid var(--border);padding:5px 12px;font-size:11px;color:var(--muted);transition:all 0.2s;}
-  .member-chip:hover{border-color:var(--cyan);color:var(--white);}
+  .track-card.open .arrow{transform:rotate(180deg);color:var(--cyan);}
+  .track-members{display:none;padding:0 32px 28px;border-top:1px solid var(--border);background:rgba(255,255,255,0.01);}
+  html.light .track-members{background:rgba(0,0,0,0.01);}
+  .track-card.open .track-members{display:block;animation: fadeIn 0.4s ease;}
+  .members-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--very-muted);margin:24px 0 12px;font-weight:600;}
+  .members-grid{display:flex;flex-wrap:wrap;gap:8px;}
+  
+  /* ROLE COLORS */
+  .member-chip{background:var(--surface);border:1px solid var(--border);padding:6px 14px;font-size:11px;color:var(--muted);transition:all 0.2s ease; font-weight:500; border-radius:4px;}
+  .member-chip:hover{border-color:var(--cyan);color:var(--white); transform: translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+  
+  .chip-lead { color: #B05585; border-color: rgba(176,85,133,0.4); background: rgba(176,85,133,0.03); }
+  .chip-sec  { color: #EDD9E6; border-color: rgba(237,217,230,0.4); background: rgba(237,217,230,0.03); }
+  .chip-tf   { color: #C8622A; border-color: rgba(200,98,42,0.4); background: rgba(200,98,42,0.03); }
+  .chip-mw   { color: #34D399; border-color: rgba(52,211,153,0.4); background: rgba(52,211,153,0.03); }
+  .chip-sa   { color: #B85238; border-color: rgba(184,82,56,0.4); background: rgba(184,82,56,0.03); }
+  .chip-lr   { color: #C49030; border-color: rgba(196,144,48,0.4); background: rgba(196,144,48,0.03); }
+  .chip-re   { color: #7E5CA8; border-color: rgba(126,92,168,0.4); background: rgba(126,92,168,0.03); }
+  .chip-learn{ color: #7AAAD8; border-color: rgba(122,170,216,0.4); background: rgba(122,170,216,0.03); }
+  
+  html.light .chip-lead { color: #8a3461; }
+  html.light .chip-sec  { color: #a67292; }
+  html.light .chip-re   { color: #5a3d82; }
+  html.light .chip-mw   { color: #059669; }
 
   /* LEADERSHIP */
-  .leadership-section{background:var(--black);}
-  .leadership-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2px;margin-bottom:2px;}
-  .lead-card{background:var(--card);padding:24px;border:1px solid var(--border);position:relative;overflow:hidden;transition:border-color 0.4s,background 0.4s,transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;}
-  .lead-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));transform:scaleX(0);transform-origin:left;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
-  .lead-card:hover{border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.03);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,212,255,0.08);}
+  .leadership-section{background:transparent;}
+  .leadership-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:4px;margin-bottom:4px;}
+  .lead-card{background:var(--card);padding:26px 24px;border:1px solid var(--border);position:relative;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);border-radius:6px;backdrop-filter:blur(10px);}
+  .lead-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--violet));transform:scaleX(0);transform-origin:left;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
+  .lead-card:hover{border-color:rgba(126,63,97,0.25);background:rgba(126,63,97,0.03);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.3);}
+  html.light .lead-card:hover{box-shadow:0 12px 32px rgba(0,0,0,0.05);}
   .lead-card:hover::after{transform:scaleX(1);}
-  .lead-role{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;}
-  .lead-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px;color:var(--white);}
-  .lead-affil{font-size:10px;color:var(--very-muted);line-height:1.5;}
-  .divider-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--very-muted);margin:48px 0 18px;padding-bottom:12px;border-bottom:1px solid var(--border);}
-  .advisor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px;}
-  .advisor-card{background:var(--card);padding:22px 24px;border:1px solid var(--border);transition:border-color 0.3s,background 0.3s;}
-  .advisor-card:hover{border-color:rgba(245,158,11,0.2);background:rgba(245,158,11,0.03);}
-  .advisor-role{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:8px;}
-  .advisor-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);}
+  .lead-role{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;font-weight:600;}
+  .lead-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:8px;color:var(--white);}
+  .lead-affil{font-size:11px;color:var(--very-muted);line-height:1.6;font-weight:400;}
+  .divider-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--very-muted);margin:56px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--border);font-weight:600;}
+  .advisor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:4px;}
+  .advisor-card{background:var(--card);padding:24px;border:1px solid var(--border);transition:all 0.3s ease;border-radius:6px;}
+  .advisor-card:hover{border-color:rgba(52,211,153,0.25);background:rgba(52,211,153,0.03);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
+  html.light .advisor-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.05);}
+  .advisor-role{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;font-weight:600;}
+  .advisor-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white);}
 
   /* COLLAB */
   .collab-section{background:var(--deep);}
-  .collab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;margin-top:48px;}
-  .collab-card{background:var(--card);border:1px solid var(--border);padding:28px 24px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);}
-  .collab-card:hover{border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.03);transform:translateY(-2px);}
-  .collab-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px;color:var(--white);}
-  .collab-desc{font-size:11px;color:var(--very-muted);line-height:1.6;}
+  .collab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:4px;margin-top:48px;}
+  .collab-card{background:var(--card);border:1px solid var(--border);padding:32px 28px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);border-radius:6px;}
+  .collab-card:hover{border-color:rgba(126,63,97,0.25);background:rgba(126,63,97,0.03);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.25);}
+  html.light .collab-card:hover{box-shadow:0 12px 32px rgba(0,0,0,0.05);}
+  .collab-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:10px;color:var(--white);}
+  .collab-desc{font-size:12px;color:var(--very-muted);line-height:1.7;}
 
   /* PROJECTS */
-  .projects-section{background:var(--black);}
-  .track-group-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--very-muted);margin:40px 0 12px;padding-bottom:10px;border-bottom:1px solid var(--border);}
-  .project-card{border:1px solid var(--border);background:var(--card);margin-bottom:2px;transition:border-color 0.3s,box-shadow 0.3s;}
-  .project-card:hover{border-color:rgba(0,212,255,0.2);box-shadow:0 2px 20px rgba(0,212,255,0.05);}
-  .project-header{padding:22px 28px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;}
-  .project-code{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:6px;}
-  .project-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;letter-spacing:-0.3px;line-height:1.35;color:var(--white);}
-  .project-status{display:inline-flex;align-items:center;gap:6px;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border:1px solid rgba(16,185,129,0.3);color:var(--green);white-space:nowrap;flex-shrink:0;}
-  .project-status::before{content:'';width:4px;height:4px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;}
+  .projects-section{background:transparent;}
+  .track-group-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--very-muted);margin:48px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--border);font-weight:600;}
+  .project-card{border:1px solid var(--border);background:var(--card);margin-bottom:4px;transition:all 0.3s ease;border-radius:6px;}
+  .project-card:hover{border-color:rgba(126,63,97,0.25);box-shadow:0 8px 24px rgba(0,0,0,0.25);}
+  html.light .project-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.05);}
+  .project-header{padding:24px 32px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px; cursor:pointer;}
+  .project-code{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:8px;font-weight:600;}
+  .project-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;letter-spacing:-0.3px;line-height:1.4;color:var(--white);}
+  .project-status{display:inline-flex;align-items:center;gap:6px;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(16,185,129,0.3);color:var(--green);white-space:nowrap;flex-shrink:0;border-radius:4px;font-weight:600;}
+  .project-status::before{content:'';width:5px;height:5px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;}
+  .project-details { display: none; padding: 0 32px 28px; animation: fadeIn 0.3s ease; }
+  .project-card.open .project-details { display: block; }
+  .project-card.open .project-header .arrow { transform: rotate(180deg); color:var(--cyan); }
+  .project-desc { font-size: 13px; line-height: 1.8; color: var(--muted); margin-bottom: 24px; }
+
   @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-  .apply-to-project{display:inline-flex;align-items:center;gap:6px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);text-decoration:none;border:1px solid rgba(0,212,255,0.15);padding:6px 14px;margin:0 28px 20px;transition:all 0.2s;cursor:none;width:fit-content;}
-  .apply-to-project:hover{background:var(--cyan-dim);border-color:var(--cyan);}
+  .apply-to-project{display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);text-decoration:none;border:1px solid rgba(126,63,97,0.2);padding:8px 16px;transition:all 0.2s ease;cursor:none;width:fit-content;border-radius:4px;font-weight:600;}
+  .apply-to-project:hover{background:var(--cyan);color:var(--white);border-color:var(--cyan);box-shadow:0 4px 15px var(--cyan-glow);}
 
   /* APPLY */
   .apply-section{background:var(--deep);}
   .apply-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
   .apply-info h2{font-family:'Syne',sans-serif;font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-0.5px;margin-bottom:20px;line-height:1.15;color:var(--white);}
-  .apply-info p{font-size:12px;line-height:1.9;color:var(--muted);margin-bottom:16px;}
-  .apply-options{display:flex;flex-direction:column;gap:8px;margin-bottom:28px;}
-  .apply-option-btn{padding:14px 18px;border:1px solid var(--border);background:var(--card);color:var(--white);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;cursor:none;text-align:left;transition:all 0.25s cubic-bezier(0.16,1,0.3,1);display:flex;align-items:center;gap:12px;}
-  .apply-option-btn:hover,.apply-option-btn.active{border-color:var(--cyan);background:var(--cyan-dim);box-shadow:0 0 20px rgba(0,212,255,0.06);}
-  .apply-option-btn .opt-icon{font-size:16px;flex-shrink:0;}
-  .apply-option-btn .opt-label{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;display:block;margin-bottom:2px;}
-  .apply-option-btn .opt-desc{font-size:10px;color:var(--muted);letter-spacing:0;}
-  .discord-link{display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid var(--border);background:var(--card);text-decoration:none;color:var(--white);font-size:11px;transition:all 0.2s;cursor:none;width:fit-content;}
-  .discord-link:hover{border-color:rgba(88,101,242,0.5);box-shadow:0 0 20px rgba(88,101,242,0.1);}
-  .discord-dot{width:18px;height:18px;background:#5865F2;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;}
-  .form-card{background:var(--card);border:1px solid var(--border);padding:36px;}
-  .form-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid var(--border);color:var(--white);}
-  .form-group{margin-bottom:18px;}
-  label{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
-  input,select,textarea{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:'IBM Plex Mono',monospace;font-size:12px;padding:11px 14px;outline:none;transition:border-color 0.2s,box-shadow 0.2s;appearance:none;}
-  input:focus,select:focus,textarea:focus{border-color:rgba(0,212,255,0.4);box-shadow:0 0 0 3px rgba(0,212,255,0.06);}
+  .apply-info p{font-size:13px;line-height:1.9;color:var(--muted);margin-bottom:20px;}
+  .apply-options{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
+  .apply-option-btn{padding:16px 20px;border:1px solid var(--border);background:var(--card);color:var(--white);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;cursor:none;text-align:left;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);display:flex;align-items:center;gap:16px;border-radius:6px;}
+  .apply-option-btn:hover,.apply-option-btn.active{border-color:var(--cyan);background:rgba(126,63,97,0.05);box-shadow:0 8px 24px rgba(126,63,97,0.1);transform:translateY(-2px);}
+  .apply-option-btn .opt-icon{font-size:18px;flex-shrink:0;}
+  .apply-option-btn .opt-label{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;display:block;margin-bottom:4px;}
+  .apply-option-btn .opt-desc{font-size:11px;color:var(--muted);letter-spacing:0;line-height:1.5;}
+  .secretariat-btn{border-color:rgba(126,63,97,0.25)!important;background:rgba(126,63,97,0.04)!important;}
+  .secretariat-btn .opt-label{color:var(--cyan)!important;}
+  .discord-link{display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--border);background:var(--card);text-decoration:none;color:var(--white);font-size:11px;transition:all 0.3s ease;cursor:none;width:fit-content;border-radius:6px;font-weight:500;}
+  .discord-link:hover{border-color:rgba(88,101,242,0.6);box-shadow:0 8px 24px rgba(88,101,242,0.15);transform:translateY(-2px);}
+  .discord-dot{width:20px;height:20px;background:#5865F2;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
+  .form-card{background:var(--card);border:1px solid var(--border);padding:40px;border-radius:8px;box-shadow:0 20px 50px rgba(0,0,0,0.3);}
+  html.light .form-card{box-shadow:0 20px 50px rgba(0,0,0,0.05);}
+  .form-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border);color:var(--white);}
+  .form-group{margin-bottom:20px;}
+  label{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:600;}
+  input,select,textarea{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:'IBM Plex Mono',monospace;font-size:12px;padding:14px 16px;outline:none;transition:all 0.3s;appearance:none;border-radius:4px;}
+  input:focus,select:focus,textarea:focus{border-color:rgba(126,63,97,0.5);box-shadow:0 0 0 4px rgba(126,63,97,0.1);background:var(--card);}
   input::placeholder,textarea::placeholder{color:var(--very-muted);}
   select option{background:var(--card);color:var(--white);}
-  textarea{resize:vertical;min-height:90px;}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  textarea{resize:vertical;min-height:100px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .form-section{display:none;}
   .form-section.active{display:block;}
-  .submit-btn{width:100%;background:var(--cyan);color:#050508;border:none;padding:15px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;cursor:none;transition:all 0.25s cubic-bezier(0.16,1,0.3,1);margin-top:6px;}
-  .submit-btn:hover{background:#fff;box-shadow:0 0 32px var(--cyan-glow);transform:translateY(-1px);}
-  .form-note{font-size:10px;color:var(--very-muted);margin-top:10px;text-align:center;line-height:1.6;}
+  .submit-btn{width:100%;background:var(--cyan);color:var(--white);border:none;padding:16px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;cursor:none;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);margin-top:10px;border-radius:4px;box-shadow:0 4px 15px rgba(0,0,0,0.2);}
+  .submit-btn:hover{background:#fff; color:var(--black); box-shadow:0 8px 25px var(--cyan-glow);transform:translateY(-2px);}
+  .form-note{font-size:10px;color:var(--very-muted);margin-top:16px;text-align:center;line-height:1.6;}
   .form-success{display:none;text-align:center;padding:40px 20px;}
-  .form-success .s-icon{font-size:32px;margin-bottom:14px;}
-  .form-success h3{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;color:var(--white);}
-  .form-success p{font-size:12px;color:var(--muted);}
+  .form-success .s-icon{font-size:36px;margin-bottom:16px;color:var(--cyan);}
+  .form-success h3{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;margin-bottom:10px;color:var(--white);}
+  .form-success p{font-size:13px;color:var(--muted);}
 
   /* ANIMATIONS */
-  .fade-in{opacity:0;transform:translateY(28px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1);}
+  .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1);}
   .fade-in.visible{opacity:1;transform:translateY(0);}
-  .vision-card,.lead-card,.advisor-card,.collab-card{opacity:0;transform:translateY(22px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1),border-color 0.4s,background 0.4s,box-shadow 0.4s;}
+  .vision-card,.lead-card,.advisor-card,.collab-card{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1),border-color 0.4s,background 0.4s,box-shadow 0.4s;}
   .fade-in.visible .vision-card,.fade-in.visible .lead-card,.fade-in.visible .advisor-card,.fade-in.visible .collab-card{opacity:1;transform:translateY(0);}
   .fade-in.visible .vision-card:nth-child(1),.fade-in.visible .lead-card:nth-child(1),.fade-in.visible .advisor-card:nth-child(1),.fade-in.visible .collab-card:nth-child(1){transition-delay:0s;}
   .fade-in.visible .vision-card:nth-child(2),.fade-in.visible .lead-card:nth-child(2),.fade-in.visible .advisor-card:nth-child(2),.fade-in.visible .collab-card:nth-child(2){transition-delay:0.06s;}
@@ -292,16 +338,17 @@
   .fade-in.visible .lead-card:nth-child(10){transition-delay:0.54s;}
   .fade-in.visible .lead-card:nth-child(11){transition-delay:0.60s;}
 
-  footer{background:var(--black);border-top:1px solid var(--border);padding:40px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;transition:var(--tt);}
-  .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;letter-spacing:-0.5px;color:var(--white);}
+  footer{background:rgba(5,5,8,0.95);border-top:1px solid var(--border);padding:48px 40px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;transition:var(--tt);}
+  .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;letter-spacing:-0.5px;color:var(--white);}
   .footer-logo span{color:var(--cyan);}
-  .footer-copy{font-size:10px;color:var(--very-muted);text-align:center;line-height:1.7;}
-  .footer-links{display:flex;gap:24px;}
-  .footer-links a{font-size:10px;color:var(--very-muted);text-decoration:none;letter-spacing:1px;transition:color 0.2s;}
+  .footer-copy{font-size:11px;color:var(--very-muted);text-align:center;line-height:1.8;}
+  .footer-links{display:flex;gap:32px;}
+  .footer-links a{font-size:11px;color:var(--very-muted);text-decoration:none;letter-spacing:1px;transition:color 0.2s;font-weight:500;text-transform:uppercase;}
   .footer-links a:hover{color:var(--cyan);}
-  ::-webkit-scrollbar{width:3px;}
+  ::-webkit-scrollbar{width:4px;}
   ::-webkit-scrollbar-track{background:var(--black);}
-  ::-webkit-scrollbar-thumb{background:rgba(0,212,255,0.3);}
+  ::-webkit-scrollbar-thumb{background:rgba(126,63,97,0.4);border-radius:4px;}
+  ::-webkit-scrollbar-thumb:hover{background:rgba(126,63,97,0.7);}
 
   @media(max-width:768px){
     nav{padding:16px 20px;}
@@ -311,13 +358,14 @@
     .vision-grid,.apply-wrapper,.form-row{grid-template-columns:1fr;}
     .advisor-grid{grid-template-columns:1fr;}
     .hero-orbit,.hero-orbit-2{display:none;}
-    footer{flex-direction:column;gap:20px;text-align:center;}
+    footer{flex-direction:column;gap:24px;text-align:center;}
     .paper-card{flex-direction:column;gap:16px;}
-    .stats-row{flex-wrap:wrap;gap:24px;padding-top:28px;margin-top:36px;border-top:1px solid var(--border);}
-    .stat-block{padding:0;margin:0;border-right:none;min-width:80px;}
-    .stat-number{font-size:38px;letter-spacing:-1px;}
-    .stat-badges{padding:4px 0 0 0;width:100%;}
-    .notice-banner-bar{font-size:9px;padding:10px 20px;}
+    .stats-row{flex-wrap:wrap;gap:28px;padding-top:32px;margin-top:40px;border-top:1px solid var(--border);}
+    .stat-block{padding:0;margin:0;border-right:none;min-width:90px;}
+    .stat-number{font-size:42px;letter-spacing:-1px;}
+    .stat-badges{padding:8px 0 0 0;width:100%;}
+    .notice-banner-bar{font-size:9px;padding:12px 20px;}
+    .site-nav{display:none;}
   }
   @media(hover:none){
     body,*{cursor:auto!important;}
@@ -329,6 +377,14 @@
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+
+<div class="site-nav">
+  <a href="#vision" title="Vision"></a>
+  <a href="#research" title="Research"></a>
+  <a href="#tracks" title="Tracks"></a>
+  <a href="#projects" title="Projects"></a>
+  <a href="#apply" title="Apply"></a>
+</div>
 
 <div class="notice-banner" id="noticeBanner" onclick="toggleNotice()">
   <div class="notice-banner-bar">Applications temporarily paused for research tracks — click to see what's open</div>
@@ -345,7 +401,7 @@
 </div>
 
 <nav>
-  <a href="#" class="nav-logo">AIx<span>Space</span></a>
+  <a href="#" class="nav-logo">Spacex<span>AI</span></a>
   <ul class="nav-links">
     <li><a href="#vision">Vision</a></li>
     <li><a href="#research">Research</a></li>
@@ -368,15 +424,7 @@
   <div class="hero-tag">Space AI Research Group</div>
   <h1>Building <em>trustworthy</em><br>AI for the<br>final frontier</h1>
   <p class="hero-sub">We develop autonomous, interpretable AI systems for space missions — from onboard inference on resource-constrained CubeSats to formal verification of mission-critical decision-making. Pre-deployment validation, not post-incident response.</p>
-  <div class="hero-tagline">We don't ask for your CV. We help you build one.</div>
-  <div class="hero-manifesto">
-    <div class="manifesto-line">
-      <span class="manifesto-accent">Not flashy AI. Not hype.</span>
-      <span class="manifesto-text">Reliability. Explainability. Accountability.</span>
-    </div>
-    <div class="manifesto-divider"></div>
-    <div class="manifesto-line manifesto-line-2">We don't build AI to <em>replace</em> humans in space — we build AI to <em>help</em> them in the most vulnerable environment humanity has ever attempted.</div>
-  </div>
+  
   <div class="hero-actions">
     <a href="#research" class="btn-primary">View Research</a>
     <a href="#apply" class="btn-ghost">Get involved →</a>
@@ -395,13 +443,13 @@
       <div class="stat-label">Publications</div>
     </div>
     <div class="stat-badges">
-      <div class="badge-pill cyan">
-        <span class="badge-dot cyan"></span>
-        <span class="badge-text cyan">IAC 2025 Oral Presentation</span>
+      <div class="badge-pill stat-cyan">
+        <span class="badge-dot stat-cyan"></span>
+        <span class="badge-text stat-cyan">IAC 2025 Oral Presentation</span>
       </div>
-      <div class="badge-pill amber">
-        <span class="badge-dot amber"></span>
-        <span class="badge-text amber">Preselected · Acta Astronautica</span>
+      <div class="badge-pill stat-amber">
+        <span class="badge-dot stat-amber"></span>
+        <span class="badge-text stat-amber">Preselected · Acta Astronautica</span>
       </div>
     </div>
   </div>
@@ -458,12 +506,15 @@
         <div class="paper-content">
           <div class="paper-tag">Space Mission Risk · IAC 2026</div>
           <div class="paper-title">SATISH — AI-Powered Space Mission Risk Prediction: Real-Time Failure Detection and Adaptive Contingency Planning</div>
-          <p class="paper-abstract">A modular AI-driven framework integrating failure prediction, anomaly detection, and a decision support system for CubeSat platforms (1U–6U). Combines XGBoost, Time-Series Transformers, LSTM Autoencoders, and a PPO reinforcement learning agent with SHAP/LIME explainability throughout. Achieves 89.5–94.1% accuracy across platform classes. Aligned with UNOOSA and COSPAR guidelines.</p>
-          <div class="paper-meta">
-            <div class="paper-meta-item">Status: <span>v1 Complete · v2 In Progress</span></div>
-            <div class="paper-meta-item">Stage: <span>TRL 2–3</span></div>
-            <div class="paper-meta-item">Venue: <span>International Astronautical Congress 2026</span></div>
-            <div class="recognition-badge"><span class="r-dot"></span>IAC 2025 Oral · IAC 2026 Oral (v2) · Preselected for Acta Astronautica</div>
+          <div class="paper-toggle" onclick="this.closest('.paper-card').classList.toggle('open')">View Details <span class="arrow">↓</span></div>
+          <div class="paper-details">
+            <p class="paper-abstract">A modular AI-driven framework integrating failure prediction, anomaly detection, and a decision support system for CubeSat platforms (1U–6U). Combines XGBoost, Time-Series Transformers, LSTM Autoencoders, and a PPO reinforcement learning agent with SHAP/LIME explainability throughout. Achieves 89.5–94.1% accuracy across platform classes. Aligned with UNOOSA and COSPAR guidelines.</p>
+            <div class="paper-meta">
+              <div class="paper-meta-item">Status: <span>v1 Complete · v2 In Progress</span></div>
+              <div class="paper-meta-item">Stage: <span>TRL 2–3</span></div>
+              <div class="paper-meta-item">Venue: <span>International Astronautical Congress 2026</span></div>
+              <div class="recognition-badge"><span class="r-dot"></span>IAC 2025 Oral · IAC 2026 Oral (v2) · Preselected for Acta Astronautica</div>
+            </div>
           </div>
         </div>
       </div>
@@ -472,9 +523,12 @@
         <div class="paper-content">
           <div class="paper-tag">AgriTech · AI Systems · Ongoing</div>
           <div class="paper-title">AgroTwin — AI-Powered Digital Twin for Precision Agriculture</div>
-          <p class="paper-abstract">An ongoing initiative developing a digital twin framework for precision agriculture, leveraging satellite remote sensing and AI-based environmental modelling to support real-time crop monitoring, resource optimization, and climate-resilient farming decisions.</p>
-          <div class="paper-meta">
-            <div class="paper-meta-item">Status: <span>Ongoing</span></div>
+          <div class="paper-toggle" onclick="this.closest('.paper-card').classList.toggle('open')">View Details <span class="arrow">↓</span></div>
+          <div class="paper-details">
+            <p class="paper-abstract">An ongoing initiative developing a digital twin framework for precision agriculture, leveraging satellite remote sensing and AI-based environmental modelling to support real-time crop monitoring, resource optimization, and climate-resilient farming decisions.</p>
+            <div class="paper-meta">
+              <div class="paper-meta-item">Status: <span>Ongoing</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -483,9 +537,12 @@
         <div class="paper-content">
           <div class="paper-tag">UAV Systems · Ongoing</div>
           <div class="paper-title">Fixed Wing UAV — Autonomous Systems Research</div>
-          <p class="paper-abstract">Ongoing research into fixed-wing UAV autonomous systems, focusing on onboard AI decision-making, flight control, and mission planning under resource constraints — extending our core expertise in edge AI inference to aerial platforms.</p>
-          <div class="paper-meta">
-            <div class="paper-meta-item">Status: <span>Ongoing</span></div>
+          <div class="paper-toggle" onclick="this.closest('.paper-card').classList.toggle('open')">View Details <span class="arrow">↓</span></div>
+          <div class="paper-details">
+            <p class="paper-abstract">Ongoing research into fixed-wing UAV autonomous systems, focusing on onboard AI decision-making, flight control, and mission planning under resource constraints — extending our core expertise in edge AI inference to aerial platforms.</p>
+            <div class="paper-meta">
+              <div class="paper-meta-item">Status: <span>Ongoing</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -497,7 +554,7 @@
   <div class="section-inner">
     <div class="section-tag">How We're Organized</div>
     <h2 class="section-title">Research tracks</h2>
-    <p style="font-size:12px;color:var(--muted);margin-bottom:48px;line-height:1.8;max-width:580px;">Each track operates independently with a dedicated lead, contributing to our shared research output. Tap any track to see its members.</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:48px;line-height:1.8;max-width:580px;">Each track operates independently with a dedicated lead, contributing to our shared research output. Tap any track to see its members.</p>
     <div class="fade-in">
 
       <div class="track-card" onclick="toggleTrack(this)">
@@ -506,31 +563,32 @@
             <div class="track-label">Secretariat</div>
             <div class="track-name">Secretariat — Operations, Media & Outreach</div>
             <div class="track-lead">Secretary Lead: <span>Chidinma Amanna</span> &nbsp;·&nbsp; Overseen by: <span>Anh (Jinny) Truong</span></div>
-            <div class="track-desc">The internal engine and external face of Space×AI. Three sub-teams keep the group aligned, visible, and growing — Operations handles the internal machinery, Media handles visibility, Outreach handles external presence.</div>
+            <div class="track-desc">The internal engine and external face of SpacexAI. Three sub-teams keep the group aligned, visible, and growing — Operations handles the internal machinery, Media handles visibility, Outreach handles external presence.</div>
           </div>
           <div class="track-toggle">Sub-teams <span class="arrow">↓</span></div>
         </div>
         <div class="track-members">
           <div class="members-label" style="margin-top:18px;">Operations — Internal Engine</div>
-          <div style="font-size:10px;color:var(--very-muted);margin-bottom:8px;line-height:1.7;">Scheduling · Meeting minutes · Internal documentation · Member onboarding/offboarding · Task tracking across all research tracks<br><span style="color:var(--cyan);">Static: Knowledge Staff &nbsp;·&nbsp; Dynamic: Operations Coordinator</span></div>
+          <div style="font-size:11px;color:var(--very-muted);margin-bottom:10px;line-height:1.7;">Scheduling · Meeting minutes · Internal documentation · Member onboarding/offboarding · Task tracking across all research tracks<br><span style="color:var(--cyan);">Static: Knowledge Staff &nbsp;·&nbsp; Dynamic: Operations Coordinator</span></div>
           <div class="members-grid">
-            <div class="member-chip">Chidinma Amanna</div>
-            <div class="member-chip">Charlotte Nguyen</div>
-            <div class="member-chip">Lucrezia Meris</div>
-            <div class="member-chip">Sanjukta Deshpande</div>
-            <div class="member-chip">Marcus Nguyen</div>
+            <div class="member-chip chip-lead">Chidinma Amanna</div>
+            <div class="member-chip chip-sec">Charlotte Nguyen</div>
+            <div class="member-chip chip-sec">Sanjukta Deshpande</div>
+            <div class="member-chip chip-sec">Marcus Nguyen</div>
           </div>
 
-          <div class="members-label" style="margin-top:20px;">Media — Visibility Layer</div>
-          <div style="font-size:10px;color:var(--very-muted);margin-bottom:8px;line-height:1.7;">LinkedIn · Instagram · Content calendar · Announcements · Conference coverage · Member spotlights<br><span style="color:var(--cyan);">Static: Media Planner &nbsp;·&nbsp; Dynamic: Copywriter + Account</span></div>
+          <div class="members-label" style="margin-top:24px;">Media — Visibility Layer</div>
+          <div style="font-size:11px;color:var(--very-muted);margin-bottom:10px;line-height:1.7;">LinkedIn · Instagram · Content calendar · Announcements · Conference coverage · Member spotlights<br><span style="color:var(--cyan);">Static: Media Planner &nbsp;·&nbsp; Dynamic: Copywriter + Account</span></div>
           <div class="members-grid">
-            <div class="member-chip">Recruiting</div>
+            <div class="member-chip chip-sec">Charlotte Nguyen</div>
+            <div class="member-chip chip-sec">Marcus Nguyen</div>
+            <div class="member-chip chip-sec">Recruiting</div>
           </div>
 
-          <div class="members-label" style="margin-top:20px;">Outreach — External Face</div>
-          <div style="font-size:10px;color:var(--very-muted);margin-bottom:8px;line-height:1.7;">Partnership outreach · Sponsorship · Conference networking · Startup spinoff external communications<br><span style="color:var(--cyan);">Static: Outreach Strategist &nbsp;·&nbsp; Dynamic: Outreach Associate</span></div>
+          <div class="members-label" style="margin-top:24px;">Outreach — External Face</div>
+          <div style="font-size:11px;color:var(--very-muted);margin-bottom:10px;line-height:1.7;">Partnership outreach · Sponsorship · Conference networking · Startup spinoff external communications<br><span style="color:var(--cyan);">Static: Outreach Strategist &nbsp;·&nbsp; Dynamic: Outreach Associate</span></div>
           <div class="members-grid">
-            <div class="member-chip">Recruiting</div>
+            <div class="member-chip chip-sec">Recruiting</div>
           </div>
         </div>
       </div>
@@ -548,16 +606,16 @@
         <div class="track-members">
           <div class="members-label">Members</div>
           <div class="members-grid">
-            <div class="member-chip">Isabel LaCoss</div>
-            <div class="member-chip">Abdelmalek Saadi-Drissi</div>
-            <div class="member-chip">Bhuvan Ravikumar</div>
-            <div class="member-chip">Emil Velichka</div>
-            <div class="member-chip">Hsien Hao Lai</div>
-            <div class="member-chip">Jimin Choi</div>
-            <div class="member-chip">Robert Larini</div>
-            <div class="member-chip">Sanjukta Deshpande</div>
-            <div class="member-chip">Leyli Oliver</div>
-            <div class="member-chip">Amuzu Justice</div>
+            <div class="member-chip chip-lead">Isabel LaCoss</div>
+            <div class="member-chip chip-lr">Abdelmalek Saadi-Drissi</div>
+            <div class="member-chip chip-lr">Bhuvan Ravikumar</div>
+            <div class="member-chip chip-lr">Emil Velichka</div>
+            <div class="member-chip chip-lr">Hsien Hao Lai</div>
+            <div class="member-chip chip-lr">Jimin Choi</div>
+            <div class="member-chip chip-lr">Robert Larini</div>
+            <div class="member-chip chip-lr">Sanjukta Deshpande</div>
+            <div class="member-chip chip-lr">Leyli Oliver</div>
+            <div class="member-chip chip-lr">Amuzu Justice</div>
           </div>
         </div>
       </div>
@@ -575,17 +633,17 @@
         <div class="track-members">
           <div class="members-label">Members</div>
           <div class="members-grid">
-            <div class="member-chip">Paarvi Wadhwa</div>
-            <div class="member-chip">Karthikeya Moyye</div>
-            <div class="member-chip">Abdelmalek Saadi-Drissi</div>
-            <div class="member-chip">Anish Mahapatra</div>
-            <div class="member-chip">Aryan Kumar Srivastav</div>
-            <div class="member-chip">Hasibul Hasan Shanto</div>
-            <div class="member-chip">Meghana Sannapareddy</div>
-            <div class="member-chip">Om Atmaram Khairnar</div>
-            <div class="member-chip">Paula Ixquiac</div>
-            <div class="member-chip">Tanvi Gupta</div>
-            <div class="member-chip">Vidhi Jain</div>
+            <div class="member-chip chip-lead">Paarvi Wadhwa</div>
+            <div class="member-chip chip-lead">Karthikeya Moyye</div>
+            <div class="member-chip chip-mw">Abdelmalek Saadi-Drissi</div>
+            <div class="member-chip chip-mw">Anish Mahapatra</div>
+            <div class="member-chip chip-mw">Aryan Kumar Srivastav</div>
+            <div class="member-chip chip-mw">Hasibul Hasan Shanto</div>
+            <div class="member-chip chip-mw">Meghana Sannapareddy</div>
+            <div class="member-chip chip-mw">Om Atmaram Khairnar</div>
+            <div class="member-chip chip-mw">Paula Ixquiac</div>
+            <div class="member-chip chip-mw">Tanvi Gupta</div>
+            <div class="member-chip chip-mw">Vidhi Jain</div>
           </div>
         </div>
       </div>
@@ -593,9 +651,9 @@
       <div class="track-card" onclick="toggleTrack(this)">
         <div class="track-header">
           <div class="track-left">
-            <div class="track-label">Policy & Ethics</div>
-            <div class="track-name">PE — Governance & Oversight</div>
-            <div class="track-lead">Lead: <span>Hassan Sajjad Khan</span></div>
+            <div class="track-label">Regulatory & Ethics</div>
+            <div class="track-name">RE — Regulatory & Ethics</div>
+            <div class="track-lead">Lead: <span>Dr. Rachita Agrawal</span></div>
             <div class="track-desc">Develops governance frameworks for AI in space — regulatory compliance, ethical oversight, human-AI accountability, alignment with UNOOSA and COSPAR guidelines.</div>
           </div>
           <div class="track-toggle">Members <span class="arrow">↓</span></div>
@@ -603,38 +661,13 @@
         <div class="track-members">
           <div class="members-label">Members</div>
           <div class="members-grid">
-            <div class="member-chip">Hassan Sajjad Khan</div>
-            <div class="member-chip">M. Abdullah Khan</div>
-            <div class="member-chip">Anh Truong</div>
-            <div class="member-chip">Sulekha Komeravelli</div>
-            <div class="member-chip">Benjamin Brumm</div>
-            <div class="member-chip">Romane Croizet Fontane</div>
-            <div class="member-chip">Jessica Durbano</div>
-            <div class="member-chip">Dr. Rachita Agrawal</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="track-card" onclick="toggleTrack(this)">
-        <div class="track-header">
-          <div class="track-left">
-            <div class="track-label">Systems Architecture</div>
-            <div class="track-name">SA — Architecture & Integration</div>
-            <div class="track-lead">Lead: <span>Bhuvan Ravikumar</span> · USC &nbsp;·&nbsp; Co-Lead: <span>Giustina Di Donato</span></div>
-            <div class="track-desc">Designs overall system architecture — hardware deployment constraints, modular AI integration, satellite subsystem interfaces, and ground segment pipelines.</div>
-          </div>
-          <div class="track-toggle">Members <span class="arrow">↓</span></div>
-        </div>
-        <div class="track-members">
-          <div class="members-label">Members</div>
-          <div class="members-grid">
-            <div class="member-chip">Bhuvan Ravikumar</div>
-            <div class="member-chip">Giustina Di Donato</div>
-            <div class="member-chip">Carlos Morales-Ramirez</div>
-            <div class="member-chip">Floris Weyand</div>
-            <div class="member-chip">Chidinma Amanna</div>
-            <div class="member-chip">Tanmay Sharma</div>
-            <div class="member-chip">Benjamin Brumm</div>
+            <div class="member-chip chip-lead">Dr. Rachita Agrawal</div>
+            <div class="member-chip chip-re">M. Abdullah Khan</div>
+            <div class="member-chip chip-re">Anh Truong</div>
+            <div class="member-chip chip-re">Sulekha Komeravelli</div>
+            <div class="member-chip chip-re">Benjamin Brumm</div>
+            <div class="member-chip chip-re">Romane Croizet Fontane</div>
+            <div class="member-chip chip-re">Jessica Durbano</div>
           </div>
         </div>
       </div>
@@ -643,29 +676,40 @@
         <div class="track-header">
           <div class="track-left">
             <div class="track-label">Onboard Intelligence & Systems</div>
-            <div class="track-name">TF — Technical Frameworks & AI Engineering</div>
-            <div class="track-lead">Co-Leads: <span>Vidhi Jain</span> &nbsp;·&nbsp; <span>Manish R. Tiwari</span> · IIT Mandi</div>
-            <div class="track-desc">Builds and validates AI models — failure prediction, anomaly detection, RL-based decision support, XAI pipelines, and edge inference optimization for resource-constrained satellite platforms.</div>
+            <div class="track-name">OIS — Architecture, Engineering & Validation</div>
+            <div class="track-lead">Leads: <span>Bhuvan Ravikumar</span>, <span>Vidhi Jain</span>, <span>Manish R. Tiwari</span>, <span>Giustina Di Donato</span></div>
+            <div class="track-desc">Combines systems architecture with onboard AI model validation. Designs hardware pipelines and builds edge-optimized ML models for resource-constrained platforms.</div>
           </div>
-          <div class="track-toggle">Members <span class="arrow">↓</span></div>
+          <div class="track-toggle">Sub-tracks <span class="arrow">↓</span></div>
         </div>
         <div class="track-members">
-          <div class="members-label">Members</div>
+          <div class="members-label" style="margin-top:18px;">Systems Architecture (SA)</div>
           <div class="members-grid">
-            <div class="member-chip">Vidhi Jain</div>
-            <div class="member-chip">Manish R. Tiwari</div>
-            <div class="member-chip">Anish Mahapatra</div>
-            <div class="member-chip">Aryan Kumar Srivastav</div>
-            <div class="member-chip">Hasibul Hasan Shanto</div>
-            <div class="member-chip">Jeeval Shah</div>
-            <div class="member-chip">Karthikeya Moyye</div>
-            <div class="member-chip">Vivekini Mata</div>
-            <div class="member-chip">Meghana Sannapareddy</div>
-            <div class="member-chip">Mudit Khater</div>
-            <div class="member-chip">Sanjukta Deshpande</div>
-            <div class="member-chip">Swayam Sanjay Pawar</div>
-            <div class="member-chip">Yassine Yousfi</div>
-            <div class="member-chip">Floris Weyand</div>
+            <div class="member-chip chip-lead">Bhuvan Ravikumar</div>
+            <div class="member-chip chip-lead">Giustina Di Donato</div>
+            <div class="member-chip chip-sa">Carlos Morales-Ramirez</div>
+            <div class="member-chip chip-sa">Floris Weyand</div>
+            <div class="member-chip chip-sa">Chidinma Amanna</div>
+            <div class="member-chip chip-sa">Tanmay Sharma</div>
+            <div class="member-chip chip-sa">Benjamin Brumm</div>
+          </div>
+
+          <div class="members-label" style="margin-top:24px;">Technical Frameworks & AI Engineering (TF)</div>
+          <div class="members-grid">
+            <div class="member-chip chip-lead">Vidhi Jain</div>
+            <div class="member-chip chip-lead">Manish R. Tiwari</div>
+            <div class="member-chip chip-tf">Anish Mahapatra</div>
+            <div class="member-chip chip-tf">Aryan Kumar Srivastav</div>
+            <div class="member-chip chip-tf">Hasibul Hasan Shanto</div>
+            <div class="member-chip chip-tf">Jeeval Shah</div>
+            <div class="member-chip chip-tf">Karthikeya Moyye</div>
+            <div class="member-chip chip-tf">Vivekini Mata</div>
+            <div class="member-chip chip-tf">Meghana Sannapareddy</div>
+            <div class="member-chip chip-tf">Mudit Khater</div>
+            <div class="member-chip chip-tf">Sanjukta Deshpande</div>
+            <div class="member-chip chip-tf">Swayam Sanjay Pawar</div>
+            <div class="member-chip chip-tf">Yassine Yousfi</div>
+            <div class="member-chip chip-tf">Floris Weyand</div>
           </div>
         </div>
       </div>
@@ -679,18 +723,18 @@
     <div class="section-tag">People</div>
     <h2 class="section-title">Leadership board</h2>
     <div class="leadership-grid fade-in">
-      <div class="lead-card"><div class="lead-role">Secretariat Lead</div><div class="lead-name">Chidinma Amanna</div><div class="lead-affil">Operations · Media · Outreach</div></div>
       <div class="lead-card"><div class="lead-role">PG Lead</div><div class="lead-name">Samrat Chakraborty</div><div class="lead-affil">Indian Association for the Cultivation of Science</div></div>
       <div class="lead-card"><div class="lead-role">PG Co-Lead</div><div class="lead-name">Alizay Fatima</div><div class="lead-affil">Institute of Space Technology, Pakistan</div></div>
       <div class="lead-card"><div class="lead-role">Co-Lead</div><div class="lead-name">Anh (Jinny) Truong</div><div class="lead-affil">Foreign Trade University / University of Northampton</div></div>
       <div class="lead-card"><div class="lead-role">Literature Review Lead</div><div class="lead-name">Isabel LaCoss</div><div class="lead-affil">Embry-Riddle Aeronautical University</div></div>
       <div class="lead-card"><div class="lead-role">Methodology Writing Lead</div><div class="lead-name">Paarvi Wadhwa</div><div class="lead-affil">University of Delhi</div></div>
       <div class="lead-card"><div class="lead-role">Methodology Writing Co-Lead</div><div class="lead-name">Karthikeya Moyye</div><div class="lead-affil">Independent Researcher</div></div>
-      <div class="lead-card"><div class="lead-role">Policy / Ethics Lead</div><div class="lead-name">Hassan Sajjad Khan</div><div class="lead-affil">—</div></div>
-      <div class="lead-card"><div class="lead-role">Systems Architecture Lead</div><div class="lead-name">Bhuvan Ravikumar</div><div class="lead-affil">University of Southern California</div></div>
-      <div class="lead-card"><div class="lead-role">Systems Co-Lead</div><div class="lead-name">Giustina Di Donato</div><div class="lead-affil">—</div></div>
-      <div class="lead-card"><div class="lead-role">Technical Frameworks Co-Lead</div><div class="lead-name">Vidhi Jain</div><div class="lead-affil">—</div></div>
-      <div class="lead-card"><div class="lead-role">Technical Frameworks Co-Lead</div><div class="lead-name">Manish R. Tiwari</div><div class="lead-affil">IIT Mandi (CCE)</div></div>
+      <div class="lead-card"><div class="lead-role">Regulatory / Ethics Lead</div><div class="lead-name">Dr. Rachita Agrawal</div><div class="lead-affil">—</div></div>
+      <div class="lead-card"><div class="lead-role">Systems Architecture Lead (OIS)</div><div class="lead-name">Bhuvan Ravikumar</div><div class="lead-affil">University of Southern California</div></div>
+      <div class="lead-card"><div class="lead-role">Systems Architecture Co-Lead (OIS)</div><div class="lead-name">Giustina Di Donato</div><div class="lead-affil">—</div></div>
+      <div class="lead-card"><div class="lead-role">Technical Frameworks Co-Lead (OIS)</div><div class="lead-name">Vidhi Jain</div><div class="lead-affil">—</div></div>
+      <div class="lead-card"><div class="lead-role">Technical Frameworks Co-Lead (OIS)</div><div class="lead-name">Manish R. Tiwari</div><div class="lead-affil">IIT Mandi (CCE)</div></div>
+      <div class="lead-card"><div class="lead-role">Secretariat Lead</div><div class="lead-name">Chidinma Amanna</div><div class="lead-affil">Operations · Media · Outreach</div></div>
     </div>
     <div class="divider-label">Advisor Board</div>
     <div class="advisor-grid fade-in">
@@ -726,50 +770,168 @@
 
       <div class="track-group-label">Literature Review Track</div>
       <div class="project-card closed">
-        <div class="project-header"><div><div class="project-code">LR1</div><div class="project-name">An Autonomous On-Board Processing Architecture for Early Wildfire Detection Using a Structured CubeSat Formation</div></div><div class="project-status" style="border-color:rgba(255,100,100,0.3);color:#ff6464;">Closed</div></div>
-        <div class="closed-flash" style="display:block;">Applications for this project are temporarily closed. We are reviewing current submissions. <a href="#apply">Apply to an open project →</a></div>
+        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="project-code">LR1</div>
+            <div class="project-name">An Autonomous On-Board Processing Architecture for Early Wildfire Detection Using a Structured CubeSat Formation</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="project-status">Closed</div>
+            <span class="arrow" style="color:var(--muted);">↓</span>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="closed-flash">Applications for this project are temporarily closed. We are reviewing current submissions. <a href="#apply">Apply to an open project →</a></div>
+        </div>
       </div>
 
       <div class="track-group-label">Methodology Writing Track</div>
       <div class="project-card closed">
-        <div class="project-header"><div><div class="project-code">MW1</div><div class="project-name">Resilient Space Architecture under Extreme Conditions</div></div><div class="project-status" style="border-color:rgba(255,100,100,0.3);color:#ff6464;">Closed</div></div>
-        <div class="closed-flash" style="display:block;">Applications for this project are temporarily closed. We are reviewing current submissions. <a href="#apply">Apply to an open project →</a></div>
+        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="project-code">MW1</div>
+            <div class="project-name">Resilient Space Architecture under Extreme Conditions</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="project-status">Closed</div>
+            <span class="arrow" style="color:var(--muted);">↓</span>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="closed-flash">Applications for this project are temporarily closed. We are reviewing current submissions. <a href="#apply">Apply to an open project →</a></div>
+        </div>
       </div>
       <div class="project-card">
-        <div class="project-header"><div><div class="project-code">MW2</div><div class="project-name">Review of Greenhouse Gas Production Using AI Models</div></div><div class="project-status">In Progress</div></div>
-        <a href="#apply" class="apply-to-project" onclick="setProject('mw2')">Apply to this project →</a>
+        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="project-code">MW2</div>
+            <div class="project-name">Review of Greenhouse Gas Production Using AI Models</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="project-status">In Progress</div>
+            <span class="arrow" style="color:var(--muted);">↓</span>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="project-desc">A comprehensive methodological review outlining the statistical and machine learning approaches necessary to build resilient remote sensing solutions for tracking Earth's greenhouse gas productions.</div>
+          <a href="#apply" class="apply-to-project" onclick="setProject('mw2')">Apply to this project →</a>
+        </div>
       </div>
 
-      <div class="track-group-label">Policy / Ethics Track</div>
+      <div class="track-group-label">Regulatory & Ethics Track</div>
       <div class="project-card">
-        <div class="project-header"><div><div class="project-code">PE1</div><div class="project-name">Explainable AI for Climate-Resilient Space Operations: A Framework for Trust and Oversight in High-Stakes Decision-Making</div></div><div class="project-status">In Progress</div></div>
-        <a href="#apply" class="apply-to-project" onclick="setProject('pe1')">Apply to this project →</a>
+        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="project-code">RE1</div>
+            <div class="project-name">Explainable AI for Climate-Resilient Space Operations: A Framework for Trust and Oversight in High-Stakes Decision-Making</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="project-status">In Progress</div>
+            <span class="arrow" style="color:var(--muted);">↓</span>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="project-desc">Developing guidelines mapping the ethical implications and formal verification pathways necessary for AI governance in high-stakes atmospheric and orbital decisions.</div>
+          <a href="#apply" class="apply-to-project" onclick="setProject('re1')">Apply to this project →</a>
+        </div>
       </div>
       <div class="project-card">
-        <div class="project-header"><div><div class="project-code">PE2</div><div class="project-name">Operationalizing Ethical Governance: A SNO-based Data Harmonization Pipeline for Technically Robust and Equitable Climate AI</div></div><div class="project-status">In Progress</div></div>
-        <a href="#apply" class="apply-to-project" onclick="setProject('pe2')">Apply to this project →</a>
+        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="project-code">RE2</div>
+            <div class="project-name">Operationalizing Ethical Governance: A SNO-based Data Harmonization Pipeline for Technically Robust and Equitable Climate AI</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="project-status">In Progress</div>
+            <span class="arrow" style="color:var(--muted);">↓</span>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="project-desc">Explores a Sensor Network Ontology (SNO) to align datasets ethically across borders and sensors, preventing demographic or regional bias in Earth observation AI.</div>
+          <a href="#apply" class="apply-to-project" onclick="setProject('re2')">Apply to this project →</a>
+        </div>
       </div>
       <div class="project-card">
-        <div class="project-header"><div><div class="project-code">PE3</div><div class="project-name">From Monoculture to Resilience: Engineering Diverse AI Architecture for Robust Climate Monitoring and Equitable Adaptation</div></div><div class="project-status">In Progress</div></div>
-        <a href="#apply" class="apply-to-project" onclick="setProject('pe3')">Apply to this project →</a>
+        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="project-code">RE3</div>
+            <div class="project-name">From Monoculture to Resilience: Engineering Diverse AI Architecture for Robust Climate Monitoring and Equitable Adaptation</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="project-status">In Progress</div>
+            <span class="arrow" style="color:var(--muted);">↓</span>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="project-desc">A policy-oriented exploration of algorithmic diversity as a safeguard against catastrophic failure in automated climate response models.</div>
+          <a href="#apply" class="apply-to-project" onclick="setProject('re3')">Apply to this project →</a>
+        </div>
       </div>
 
       <div class="track-group-label">Onboard Intelligence & Systems Track</div>
       <div class="project-card">
-        <div class="project-header"><div><div class="project-code">SA1</div><div class="project-name">Optimized Ground Segment Framework for Efficient Processing of Copernicus Sentinel-2 Data Streams</div></div><div class="project-status">In Progress</div></div>
-        <a href="#apply" class="apply-to-project" onclick="setProject('sa1')">Apply to this project →</a>
+        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="project-code">SA1</div>
+            <div class="project-name">Optimized Ground Segment Framework for Efficient Processing of Copernicus Sentinel-2 Data Streams</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="project-status">In Progress</div>
+            <span class="arrow" style="color:var(--muted);">↓</span>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="project-desc">An architectural blueprint bridging massive Sentinel-2 optical data ingestion with real-time analytics engines, designed to minimize latency from raw imagery to predictive insight.</div>
+          <a href="#apply" class="apply-to-project" onclick="setProject('sa1')">Apply to this project →</a>
+        </div>
       </div>
       <div class="project-card">
-        <div class="project-header"><div><div class="project-code">TF1</div><div class="project-name">Leveraging MethaneSAT Insights for Finer Methane Emission Mapping</div></div><div class="project-status">In Progress</div></div>
-        <a href="#apply" class="apply-to-project" onclick="setProject('tf1')">Apply to this project →</a>
+        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="project-code">TF1</div>
+            <div class="project-name">Leveraging MethaneSAT Insights for Finer Methane Emission Mapping</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="project-status">In Progress</div>
+            <span class="arrow" style="color:var(--muted);">↓</span>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="project-desc">Applying novel computer vision frameworks over raw MethaneSAT telemetry to locate emission sources globally at an unprecedented resolution scale.</div>
+          <a href="#apply" class="apply-to-project" onclick="setProject('tf1')">Apply to this project →</a>
+        </div>
       </div>
       <div class="project-card">
-        <div class="project-header"><div><div class="project-code">TF2</div><div class="project-name">Lightweight Optical and Microwave Preprocessing Framework for Flood Monitoring Using CubeSat and Sentinel Data</div></div><div class="project-status">In Progress</div></div>
-        <a href="#apply" class="apply-to-project" onclick="setProject('tf2')">Apply to this project →</a>
+        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="project-code">TF2</div>
+            <div class="project-name">Lightweight Optical and Microwave Preprocessing Framework for Flood Monitoring Using CubeSat and Sentinel Data</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="project-status">In Progress</div>
+            <span class="arrow" style="color:var(--muted);">↓</span>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="project-desc">Engineering an embedded inference pipeline capable of running optical+SAR data fusion models onboard resource-constrained small satellites for instant flood extent mapping.</div>
+          <a href="#apply" class="apply-to-project" onclick="setProject('tf2')">Apply to this project →</a>
+        </div>
       </div>
       <div class="project-card">
-        <div class="project-header"><div><div class="project-code">TF3</div><div class="project-name">A Cloud-Agnostic, Multi-Temporal Framework for Robust Environmental Change Detection and Alerting Using Sentinel and CubeSat Data</div></div><div class="project-status">In Progress</div></div>
-        <a href="#apply" class="apply-to-project" onclick="setProject('tf3')">Apply to this project →</a>
+        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+          <div>
+            <div class="project-code">TF3</div>
+            <div class="project-name">A Cloud-Agnostic, Multi-Temporal Framework for Robust Environmental Change Detection and Alerting Using Sentinel and CubeSat Data</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="project-status">In Progress</div>
+            <span class="arrow" style="color:var(--muted);">↓</span>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="project-desc">A dual-stage AI architecture bridging CubeSat event detection with heavy Sentinel validation, allowing uninterrupted situational awareness through intermittent cloud coverage.</div>
+          <a href="#apply" class="apply-to-project" onclick="setProject('tf3')">Apply to this project →</a>
+        </div>
       </div>
 
     </div>
@@ -824,13 +986,13 @@
                 <option value="">Select a project...</option>
                 <optgroup label="Literature Review"><option value="lr1" disabled>LR1 — Early Wildfire Detection [CLOSED]</option></optgroup>
                 <optgroup label="Methodology Writing"><option value="mw1" disabled>MW1 — Resilient Space Architecture [CLOSED]</option><option value="mw2">MW2 — Greenhouse Gas Production Using AI Models</option></optgroup>
-                <optgroup label="Policy / Ethics"><option value="pe1">PE1 — Explainable AI for Climate-Resilient Space Ops</option><option value="pe2">PE2 — SNO-based Data Harmonization Pipeline</option><option value="pe3">PE3 — Diverse AI Architecture for Climate Monitoring</option></optgroup>
+                <optgroup label="Regulatory & Ethics"><option value="re1">RE1 — Explainable AI for Climate-Resilient Space Ops</option><option value="re2">RE2 — SNO-based Data Harmonization Pipeline</option><option value="re3">RE3 — Diverse AI Architecture for Climate Monitoring</option></optgroup>
                 <optgroup label="Onboard Intelligence & Systems"><option value="sa1">SA1 — Sentinel-2 Ground Segment Framework</option><option value="tf1">TF1 — MethaneSAT Methane Emission Mapping</option><option value="tf2">TF2 — Flood Monitoring with CubeSat and Sentinel</option><option value="tf3">TF3 — Environmental Change Detection Framework</option></optgroup>
                 <optgroup label="Operational Roles"><option value="editor">Editor — LaTeX, AI detection, plagiarism</option><option value="socialmedia">Social Media — LinkedIn &amp; Instagram</option></optgroup>
                 <option value="general">General interest / open role</option>
               </select>
             </div>
-            <div id="closedWarning" style="display:none;margin-top:6px;padding:10px 14px;background:rgba(255,100,100,0.08);border:1px solid rgba(255,100,100,0.25);font-size:10px;color:#ff9999;letter-spacing:0.5px;line-height:1.7;">
+            <div id="closedWarning" style="display:none;margin-top:6px;padding:10px 14px;background:rgba(255,100,100,0.08);border:1px solid rgba(255,100,100,0.25);font-size:10px;color:#ff9999;letter-spacing:0.5px;line-height:1.7;border-radius:4px;">
               Applications for this project are temporarily closed. Please select an open project or apply to the Secretariat / Editor / Social Media roles.
             </div>
             <div class="form-group"><label>Why this project? What do you bring? *</label><textarea id="j-why" placeholder="Be direct. What have you built, what are you thinking about, and why this project?"></textarea></div>
@@ -853,20 +1015,20 @@
                 <option value="">Select a track...</option>
                 <option value="literature">Literature Review</option>
                 <option value="methodology">Methodology Writing</option>
-                <option value="policy">Policy / Ethics</option>
+                <option value="regulatory">Regulatory & Ethics</option>
                 <option value="systems">Onboard Intelligence & Systems</option>
                 <option value="new">Potentially a new track</option>
               </select>
             </div>
-            <div class="form-group"><label>Brief description & motivation *</label><textarea id="p-desc" placeholder="What is the research question, why does it matter, and why does it belong under AIxSpace?"></textarea></div>
+            <div class="form-group"><label>Brief description & motivation *</label><textarea id="p-desc" placeholder="What is the research question, why does it matter, and why does it belong under SpacexAI?"></textarea></div>
             <button class="submit-btn" onclick="submitForm('propose')">Submit Proposal</button>
             <p class="form-note">Project proposals are reviewed by the leadership board.</p>
           </div>
 
           <div class="form-section" id="mode-secretariat">
             <div class="form-title">Join the Secretariat</div>
-            <div style="font-size:10px;color:var(--very-muted);margin-bottom:20px;line-height:1.8;padding:12px 14px;border:1px solid rgba(0,212,255,0.12);background:rgba(0,212,255,0.03);">
-              The Secretariat keeps Space×AI running — Operations, Media, and Outreach. These roles are <span style="color:var(--cyan);">fully open</span> while research track applications are paused.
+            <div style="font-size:10px;color:var(--very-muted);margin-bottom:20px;line-height:1.8;padding:12px 14px;border:1px solid rgba(126,63,97,0.12);background:rgba(126,63,97,0.03);border-radius:4px;">
+              The Secretariat keeps SpacexAI running — Operations, Media, and Outreach. These roles are <span style="color:var(--cyan);">fully open</span> while research track applications are paused.
             </div>
             <div class="form-row">
               <div class="form-group"><label>First Name *</label><input type="text" id="s-first" placeholder="Ada"></div>
@@ -926,10 +1088,10 @@
           <div class="s-icon">✦</div>
           <h3>Application received</h3>
           <p>Your next step is below.</p>
-          <div id="taskBlock" style="display:none; margin-top:28px; text-align:left; border:1px solid rgba(0,212,255,0.2); padding:24px; background:rgba(0,212,255,0.04);">
-            <div style="font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--cyan); margin-bottom:10px;">Your Screening Tasks</div>
+          <div id="taskBlock" style="display:none; margin-top:28px; text-align:left; border:1px solid rgba(126,63,97,0.2); padding:24px; background:rgba(126,63,97,0.04);border-radius:6px;">
+            <div style="font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--cyan); margin-bottom:10px;font-weight:600;">Your Screening Tasks</div>
             <p style="font-size:12px; color:var(--muted); line-height:1.8; margin-bottom:18px;">Download your task PDF. You have <strong style="color:var(--white);">7 days</strong> to complete and submit. Need more time? Just ask — reply to the confirmation email.</p>
-            <a id="taskDownloadBtn" href="#" download style="display:inline-flex; align-items:center; gap:10px; background:var(--cyan); color:var(--black); padding:12px 24px; font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:2px; text-transform:uppercase; text-decoration:none; margin-bottom:12px;">⬇ Download Task PDF</a>
+            <a id="taskDownloadBtn" href="#" download style="display:inline-flex; align-items:center; gap:10px; background:var(--cyan); color:var(--white); padding:12px 24px; font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; text-decoration:none; margin-bottom:12px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.2);">⬇ Download Task PDF</a>
             <p style="font-size:10px; color:var(--very-muted);">A confirmation email will open automatically — just hit send.</p>
           </div>
         </div>
@@ -939,8 +1101,8 @@
 </section>
 
 <footer>
-  <div class="footer-logo">AIx<span>Space</span></div>
-  <div class="footer-copy">Space AI Research Group<br><span style="font-size:9px;">© 2026 AIxSpace</span></div>
+  <div class="footer-logo">Spacex<span>AI</span></div>
+  <div class="footer-copy">Space AI Research Group<br><span style="font-size:9px;">© 2026 SpacexAI</span></div>
   <div class="footer-links">
     <a href="#vision">Vision</a>
     <a href="#research">Research</a>
@@ -963,8 +1125,8 @@
     ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
     requestAnimationFrame(animRing);
   })();
-  document.querySelectorAll('a, button, .track-card, .vision-card, .paper-card, .lead-card, .project-card, .collab-card').forEach(el => {
-    el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2.5)'; ring.style.transform = 'scale(1.4)'; ring.style.borderColor = 'rgba(0,212,255,0.7)'; });
+  document.querySelectorAll('a, button, .track-header, .project-header, .paper-toggle, .vision-card, .paper-card, .lead-card, .project-card, .collab-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2.5)'; ring.style.transform = 'scale(1.4)'; ring.style.borderColor = 'rgba(126,63,97,0.7)'; });
     el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; ring.style.transform = 'scale(1)'; ring.style.borderColor = 'var(--cyan-glow)'; });
   });
 
@@ -976,7 +1138,6 @@
   themeBtn.addEventListener('click', () => {
     html.classList.toggle('light');
     localStorage.setItem('theme', html.classList.contains('light') ? 'light' : 'dark');
-    // Update nav bg for light mode
     updateNav();
   });
 
@@ -985,10 +1146,10 @@
   function updateNav() {
     const isLight = html.classList.contains('light');
     if (window.scrollY > 60) {
-      navEl.style.background = isLight ? 'rgba(248,249,255,0.98)' : 'rgba(5,5,8,0.97)';
+      navEl.style.background = isLight ? 'rgba(248,249,255,0.92)' : 'rgba(5,5,8,0.85)';
       navEl.style.borderBottomColor = isLight ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.1)';
     } else {
-      navEl.style.background = isLight ? 'rgba(248,249,255,0.92)' : 'rgba(5,5,8,0.88)';
+      navEl.style.background = isLight ? 'rgba(248,249,255,0.75)' : 'rgba(5,5,8,0.7)';
       navEl.style.borderBottomColor = 'var(--border)';
     }
   }
@@ -1057,9 +1218,9 @@
       lr1: { track: 'Literature Review (LR)', pdf: 'tasks/LR_Tasks.pdf' },
       mw1: { track: 'Methodology Writing (MW)', pdf: 'tasks/MW_Tasks.pdf' },
       mw2: { track: 'Methodology Writing (MW)', pdf: 'tasks/MW_Tasks.pdf' },
-      pe1: { track: 'Policy & Ethics (PE)', pdf: 'tasks/PE_Tasks.pdf' },
-      pe2: { track: 'Policy & Ethics (PE)', pdf: 'tasks/PE_Tasks.pdf' },
-      pe3: { track: 'Policy & Ethics (PE)', pdf: 'tasks/PE_Tasks.pdf' },
+      re1: { track: 'Regulatory & Ethics (RE)', pdf: 'tasks/PE_Tasks.pdf' },
+      re2: { track: 'Regulatory & Ethics (RE)', pdf: 'tasks/PE_Tasks.pdf' },
+      re3: { track: 'Regulatory & Ethics (RE)', pdf: 'tasks/PE_Tasks.pdf' },
       sa1: { track: 'Onboard Intelligence & Systems (OIS)', pdf: 'tasks/OIS_Tasks.pdf' },
       tf1: { track: 'Onboard Intelligence & Systems (OIS)', pdf: 'tasks/OIS_Tasks.pdf' },
       tf2: { track: 'Onboard Intelligence & Systems (OIS)', pdf: 'tasks/OIS_Tasks.pdf' },
@@ -1110,7 +1271,7 @@
     }
     if (!name || !email || !desc) { alert('Please fill in all required fields.'); return; }
     const titles = { join: '📡 New Application', propose: '💡 Project Proposal', collab: '🤝 Collaboration Inquiry', secretariat: '⚙️ Secretariat Application' };
-    const payload = { embeds: [{ title: titles[type], color: 0x00d4ff, fields: [{ name: 'Name', value: name, inline: true }, { name: 'Email', value: email, inline: true }, { name: 'Details', value: extra || '—' }, { name: 'Message', value: desc }], timestamp: new Date().toISOString() }] };
+    const payload = { embeds: [{ title: titles[type], color: 0x7e3f61, fields: [{ name: 'Name', value: name, inline: true }, { name: 'Email', value: email, inline: true }, { name: 'Details', value: extra || '—' }, { name: 'Message', value: desc }], timestamp: new Date().toISOString() }] };
     if (WEBHOOK !== 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
       fetch(WEBHOOK, {
         method: 'POST',
@@ -1144,20 +1305,18 @@
           setTimeout(function() {
            const deadline = deadlineDate();
           
-          // Define To and CC email addresses
           const toEmail = 'chiamanna@yahoo.com';
           const ccEmails = 'alizayfatima1508@gmail.com,thta040120@gmail.com,sgacprojectairiskiac25lead@gmail.com';
           
-          const subject = encodeURIComponent('Space\u00D7AI Application \u2014 ' + info.track + ' \u2014 ' + name);
+          const subject = encodeURIComponent('SpacexAI Application \u2014 ' + info.track + ' \u2014 ' + name);
           const body = encodeURIComponent(
-            'Hi,\n\nI am confirming my application to Space\u00D7AI for the ' + info.track + ' track.\n\n' +
+            'Hi,\n\nI am confirming my application to SpacexAI for the ' + info.track + ' track.\n\n' +
             'I have downloaded my task PDF and will submit by ' + deadline + '.\n\n' +
             'If I need more time, I will reach out before the deadline.\n\n' +
             'Please feel free to ask if you have any doubts.\n\n' +
             'Name: ' + name + '\nEmail: ' + email
           );
           
-          // Construct the final mailto URL
           window.location.href = 'mailto:' + toEmail + '?cc=' + ccEmails + '&subject=' + subject + '&body=' + body;
         }, 800);
       });
