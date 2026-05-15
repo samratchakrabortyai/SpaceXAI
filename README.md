@@ -1,1 +1,1 @@
-# AIxSpace
+# SpacexAI
