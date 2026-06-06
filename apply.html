@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpaceXAI — Get Involved</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+
+
+<nav>
+  <a href="index.html" class="nav-logo">Spacex<span>AI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="apply.html">Get Involved</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://discord.gg/7uQpQtCBdX" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Discord</a>
+    <a href="https://www.linkedin.com/company/spacexairesearch" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">LinkedIn</a>
+    <a href="https://www.instagram.com/spacexairesearch/" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:24px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Instagram</a>
+    <button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <a href="apply.html" class="nav-cta">Get Involved</a>
+  </div>
+</nav>
+<section class="apply-section fade-in" id="apply">
+  <div class="section-inner">
+    <div class="apply-wrapper">
+      <div class="apply-info fade-in">
+        <div class="section-tag">Get Involved</div>
+        <h2>Work on problems that actually matter</h2>
+        <p>We're a distributed team across 15+ countries. Whether your background is ML, aerospace, policy, or you just build things — there's likely a place here.</p>
+        <p>Choose how you want to engage:</p>
+        <div class="apply-options">
+          <button class="apply-option-btn active" onclick="switchMode('join', this)">
+            <span class="opt-icon">🛰</span>
+            <div><span class="opt-label">Join a project</span><span class="opt-desc">Become a member and contribute to an active research track</span></div>
+          </button>
+          <button class="apply-option-btn" onclick="switchMode('propose', this)">
+            <span class="opt-icon">💡</span>
+            <div><span class="opt-label">Propose a project</span><span class="opt-desc">Have an idea? Bring it under our umbrella</span></div>
+          </button>
+          <button class="apply-option-btn" onclick="switchMode('collab', this)">
+            <span class="opt-icon">🤝</span>
+            <div><span class="opt-label">Collaborate with us</span><span class="opt-desc">Organizations, labs, and institutions welcome</span></div>
+          </button>
+          <button class="apply-option-btn secretariat-btn" onclick="switchMode('secretariat', this)">
+            <span class="opt-icon">⚙️</span>
+            <div><span class="opt-label">Join the Secretariat</span><span class="opt-desc">Operations, Media, or Outreach — applications open now</span></div>
+          </button>
+        </div>
+        <a href="https://discord.gg/7uQpQtCBdX" class="discord-link" target="_blank">
+          <div class="discord-dot">D</div>
+          Already part of the cohort? Join our active research community on Discord.
+        </a>
+        <div style="margin-top: 16px; display: flex; gap: 16px;">
+          <a href="https://www.linkedin.com/company/spacexairesearch" target="_blank" style="color:var(--cyan); text-decoration:none; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:2px;">LinkedIn</a>
+          <a href="https://www.instagram.com/spacexairesearch/" target="_blank" style="color:var(--cyan); text-decoration:none; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:2px;">Instagram</a>
+        </div>
+      </div>
+
+      <div class="form-card fade-in">
+        <div id="formWrap">
+          <div class="form-section active" id="mode-join">
+            <div class="form-title">Join a project</div>
+            <div class="form-row">
+              <div class="form-group"><label>First Name *</label><input type="text" id="j-first" placeholder="Ada"></div>
+              <div class="form-group"><label>Last Name *</label><input type="text" id="j-last" placeholder="Lovelace"></div>
+            </div>
+            <div class="form-group"><label>Email *</label><input type="email" id="j-email" placeholder="ada@university.edu"></div>
+            <div class="form-group"><label>Background / Affiliation</label><input type="text" id="j-affil" placeholder="MSc AI, University of X"></div>
+            <div class="form-group">
+              <label>Project *</label>
+              <select id="j-project" disabled>
+                <option value="">Applications currently closed</option>
+                
+                
+                
+                
+                <optgroup label="Operational Roles"></optgroup>
+                
+              </select>
+            </div>
+            <div id="closedWarning" style="display:none;margin-top:6px;padding:10px 14px;background:rgba(255,100,100,0.08);border:1px solid rgba(255,100,100,0.25);font-size:10px;color:#ff9999;letter-spacing:0.5px;line-height:1.7;border-radius:4px;">
+              Applications for this project are temporarily closed. Please select an open project or apply to the Secretariat / Editor / Social Media roles.
+            </div>
+            <div class="form-group"><label>Why this project? What do you bring? *</label><textarea id="j-why" placeholder="Be direct. What have you built, what are you thinking about, and why this project?"></textarea></div>
+            <div class="form-group"><label>GitHub / Portfolio (optional)</label><input type="text" id="j-link" placeholder="github.com/yourprofile"></div>
+            <button class="submit-btn" onclick="submitForm('join')">Submit Application</button>
+            <p class="form-note">Reviewed by the PG Lead. We'll follow up via Discord or email.</p>
+          </div>
+
+          <div class="form-section" id="mode-propose">
+            <div class="form-title">Propose a project</div>
+            <div class="form-row">
+              <div class="form-group"><label>Your Name *</label><input type="text" id="p-name" placeholder="Ada Lovelace"></div>
+              <div class="form-group"><label>Email *</label><input type="email" id="p-email" placeholder="ada@university.edu"></div>
+            </div>
+            <div class="form-group"><label>Affiliation</label><input type="text" id="p-affil" placeholder="University / Organization"></div>
+            <div class="form-group"><label>Project Title *</label><input type="text" id="p-title" placeholder="Your proposed project name"></div>
+            <div class="form-group">
+              <label>Which track does it fall under?</label>
+              <select id="p-track">
+                <option value="">Select a track...</option>
+                <option value="literature">Literature Review</option>
+                <option value="methodology">Methodology Writing</option>
+                <option value="regulatory">Regulatory & Ethics</option>
+                <option value="systems">Onboard Intelligence & Systems</option>
+                <option value="new">Potentially a new track</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Brief description & motivation *</label><textarea id="p-desc" placeholder="What is the research question, why does it matter, and why does it belong under SpacexAI?"></textarea></div>
+            <button class="submit-btn" onclick="submitForm('propose')">Submit Proposal</button>
+            <p class="form-note">Project proposals are reviewed by the leadership board.</p>
+          </div>
+
+          <div class="form-section" id="mode-secretariat">
+            <div class="form-title">Join the Secretariat</div>
+            <div style="font-size:10px;color:var(--very-muted);margin-bottom:20px;line-height:1.8;padding:12px 14px;border:1px solid rgba(126,63,97,0.12);background:rgba(126,63,97,0.03);border-radius:4px;">
+              The Secretariat keeps SpacexAI running — Operations, Media, and Outreach. These roles are <span style="color:var(--cyan);">fully open</span> while research track applications are paused.
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>First Name *</label><input type="text" id="s-first" placeholder="Ada"></div>
+              <div class="form-group"><label>Last Name *</label><input type="text" id="s-last" placeholder="Lovelace"></div>
+            </div>
+            <div class="form-group"><label>Email *</label><input type="email" id="s-email" placeholder="ada@university.edu"></div>
+            <div class="form-group"><label>Background / Affiliation</label><input type="text" id="s-affil" placeholder="Your background or current role"></div>
+            <div class="form-group">
+              <label>Sub-team & Role *</label>
+              <select id="s-role" disabled>
+                <option value="">Applications currently closed</option>
+                <optgroup label="Operations — Internal Engine">
+                  <option value="ops-coordinator">Operations Coordinator — Scheduling, onboarding, task tracking</option>
+                  <option value="ops-knowledge">Knowledge Staff — Documentation, internal records, progress tracking</option>
+                </optgroup>
+                <optgroup label="Media — Visibility Layer">
+                  <option value="media-planner">Media Planner — Content strategy, calendar, briefing</option>
+                  <option value="media-copywriter">Copywriter — LinkedIn, Instagram, science communication</option>
+                  <option value="media-account">Account Manager — Community, DMs, comments, LinkedIn + Instagram</option>
+                </optgroup>
+                <optgroup label="Outreach — External Face">
+                  
+                  
+                </optgroup>
+              </select>
+            </div>
+            <div class="form-group"><label>Why this role? What do you bring? *</label><textarea id="s-why" placeholder="Be direct. What's your relevant experience and why this sub-team?"></textarea></div>
+            <div class="form-group"><label>LinkedIn / Portfolio (optional)</label><input type="text" id="s-link" placeholder="linkedin.com/in/yourprofile"></div>
+            <button class="submit-btn" onclick="submitForm('secretariat')">Submit Application</button>
+            <p class="form-note">Reviewed by the Secretariat Lead. We'll follow up via Discord or email.</p>
+          </div>
+          <div class="form-section" id="mode-collab">
+            <div class="form-title">Collaborate with us</div>
+            <div class="form-row">
+              <div class="form-group"><label>Your Name *</label><input type="text" id="c-name" placeholder="Dr. Jane Smith"></div>
+              <div class="form-group"><label>Email *</label><input type="email" id="c-email" placeholder="jsmith@institution.edu"></div>
+            </div>
+            <div class="form-group"><label>Organization / Institution *</label><input type="text" id="c-org" placeholder="University / Agency / Company"></div>
+            <div class="form-group">
+              <label>Type of collaboration</label>
+              <select id="c-type">
+                <option value="">Select...</option>
+                <option value="academic">Academic / Research partnership</option>
+                <option value="data">Data / Dataset sharing</option>
+                <option value="hardware">Hardware / Testbed access</option>
+                <option value="funding">Funding / Grant collaboration</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label>What are you proposing? *</label><textarea id="c-desc" placeholder="Tell us about your organization and what kind of collaboration you have in mind."></textarea></div>
+            <button class="submit-btn" onclick="submitForm('collab')">Send Inquiry</button>
+            <p class="form-note">Collaboration inquiries go directly to the PG Lead and Co-Lead.</p>
+          </div>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="s-icon">✦</div>
+          <h3>Application received</h3>
+          <p>Your next step is below.</p>
+          <div id="taskBlock" style="display:none; margin-top:28px; text-align:left; border:1px solid rgba(126,63,97,0.2); padding:24px; background:rgba(126,63,97,0.04);border-radius:6px;">
+            <div style="font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--cyan); margin-bottom:10px;font-weight:600;">Your Screening Tasks</div>
+            <p style="font-size:12px; color:var(--muted); line-height:1.8; margin-bottom:18px;">Download your task PDF. You have <strong style="color:var(--white);">7 days</strong> to complete and submit. Need more time? Just ask — reply to the confirmation email.</p>
+            <a id="taskDownloadBtn" href="#" download style="display:inline-flex; align-items:center; gap:10px; background:var(--cyan); color:var(--white); padding:12px 24px; font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; text-decoration:none; margin-bottom:12px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.2);">⬇ Download Task PDF</a>
+            <p style="font-size:10px; color:var(--very-muted);">A confirmation email will open automatically — just hit send.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-logo">Spacex<span>AI</span></div>
+  <div class="footer-copy">Space AI Research Group<br>
+    <span style="font-size:9px;">© 2026 SpacexAI</span><br>
+    <div class="contact-row">
+      <a href="mailto:outreach@spacexairesearch.tech">outreach@spacexairesearch.tech</a>
+      <a href="mailto:contact.us@spacexairesearch.tech">contact.us@spacexairesearch.tech</a>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="team.html">Team</a>
+    <a href="news.html">News</a>
+    <a href="apply.html">Get Involved</a>
+  </div>
+</footer>
+
+<script>
+  // ── CURSOR ──
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx-4+'px';cursor.style.top=my-4+'px';});
+  (function animRing(){rx+=(mx-rx-16)*0.09;ry+=(my-ry-16)*0.09;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+  document.querySelectorAll('a,button,.track-header,.project-header,.paper-toggle,.vision-card,.paper-card,.lead-card,.project-card,.collab-card,.org-node,.sat-box,.news-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cursor.style.transform='scale(2.5)';ring.style.transform='scale(1.4)';ring.style.borderColor='rgba(126,63,97,0.7)';});
+    el.addEventListener('mouseleave',()=>{cursor.style.transform='scale(1)';ring.style.transform='scale(1)';ring.style.borderColor='var(--cyan-glow)';});
+  });
+
+  // ── THEME ──
+  const html=document.documentElement;
+  const themeBtn=document.getElementById('themeToggle');
+  const saved=localStorage.getItem('theme');
+  if(saved==='light')html.classList.add('light');
+  themeBtn.addEventListener('click',()=>{html.classList.toggle('light');localStorage.setItem('theme',html.classList.contains('light')?'light':'dark');updateNav();});
+
+  // ── NAV SCROLL ──
+  const navEl=document.querySelector('nav');
+  function updateNav(){const isLight=html.classList.contains('light');if(window.scrollY>60){navEl.style.background=isLight?'rgba(248,249,255,0.92)':'rgba(5,5,8,0.85)';navEl.style.borderBottomColor=isLight?'rgba(0,0,0,0.12)':'rgba(255,255,255,0.1)';}else{navEl.style.background=isLight?'rgba(248,249,255,0.75)':'rgba(5,5,8,0.7)';navEl.style.borderBottomColor='var(--border)';}}
+  window.addEventListener('scroll',updateNav);
+
+  // ── HERO PARALLAX ──
+  window.addEventListener('scroll',()=>{const hero=document.querySelector('.hero');if(!hero)return;const s=window.scrollY;if(s<window.innerHeight){hero.style.transform='translateY('+s*0.15+'px)';hero.style.opacity=1-(s/window.innerHeight)*0.55;}});
+
+  // ── SCROLL ANIMATIONS (staggered) ──
+  const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);}});},{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+  // ── COUNTERS ──
+  const counters=document.querySelectorAll('.stat-counter');
+  const cobs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting&&!entry.target.dataset.done){entry.target.dataset.done=true;const target=parseInt(entry.target.dataset.target);const suffix=entry.target.dataset.suffix||'';const dur=2200;const start=performance.now();function ease(t){return 1-Math.pow(1-t,3.5)}function upd(now){const p=Math.min((now-start)/dur,1);entry.target.textContent=Math.floor(ease(p)*target)+suffix;if(p<1)requestAnimationFrame(upd);else entry.target.textContent=target+suffix;}requestAnimationFrame(upd);}});},{threshold:0.3});
+  counters.forEach(c=>cobs.observe(c));
+
+  function toggleTrack(card){card.classList.toggle('open')}
+  function toggleNotice(){document.getElementById('noticeBanner').classList.toggle('open')}
+
+  function switchMode(mode,btn){document.querySelectorAll('.form-section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.apply-option-btn').forEach(b=>b.classList.remove('active'));const el=document.getElementById('mode-'+mode);if(el)el.classList.add('active');if(btn)btn.classList.add('active');}
+
+  function setProject(val){document.querySelectorAll('.apply-option-btn').forEach(b=>b.classList.remove('active'));const first=document.querySelectorAll('.apply-option-btn')[0];if(first)first.classList.add('active');switchMode('join',null);if(first)first.classList.add('active');setTimeout(()=>{const sel=document.getElementById('j-project');if(sel)sel.value=val;},150);}
+
+  function getTrackInfo(v){
+    const m={
+      lr1:{track:'Literature Review (LR)',pdf:'tasks/LR_Tasks.pdf'},
+      mw1:{track:'Methodology Writing (MW)',pdf:'tasks/MW_Tasks.pdf'},
+      mw2:{track:'Methodology Writing (MW)',pdf:'tasks/MW_Tasks.pdf'},
+      re1:{track:'Regulatory & Ethics (RE)',pdf:'tasks/PE_Tasks.pdf'},
+      re2:{track:'Regulatory & Ethics (RE)',pdf:'tasks/PE_Tasks.pdf'},
+      re3:{track:'Regulatory & Ethics (RE)',pdf:'tasks/PE_Tasks.pdf'},
+      sa1:{track:'Onboard Intelligence & Systems (OIS)',pdf:'tasks/OIS_Tasks.pdf'},
+      tf1:{track:'Onboard Intelligence & Systems (OIS)',pdf:'tasks/OIS_Tasks.pdf'},
+      tf2:{track:'Onboard Intelligence & Systems (OIS)',pdf:'tasks/OIS_Tasks.pdf'},
+      tf3:{track:'Onboard Intelligence & Systems (OIS)',pdf:'tasks/OIS_Tasks.pdf'},
+      'ops-coordinator':{track:'Secretariat — Operations Coordinator',pdf:'tasks/Secretariat_Tasks.pdf'},
+      'ops-knowledge':{track:'Secretariat — Knowledge Staff',pdf:'tasks/Secretariat_Tasks.pdf'},
+      'media-planner':{track:'Secretariat — Media Planner',pdf:'tasks/SocialMedia_Tasks.pdf'},
+      'media-copywriter':{track:'Secretariat — Copywriter',pdf:'tasks/SocialMedia_Tasks.pdf'},
+      'media-account':{track:'Secretariat — Account Manager',pdf:'tasks/SocialMedia_Tasks.pdf'},
+      'outreach-strategist':{track:'Secretariat — Outreach Strategist',pdf:'tasks/Secretariat_Tasks.pdf'},
+      'outreach-associate':{track:'Secretariat — Outreach Associate',pdf:'tasks/Secretariat_Tasks.pdf'},
+      socialmedia:{track:'Social Media',pdf:'tasks/SocialMedia_Tasks.pdf'},
+      editor:{track:'Editor',pdf:'tasks/SocialMedia_Tasks.pdf'},
+      general:{track:'General Interest',pdf:null}
+    };
+    return m[v]||{track:v,pdf:null};
+  }
+
+  function deadlineDate(){const d=new Date();d.setDate(d.getDate()+7);return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
+
+  function submitForm(type){
+    const WEBHOOK='https://discord.com/api/webhooks/1480664373839003730/hjRL6zt37GdLIYXL35L4LPUghTqb5fKcrceMOvXanAoOO8sa4rrf0IJcsMsBpPoYcJjl';
+    let name,email,desc,extra='',projectVal='';
+    if(type==='join'){name=(document.getElementById('j-first').value+' '+document.getElementById('j-last').value).trim();email=document.getElementById('j-email').value.trim();desc=document.getElementById('j-why').value.trim();projectVal=document.getElementById('j-project').value;extra='Project: '+projectVal+'\nAffiliation: '+document.getElementById('j-affil').value;}
+    else if(type==='secretariat'){name=(document.getElementById('s-first').value+' '+document.getElementById('s-last').value).trim();email=document.getElementById('s-email').value.trim();desc=document.getElementById('s-why').value.trim();projectVal=document.getElementById('s-role').value;extra='Role: '+projectVal+'\nAffiliation: '+document.getElementById('s-affil').value+'\nLinkedIn: '+(document.getElementById('s-link').value||'—');}
+    else if(type==='propose'){name=document.getElementById('p-name').value.trim();email=document.getElementById('p-email').value.trim();desc=document.getElementById('p-desc').value.trim();extra='Title: '+document.getElementById('p-title').value+'\nTrack: '+document.getElementById('p-track').value;}
+    else{name=document.getElementById('c-name').value.trim();email=document.getElementById('c-email').value.trim();desc=document.getElementById('c-desc').value.trim();extra='Org: '+document.getElementById('c-org').value+'\nType: '+document.getElementById('c-type').value;}
+    if(!name||!email||!desc){alert('Please fill in all required fields.');return;}
+    const titles={join:'\ud83d\udce1 New Application',propose:'\ud83d\udca1 Project Proposal',collab:'\ud83e\udd1d Collaboration Inquiry',secretariat:'\u2699\ufe0f Secretariat Application'};
+    const payload={embeds:[{title:titles[type],color:0x7e3f61,fields:[{name:'Name',value:name,inline:true},{name:'Email',value:email,inline:true},{name:'Details',value:extra||'—'},{name:'Message',value:desc}],timestamp:new Date().toISOString()}]};
+    fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(res=>{if(res.ok){showSuccess(type,name,email,projectVal)}else{alert('Something went wrong ('+res.status+'). Try Discord.')}})
+    .catch(err=>{alert('Network error: '+err.message)});
+  }
+
+  function showSuccess(type,name,email,projectVal){
+    const fw=document.getElementById('formWrap');if(fw)fw.style.display='none';
+    const fs=document.getElementById('formSuccess');if(fs)fs.style.display='block';
+    if((type==='join'||type==='secretariat')&&projectVal){
+      const info=getTrackInfo(projectVal);
+      const tb=document.getElementById('taskBlock');if(tb)tb.style.display='block';
+      if(info.pdf){
+        const btn=document.getElementById('taskDownloadBtn');
+        btn.href=info.pdf;
+        btn.addEventListener('click',function(){
+          setTimeout(function(){
+            const deadline=deadlineDate();
+            const toEmail='chiamanna@yahoo.com';
+            const ccEmails='samrat@spacexairesearch.tech,jinnytruong@spacexairesearch.tech,alizayfatima@spacexairesearch.tech';
+            const subject=encodeURIComponent('SpacexAI Application \u2014 '+info.track+' \u2014 '+name);
+            const body=encodeURIComponent('Hi,\n\nI am confirming my application to SpacexAI for the '+info.track+' track.\n\nI have downloaded my task PDF and will submit by '+deadline+'.\n\nIf I need more time, I will reach out before the deadline.\n\nPlease feel free to ask if you have any doubts.\n\nName: '+name+'\nEmail: '+email);
+            window.location.href='mailto:'+toEmail+'?cc='+ccEmails+'&subject='+subject+'&body='+body;
+          },800);
+        });
+      }else{const btn=document.getElementById('taskDownloadBtn');if(btn)btn.style.display='none';}
+    }
+  }
+
+  // ── Project dropdown closed-project warning ──
+  const jproj=document.getElementById('j-project');
+  if(jproj)jproj.addEventListener('change',function(){
+    const closed=['lr1','mw1'];
+    const w=document.getElementById('closedWarning');
+    if(w){if(closed.includes(this.value)){w.style.display='block';this.value='';}else{w.style.display='none';}}
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+</script>
+</body>
+</html>
