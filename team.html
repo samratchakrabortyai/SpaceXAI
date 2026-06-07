@@ -1,443 +1,198 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>SpaceXAI — Team</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
-
-
 <nav>
-  <a href="index.html" class="nav-logo">Spacex<span>AI</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="research.html">Research</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="apply.html">Get Involved</a></li>
-  </ul>
-  <div class="nav-right">
-    <a href="https://discord.gg/7uQpQtCBdX" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Discord</a>
-    <a href="https://www.linkedin.com/company/spacexairesearch" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">LinkedIn</a>
-    <a href="https://www.instagram.com/spacexairesearch/" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:24px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Instagram</a>
-    <button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-    <a href="apply.html" class="nav-cta">Get Involved</a>
-  </div>
+<a class="nav-logo" href="index.html">Spacex<span>AI</span></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="team.html">Team</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="apply.html">Get Involved</a></li>
+</ul>
+<div class="nav-right">
+<a href="https://discord.gg/7uQpQtCBdX" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">Discord</a>
+<a href="https://www.linkedin.com/company/spacexairesearch" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">LinkedIn</a>
+<a href="https://www.instagram.com/spacexairesearch/" style="color:var(--muted); text-decoration:none; margin-right:24px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">Instagram</a>
+<button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
+<svg class="icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+<svg class="icon-sun" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg>
+</button>
+<a class="nav-cta" href="apply.html">Get Involved</a>
+</div>
 </nav>
-
 <section class="fade-in" id="team" style="padding:120px 40px 80px;background:var(--deep);">
-  <div class="section-inner">
-    <div class="section-tag">Organization</div>
-    <h2 class="section-title">Team Structure</h2>
-
-    <div class="organogram-container fade-in">
-      <!-- Executive -->
-      <div class="org-level" style="justify-content:center;">
-        <div class="org-node fade-in" >
-          <img src="images/Samrat.jpeg" alt="Samrat Chakraborty" loading="lazy">
-          <div class="org-role">PG Lead</div>
-          <div class="org-name">Samrat Chakraborty</div>
-          <div class="org-affil">Indian Association for the Cultivation of Sciences, India</div>
-        </div>
-        <div class="org-node fade-in" >
-          <img src="images/Jinny.png" alt="Anh (Jinny) Truong" loading="lazy">
-          <div class="org-role">PG Co-Lead</div>
-          <div class="org-name">Anh (Jinny) Truong</div>
-          <div class="org-affil"></div>
-        </div>
-        <div class="org-node fade-in" >
-          <div class="initials">AF</div>
-          <div class="org-role">PG Co-Lead</div>
-          <div class="org-name">Alizay Fatima</div>
-          <div class="org-affil">Institute of Space Technology, Pakistan</div>
-        </div>
-      </div>
-      <div class="org-line-v"></div>
-
-      <!-- Advisory Board -->
-      <div class="org-track-container trk-adv fade-in">
-      <div class="org-track-title">Advisory Board</div>
-      <div class="org-track-grid"><div class="org-node fade-in" >
-      <div class="initials">RC</div>
-      <div class="org-role">Cybersecurity Advisor</div>
-      <div class="org-name">Romane Croizet Fontane</div>
-      <div class="org-affil"></div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">JC</div>
-      <div class="org-role">Senior Technical Advisor</div>
-      <div class="org-name">Jimin Choi</div>
-      <div class="org-affil">University of Michigan, Ann Arbor</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">JT</div>
-      <div class="org-role">Legal Advisor</div>
-      <div class="org-name">Joseph Turano</div>
-      <div class="org-affil"></div>
-    </div></div>
-    </div>
-
-      <!-- Secretariat -->
-      <div class="org-track-container trk-sec fade-in">
-      <div class="org-track-title">Secretariat</div>
-      <div class="org-track-grid"><div class="org-node fade-in" >
-      <div class="initials">CA</div>
-      <div class="org-role">Lead</div>
-      <div class="org-name">Chidinma Amanna</div>
-      <div class="org-affil">University of Lagos, Nigeria</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">CN</div>
-      <div class="org-role">Media & Operations</div>
-      <div class="org-name">Charlotte Nguyen</div>
-      <div class="org-affil"></div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">MN</div>
-      <div class="org-role">Media & Operations</div>
-      <div class="org-name">Marcus Nguyen</div>
-      <div class="org-affil"></div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">SD</div>
-      <div class="org-role">Operations</div>
-      <div class="org-name">Sanjukta Deshpande</div>
-      <div class="org-affil">Independent Researcher, India</div>
-    </div></div>
-    </div>
-
-      <!-- Literature Review -->
-      <div class="org-track-container trk-lr fade-in">
-      <div class="org-track-title">Literature Review (LR)</div>
-      <div class="org-track-grid"><div class="org-node fade-in" >
-      <div class="initials">IL</div>
-      <div class="org-role">Track Lead</div>
-      <div class="org-name">Isabel LaCoss</div>
-      <div class="org-affil">Embry-Riddle Aeronautical University, FL, USA</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">AS</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Abdelmalek Saadi-Drissi</div>
-      <div class="org-affil"></div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">EV</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Emil Velichka</div>
-      <div class="org-affil"></div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">HH</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Hsien Hao Lai</div>
-      <div class="org-affil">National University of Singapore</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">JC</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Jimin Choi</div>
-      <div class="org-affil">University of Michigan, Ann Arbor</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">RL</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Robert Larini</div>
-      <div class="org-affil">Independent Researcher, UK</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">SD</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Sanjukta Deshpande</div>
-      <div class="org-affil">Independent Researcher, India</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">LO</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Leyli Oliver Amuzu Justice</div>
-      <div class="org-affil"></div>
-    </div></div>
-    </div>
-
-      <!-- Methodology Writing -->
-      <div class="org-track-container trk-mw fade-in">
-      <div class="org-track-title">Methodology Writing (MW)</div>
-      <div class="org-track-grid"><div class="org-node fade-in" >
-      <div class="initials">PW</div>
-      <div class="org-role">Track Lead</div>
-      <div class="org-name">Paarvi Wadhwa</div>
-      <div class="org-affil">University of Delhi, India</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">KM</div>
-      <div class="org-role">Co-Lead</div>
-      <div class="org-name">Karthikeya Moyye</div>
-      <div class="org-affil">Independent Researcher, India</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">AS</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Abdelmalek Saadi-Drissi</div>
-      <div class="org-affil"></div>
-    </div>
-<div class="org-node fade-in" >
-      <img src="images/TF_MW_Anish.jpg" alt="Anish Mahapatra" loading="lazy">
-      <div class="org-role">Member</div>
-      <div class="org-name">Anish Mahapatra</div>
-      <div class="org-affil">Manipal University Jaipur, India</div>
-    </div>
-<div class="org-node fade-in" >
-      <img src="images/MW_TF_Aryan.jpg" alt="Aryan Kumar Srivastav" loading="lazy">
-      <div class="org-role">Member</div>
-      <div class="org-name">Aryan Kumar Srivastav</div>
-      <div class="org-affil">IISER Tirupati, India</div>
-    </div>
-<div class="org-node fade-in" >
-      <img src="images/TF_Hasibul.jpg" alt="Hasibul Hasan Shanto" loading="lazy">
-      <div class="org-role">Member</div>
-      <div class="org-name">Hasibul Hasan Shanto</div>
-      <div class="org-affil">United International University, Dhaka</div>
-    </div>
-<div class="org-node fade-in" >
-      <img src="images/TF_Meghana.jpg" alt="Meghana Sannapareddy" loading="lazy">
-      <div class="org-role">Member</div>
-      <div class="org-name">Meghana Sannapareddy</div>
-      <div class="org-affil">IIT Mandi, India</div>
-    </div>
-<div class="org-node fade-in" >
-      <img src="images/MW_Om.jpg" alt="Om Atmaram Khairnar" loading="lazy">
-      <div class="org-role">Member</div>
-      <div class="org-name">Om Atmaram Khairnar</div>
-      <div class="org-affil">IIST, India</div>
-    </div>
-<div class="org-node fade-in" >
-      <img src="images/MW_Paula.jpg" alt="Paula Ixquiac" loading="lazy">
-      <div class="org-role">Member</div>
-      <div class="org-name">Paula Ixquiac</div>
-      <div class="org-affil">Instituto de Estudios Avanzados, Guatemala</div>
-    </div>
-<div class="org-node fade-in" >
-      <img src="images/MW_Tanvi.jpg" alt="Tanvi Gupta" loading="lazy">
-      <div class="org-role">Member</div>
-      <div class="org-name">Tanvi Gupta</div>
-      <div class="org-affil">Amity University, India</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">VJ</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Vidhi Jain</div>
-      <div class="org-affil">Independent Researcher, India</div>
-    </div></div>
-    </div>
-
-      <!-- Regulatory & Ethics -->
-      <div class="org-track-container trk-re fade-in">
-      <div class="org-track-title">Regulatory & Ethics (RE)</div>
-      <div class="org-track-grid"><div class="org-node fade-in" >
-      <div class="initials">RA</div>
-      <div class="org-role">Track Lead</div>
-      <div class="org-name">Dr. Rachita Agrawal</div>
-      <div class="org-affil"></div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">MA</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">M Abdullah Khan</div>
-      <div class="org-affil">SGAC, Bangladesh</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">AT</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Anh Truong</div>
-      <div class="org-affil">Dedale Intelligence</div>
-    </div>
-<div class="org-node fade-in" >
-      <img src="images/PE_Sulekha.jpg" alt="Sulekha Komeravelli" loading="lazy">
-      <div class="org-role">Member</div>
-      <div class="org-name">Sulekha Komeravelli</div>
-      <div class="org-affil">IISER Mohali, India</div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">BB</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Benjamin Brumm</div>
-      <div class="org-affil"></div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">RC</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Romane Croizet Fontane</div>
-      <div class="org-affil"></div>
-    </div>
-<div class="org-node fade-in" >
-      <div class="initials">JD</div>
-      <div class="org-role">Member</div>
-      <div class="org-name">Jessica Durbano</div>
-      <div class="org-affil"></div>
-    </div></div>
-    </div>
-
-      <!-- OIS -->
-      <div class="org-track-container trk-ois fade-in">
-        <div class="org-track-title">Onboard Intelligence & Systems (OIS)</div>
-        <div style="font-size:11px;color:var(--muted);text-align:center;margin-bottom:16px;font-family:'IBM Plex Mono',monospace;">Systems Architecture (SA) + Technical Frameworks (TF)</div>
-        <div class="org-track-grid">
-          <div class="org-node fade-in" >
-      <div class="initials">BR</div>
-      <div class="org-role">Track Lead (SA)</div>
-      <div class="org-name">Bhuvan Ravikumar</div>
-      <div class="org-affil">University of Southern California, USA</div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">VJ</div>
-      <div class="org-role">Co-Lead (TF)</div>
-      <div class="org-name">Vidhi Jain</div>
-      <div class="org-affil">Independent Researcher, India</div>
-    </div>
-          <div class="org-node fade-in" >
-      <img src="images/TF_Manish.jpg" alt="Manish R. Tiwari" loading="lazy">
-      <div class="org-role">Co-Lead (TF)</div>
-      <div class="org-name">Manish R. Tiwari</div>
-      <div class="org-affil">IIT Mandi, India</div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">GD</div>
-      <div class="org-role">Co-Lead (SA)</div>
-      <div class="org-name">Giustina Di Donato</div>
-      <div class="org-affil">SGAC</div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">CM</div>
-      <div class="org-role">SA</div>
-      <div class="org-name">Carlos Morales-Ramirez</div>
-      <div class="org-affil">SGAC</div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">FW</div>
-      <div class="org-role">SA + TF</div>
-      <div class="org-name">Floris Weyand</div>
-      <div class="org-affil"></div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">CA</div>
-      <div class="org-role">SA</div>
-      <div class="org-name">Chidinma Amanna</div>
-      <div class="org-affil">University of Lagos, Nigeria</div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">TS</div>
-      <div class="org-role">SA</div>
-      <div class="org-name">Tanmay Sharma</div>
-      <div class="org-affil"></div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">BB</div>
-      <div class="org-role">SA</div>
-      <div class="org-name">Benjamin Brumm</div>
-      <div class="org-affil"></div>
-    </div>
-          <div class="org-node fade-in" >
-      <img src="images/TF_MW_Anish.jpg" alt="Anish Mahapatra" loading="lazy">
-      <div class="org-role">TF</div>
-      <div class="org-name">Anish Mahapatra</div>
-      <div class="org-affil">Manipal University Jaipur, India</div>
-    </div>
-          <div class="org-node fade-in" >
-      <img src="images/MW_TF_Aryan.jpg" alt="Aryan Kumar Srivastav" loading="lazy">
-      <div class="org-role">TF</div>
-      <div class="org-name">Aryan Kumar Srivastav</div>
-      <div class="org-affil">IISER Tirupati, India</div>
-    </div>
-          <div class="org-node fade-in" >
-      <img src="images/TF_Hasibul.jpg" alt="Hasibul Hasan Shanto" loading="lazy">
-      <div class="org-role">TF</div>
-      <div class="org-name">Hasibul Hasan Shanto</div>
-      <div class="org-affil">United International University, Dhaka</div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">JS</div>
-      <div class="org-role">TF</div>
-      <div class="org-name">Jeeval Shah</div>
-      <div class="org-affil"></div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">KM</div>
-      <div class="org-role">TF</div>
-      <div class="org-name">Karthikeya Moyye</div>
-      <div class="org-affil">Independent Researcher, India</div>
-    </div>
-          <div class="org-node fade-in" >
-      <img src="images/TF_Vivekini.jpg" alt="Vivekini Mata" loading="lazy">
-      <div class="org-role">TF</div>
-      <div class="org-name">Vivekini Mata</div>
-      <div class="org-affil">Jain University, Bengaluru, India</div>
-    </div>
-          <div class="org-node fade-in" >
-      <img src="images/TF_Meghana.jpg" alt="Meghana Sannapareddy" loading="lazy">
-      <div class="org-role">TF</div>
-      <div class="org-name">Meghana Sannapareddy</div>
-      <div class="org-affil">IIT Mandi, India</div>
-    </div>
-          <div class="org-node fade-in" >
-      <img src="images/TF_Mudit.jpg" alt="Mudit Khater" loading="lazy">
-      <div class="org-role">TF</div>
-      <div class="org-name">Mudit Khater</div>
-      <div class="org-affil">SRM IST, Chennai, India</div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">SD</div>
-      <div class="org-role">TF</div>
-      <div class="org-name">Sanjukta Deshpande</div>
-      <div class="org-affil">Independent Researcher, India</div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">SP</div>
-      <div class="org-role">TF</div>
-      <div class="org-name">Swayam Pawar</div>
-      <div class="org-affil">IIST, India</div>
-    </div>
-          <div class="org-node fade-in" >
-      <div class="initials">YY</div>
-      <div class="org-role">TF</div>
-      <div class="org-name">Yassine Yousfi</div>
-      <div class="org-affil">SGAC</div>
-    </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-tag">Organization</div>
+<h2 class="section-title">Team Structure</h2>
+<div class="organogram-container fade-in">
+<!-- Executive -->
+<div class="org-level" style="justify-content:center;">
+<div class="org-node fade-in">
+<img alt="Samrat Chakraborty" loading="lazy" src="images/Samrat.jpeg"/>
+<div class="org-role">PG Lead</div>
+<div class="org-name">Samrat Chakraborty</div>
+<div class="org-affil">Indian Association for the Cultivation of Sciences, India</div>
+</div>
+<div class="org-node fade-in">
+<img alt="Anh (Jinny) Truong" loading="lazy" src="images/LDS_Jinny.png"/>
+<div class="org-role">PG Co-Lead</div>
+<div class="org-name">Anh (Jinny) Truong</div>
+<div class="org-affil">Dedale Intelligence</div>
+</div>
+<div class="org-node fade-in">
+<div class="initials">AF</div>
+<div class="org-role">PG Co-Lead</div>
+<div class="org-name">Alizay Fatima</div>
+<div class="org-affil">Institute of Space Technology, Pakistan</div>
+</div>
+</div>
+<!-- Advisory Board -->
+<div class="org-track-container trk-adv fade-in">
+<div class="org-track-title">Advisory Board</div>
+<div class="org-track-grid"><div class="org-node fade-in">
+<div class="initials">RC</div>
+<div class="org-role">Cybersecurity Advisor</div>
+<div class="org-name">Romane Croizet Fontane</div>
+<div class="org-affil"></div>
+</div>
+<div class="org-node fade-in">
+<div class="initials">JC</div>
+<div class="org-role">Senior Technical Advisor</div>
+<div class="org-name">Jimin Choi</div>
+<div class="org-affil">University of Michigan, Ann Arbor</div>
+</div>
+<div class="org-node fade-in">
+<div class="initials">JT</div>
+<div class="org-role">Legal Advisor</div>
+<div class="org-name">Joseph Turano</div>
+<div class="org-affil"></div>
+</div></div>
+</div>
+<!-- Secretariat -->
+<div class="org-track-container trk-sec fade-in">
+<div class="org-track-title">Secretariat</div>
+<div class="org-track-grid"><div class="org-node fade-in"><div class="initials">CH</div><div class="org-role">Track Lead</div><div class="org-name">Chidinma Amanna</div><div class="org-affil">University of Lagos, Nigeria</div></div><div class="org-node fade-in"><div class="initials">CH</div><div class="org-role">Media &amp; Operations</div><div class="org-name">Charlotte Nguyen</div><div class="org-affil"></div></div><div class="org-node fade-in"><div class="initials">BL</div><div class="org-role">Member</div><div class="org-name">Blessing Okafor</div><div class="org-affil">Nigeria</div></div><div class="org-node fade-in"><div class="initials">DI</div><div class="org-role">Member</div><div class="org-name">Diego Paniagua Silva</div><div class="org-affil">United Kingdom</div></div><div class="org-node fade-in"><div class="initials">SA</div><div class="org-role">Member</div><div class="org-name">Sanjukta Deshpande</div><div class="org-affil">Independent Researcher, India</div></div></div>
+</div>
+</div>
+</div>
+<!-- Literature Review -->
+<div class="org-track-container trk-lr fade-in">
+<div class="org-track-title">Literature Review (LR)</div>
+<div class="org-track-grid"><div class="org-node fade-in"><div class="initials">IS</div><div class="org-role">Track Lead</div><div class="org-name">Isabel LaCoss</div><div class="org-affil">Embry-Riddle Aeronautical University, FL, USA</div></div><div class="org-node fade-in"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amara Isikaku</div><div class="org-affil">Canada</div></div><div class="org-node fade-in"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amuzu Justice</div><div class="org-affil">Ghana</div></div><div class="org-node fade-in"><img alt="Ankit Thakur" loading="lazy" src="images/MW_Ankit.jpg"/><div class="org-role">Member</div><div class="org-name">Ankit Thakur</div><div class="org-affil">India</div></div><div class="org-node fade-in"><div class="initials">AR</div><div class="org-role">Member</div><div class="org-name">Arif Emre Özden</div><div class="org-affil">Germany</div></div><div class="org-node fade-in"><div class="initials">BL</div><div class="org-role">Member</div><div class="org-name">Blessing Okafor</div><div class="org-affil">Nigeria</div></div><div class="org-node fade-in"><div class="initials">DA</div><div class="org-role">Member</div><div class="org-name">Davyani Vasta</div><div class="org-affil">Canada</div></div><div class="org-node fade-in"><div class="initials">DE</div><div class="org-role">Member</div><div class="org-name">Derrick Ayitey</div><div class="org-affil">Ghana</div></div><div class="org-node fade-in"><div class="initials">DI</div><div class="org-role">Member</div><div class="org-name">Diego Paniagua Silva</div><div class="org-affil">United Kingdom</div></div><div class="org-node fade-in"><div class="initials">EM</div><div class="org-role">Member</div><div class="org-name">Emil B. Velichka</div><div class="org-affil">Belarus </div></div><div class="org-node fade-in"><div class="initials">HS</div><div class="org-role">Member</div><div class="org-name">Hsien Hao Lai</div><div class="org-affil">National University of Singapore, Singapore</div></div><div class="org-node fade-in"><div class="initials">JE</div><div class="org-role">Member</div><div class="org-name">Jessica Durbano</div><div class="org-affil">Italy</div></div><div class="org-node fade-in"><img alt="M Abdullah Khan" loading="lazy" src="images/PE_Abdullah_.jpg"/><div class="org-role">Member</div><div class="org-name">M Abdullah Khan</div><div class="org-affil">SGAC, Bangladesh</div></div><div class="org-node fade-in"><img alt="Paula Ixquiac Madrigales" loading="lazy" src="images/MW_Paula.jpg"/><div class="org-role">Member</div><div class="org-name">Paula Ixquiac Madrigales</div><div class="org-affil">Instituto de Estudios Avanzados, Guatemala</div></div><div class="org-node fade-in"><div class="initials">RO</div><div class="org-role">Member</div><div class="org-name">Robel Gudissa</div><div class="org-affil">Ethiopia </div></div><div class="org-node fade-in"><div class="initials">SA</div><div class="org-role">Member</div><div class="org-name">Sanjukta Deshpande</div><div class="org-affil">Independent Researcher, India</div></div><div class="org-node fade-in"><div class="initials">YA</div><div class="org-role">Member</div><div class="org-name">Yassine Yousfi</div><div class="org-affil">SGAC, France</div></div></div>
+</div>
+<!-- Methodology Writing -->
+<div class="org-track-container trk-mw fade-in">
+<div class="org-track-title">Methodology Writing (MW)</div>
+<div class="org-track-grid"><div class="org-node fade-in"><img alt="Karthikeya Moyye" loading="lazy" src="images/MW_Moyye_.png"/><div class="org-role">Track Lead</div><div class="org-name">Karthikeya Moyye</div><div class="org-affil">India</div></div><div class="org-node fade-in"><img alt="Paarvi Wadhwa" loading="lazy" src="images/Paarvi Wadhwa[MW].jpg"/><div class="org-role">Track Lead</div><div class="org-name">Paarvi Wadhwa</div><div class="org-affil">India </div></div><div class="org-node fade-in"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amara Isikaku</div><div class="org-affil">Canada</div></div><div class="org-node fade-in"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amoah Kwame</div><div class="org-affil">Ghana</div></div><div class="org-node fade-in"><img alt="Ankit Thakur" loading="lazy" src="images/MW_Ankit.jpg"/><div class="org-role">Member</div><div class="org-name">Ankit Thakur</div><div class="org-affil">India</div></div><div class="org-node fade-in"><img alt="Aryan Kumar Srivastav" loading="lazy" src="images/MW_TF_Aryan.jpg"/><div class="org-role">Member</div><div class="org-name">Aryan Kumar Srivastav</div><div class="org-affil">IISER Tirupati, India</div></div><div class="org-node fade-in"><div class="initials">DE</div><div class="org-role">Member</div><div class="org-name">Derrick Ayitey</div><div class="org-affil">Ghana</div></div><div class="org-node fade-in"><div class="initials">DI</div><div class="org-role">Member</div><div class="org-name">Diego Paniagua Silva</div><div class="org-affil">United Kingdom</div></div><div class="org-node fade-in"><img alt="M Abdullah Khan" loading="lazy" src="images/PE_Abdullah_.jpg"/><div class="org-role">Member</div><div class="org-name">M Abdullah Khan</div><div class="org-affil">SGAC, Bangladesh</div></div><div class="org-node fade-in"><div class="initials">MA</div><div class="org-role">Member</div><div class="org-name">Mansi Gupta</div><div class="org-affil">India</div></div><div class="org-node fade-in"><img alt="Om Atmaram Khairnar" loading="lazy" src="images/MW_Om.jpg"/><div class="org-role">Member</div><div class="org-name">Om Atmaram Khairnar</div><div class="org-affil">IIST, India</div></div><div class="org-node fade-in"><img alt="Paula Ixquiac Madrigales" loading="lazy" src="images/MW_Paula.jpg"/><div class="org-role">Member</div><div class="org-name">Paula Ixquiac Madrigales</div><div class="org-affil">Instituto de Estudios Avanzados, Guatemala</div></div><div class="org-node fade-in"><img alt="Tanvi Gupta" loading="lazy" src="images/MW_Tanvi.jpg"/><div class="org-role">Member</div><div class="org-name">Tanvi Gupta</div><div class="org-affil">Amity University, India</div></div><div class="org-node fade-in"><div class="initials">TH</div><div class="org-role">Member</div><div class="org-name">Thierry Huot</div><div class="org-affil">Canada</div></div><div class="org-node fade-in"><div class="initials">YA</div><div class="org-role">Member</div><div class="org-name">Yassine Yousfi</div><div class="org-affil">SGAC, France</div></div></div>
+</div>
+<!-- Regulatory & Ethics -->
+<div class="org-track-container trk-re fade-in">
+<div class="org-track-title">Regulatory &amp; Ethics (RE)</div>
+<div class="org-track-grid"><div class="org-node fade-in"><div class="initials">DR</div><div class="org-role">Track Lead</div><div class="org-name">Dr. Rachita Agrawal</div><div class="org-affil">India</div></div><div class="org-node fade-in"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amara Isikaku</div><div class="org-affil">Canada</div></div><div class="org-node fade-in"><div class="initials">BE</div><div class="org-role">Member</div><div class="org-name">Benedict Julian Zefanya Batubara</div><div class="org-affil">Indonesia</div></div><div class="org-node fade-in"><div class="initials">BE</div><div class="org-role">Member</div><div class="org-name">Benjamin Brumm</div><div class="org-affil">Canada</div></div><div class="org-node fade-in"><div class="initials">DI</div><div class="org-role">Member</div><div class="org-name">Diego Paniagua Silva</div><div class="org-affil">United Kingdom</div></div><div class="org-node fade-in"><div class="initials">JO</div><div class="org-role">Member</div><div class="org-name">Joseph Turano</div><div class="org-affil">United States</div></div><div class="org-node fade-in"><div class="initials">KA</div><div class="org-role">Member</div><div class="org-name">Katherine Neal</div><div class="org-affil">USA</div></div><div class="org-node fade-in"><img alt="M Abdullah Khan" loading="lazy" src="images/PE_Abdullah_.jpg"/><div class="org-role">Member</div><div class="org-name">M Abdullah Khan</div><div class="org-affil">SGAC, Bangladesh</div></div><div class="org-node fade-in"><img alt="Sulekha Komeravelli" loading="lazy" src="images/PE_Sulekha.jpg"/><div class="org-role">Member</div><div class="org-name">Sulekha Komeravelli</div><div class="org-affil">IISER Mohali, India</div></div></div>
+</div>
+<!-- OIS -->
+<div class="org-track-container trk-ois fade-in">
+<div class="org-track-title">Onboard Intelligence &amp; Systems (OIS)</div>
+<div style="font-size:11px;color:var(--muted);text-align:center;margin-bottom:16px;font-family:'IBM Plex Mono',monospace;">Systems Architecture (SA) + Technical Frameworks (TF)</div>
+<div class="org-track-grid"><div class="org-node fade-in"><div class="initials">BH</div><div class="org-role">Track Lead</div><div class="org-name">Bhuvan Ravikumar</div><div class="org-affil">USC, United States</div></div><div class="org-node fade-in"><img alt="Manish tiwari" loading="lazy" src="images/TF_Manish.jpg"/><div class="org-role">Track Lead</div><div class="org-name">Manish tiwari</div><div class="org-affil">IIT Mandi, India</div></div><div class="org-node fade-in"><img alt="Vidhi Jain" loading="lazy" src="images/Vidhi Jain [TF].jpeg"/><div class="org-role">Track Lead</div><div class="org-name">Vidhi Jain</div><div class="org-affil">Independent Researcher, India</div></div><div class="org-node fade-in"><div class="initials">AD</div><div class="org-role">Member</div><div class="org-name">Adelu Faidat</div><div class="org-affil">Nigeria </div></div><div class="org-node fade-in"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amna Bashir</div><div class="org-affil">United Arab Emirates</div></div><div class="org-node fade-in"><img alt="Aryan Kumar Srivastav" loading="lazy" src="images/MW_TF_Aryan.jpg"/><div class="org-role">Member</div><div class="org-name">Aryan Kumar Srivastav</div><div class="org-affil">IISER Tirupati, India</div></div><div class="org-node fade-in"><div class="initials">BE</div><div class="org-role">Member</div><div class="org-name">Benedict Julian Zefanya Batubara</div><div class="org-affil">Indonesia</div></div><div class="org-node fade-in"><div class="initials">BE</div><div class="org-role">Member</div><div class="org-name">Benjamin Brumm</div><div class="org-affil">Canada</div></div><div class="org-node fade-in"><div class="initials">DA</div><div class="org-role">Member</div><div class="org-name">Davyani Vasta</div><div class="org-affil">Canada</div></div><div class="org-node fade-in"><div class="initials">DE</div><div class="org-role">Member</div><div class="org-name">Derrick Ayitey</div><div class="org-affil">Ghana</div></div><div class="org-node fade-in"><div class="initials">DI</div><div class="org-role">Member</div><div class="org-name">Diego Paniagua Silva</div><div class="org-affil">United Kingdom</div></div><div class="org-node fade-in"><div class="initials">JE</div><div class="org-role">Member</div><div class="org-name">Jeeval Shah</div><div class="org-affil">India</div></div><div class="org-node fade-in"><div class="initials">JE</div><div class="org-role">Member</div><div class="org-name">Jessica Anabor</div><div class="org-affil">Nigeria</div></div><div class="org-node fade-in"><img alt="Mata Vivekini" loading="lazy" src="images/TF_Vivekini.jpg"/><div class="org-role">Member</div><div class="org-name">Mata Vivekini</div><div class="org-affil">Jain University, India</div></div><div class="org-node fade-in"><img alt="Mudit Khater" loading="lazy" src="images/TF_Mudit.jpg"/><div class="org-role">Member</div><div class="org-name">Mudit Khater</div><div class="org-affil">SRM IST, India</div></div><div class="org-node fade-in"><div class="initials">RO</div><div class="org-role">Member</div><div class="org-name">Robel Gudissa</div><div class="org-affil">Ethiopia </div></div><div class="org-node fade-in"><div class="initials">SA</div><div class="org-role">Member</div><div class="org-name">Sanjukta Deshpande</div><div class="org-affil">Independent Researcher, India</div></div><div class="org-node fade-in"><div class="initials">TA</div><div class="org-role">Member</div><div class="org-name">Tanmay Sharma</div><div class="org-affil">India</div></div><div class="org-node fade-in"><div class="initials">TH</div><div class="org-role">Member</div><div class="org-name">Thierry Huot</div><div class="org-affil">Canada</div></div><div class="org-node fade-in"><div class="initials">YA</div><div class="org-role">Member</div><div class="org-name">Yassine Yousfi</div><div class="org-affil">SGAC, France</div></div></div>
+</div>
 </section>
+<section class="fade-in" style="padding:80px 40px;background:var(--bg);">
+<div class="section-inner">
+<div class="section-tag">Global Presence</div>
+<h2 class="section-title">Team Demographics</h2>
+<div id="globeChart" style="width: 100%; height: 500px; margin-top: 40px;"></div>
+</div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var chartDom = document.getElementById('globeChart');
+  if(!chartDom) return;
+  var myChart = echarts.init(chartDom, 'dark');
+  
+  const data = [
+    {name: "India", value: 12}, {name: "Nigeria", value: 5}, {name: "Canada", value: 4},
+    {name: "Ghana", value: 4}, {name: "United States", value: 3}, {name: "United Kingdom", value: 1},
+    {name: "France", value: 1}, {name: "Italy", value: 1}, {name: "Germany", value: 1},
+    {name: "Vietnam", value: 1}, {name: "Indonesia", value: 1}, {name: "Bangladesh", value: 1},
+    {name: "Guatemala", value: 1}, {name: "Ethiopia", value: 1}, {name: "Singapore", value: 1},
+    {name: "United Arab Emirates", value: 1}, {name: "Belarus", value: 1}
+  ];
 
+  var option = {
+    backgroundColor: 'transparent',
+    tooltip: {
+      trigger: 'item',
+      formatter: '{b}: {c} members ({d}%)',
+      backgroundColor: 'rgba(5,5,8,0.9)',
+      borderColor: '#06b6d4',
+      textStyle: { color: '#fff', fontFamily: 'IBM Plex Mono' }
+    },
+    legend: {
+      type: 'scroll',
+      orient: 'vertical',
+      right: 10,
+      top: 20,
+      bottom: 20,
+      textStyle: { color: '#8b8b9e', fontFamily: 'IBM Plex Mono', fontSize: 10 }
+    },
+    series: [
+      {
+        name: 'Countries',
+        type: 'pie',
+        radius: ['40%', '70%'],
+        center: ['45%', '50%'],
+        roseType: 'area',
+        itemStyle: {
+          borderRadius: 8,
+          borderColor: '#050508',
+          borderWidth: 2
+        },
+        label: {
+          color: '#fff',
+          fontFamily: 'Syne',
+          formatter: '{b}\n{d}%'
+        },
+        data: data
+      }
+    ]
+  };
+  myChart.setOption(option);
+  window.addEventListener('resize', function() { myChart.resize(); });
+});
+</script>
 <footer>
-  <div class="footer-logo">Spacex<span>AI</span></div>
-  <div class="footer-copy">Space AI Research Group<br>
-    <span style="font-size:9px;">© 2026 SpacexAI</span><br>
-    <div class="contact-row">
-      <a href="mailto:outreach@spacexairesearch.tech">outreach@spacexairesearch.tech</a>
-      <a href="mailto:contact.us@spacexairesearch.tech">contact.us@spacexairesearch.tech</a>
-    </div>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="team.html">Team</a>
-    <a href="news.html">News</a>
-    <a href="apply.html">Get Involved</a>
-  </div>
+<div class="footer-logo">Spacex<span>AI</span></div>
+<div class="footer-copy">Space AI Research Group<br/>
+<span style="font-size:9px;">© 2026 SpacexAI</span><br/>
+<div class="contact-row">
+<a href="mailto:outreach@spacexairesearch.tech">outreach@spacexairesearch.tech</a>
+<a href="mailto:contact.us@spacexairesearch.tech">contact.us@spacexairesearch.tech</a>
+</div>
+</div>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="research.html">Research</a>
+<a href="team.html">Team</a>
+<a href="news.html">News</a>
+<a href="apply.html">Get Involved</a>
+</div>
 </footer>
-
 <script>
   // ── CURSOR ──
   const cursor = document.getElementById('cursor');

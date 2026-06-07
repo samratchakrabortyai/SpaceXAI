@@ -1,79 +1,75 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>SpaceXAI — News</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
-<link rel="stylesheet" href="styles.css">
-</head>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="styles.css" rel="stylesheet"/>
+<script data-use-service-core="" defer="defer" src="https://static.elfsight.com/platform/platform.js"></script></head>
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
-
-
 <nav>
-  <a href="index.html" class="nav-logo">Spacex<span>AI</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="research.html">Research</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="apply.html">Get Involved</a></li>
-  </ul>
-  <div class="nav-right">
-    <a href="https://discord.gg/7uQpQtCBdX" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Discord</a>
-    <a href="https://www.linkedin.com/company/spacexairesearch" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">LinkedIn</a>
-    <a href="https://www.instagram.com/spacexairesearch/" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:24px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Instagram</a>
-    <button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-    <a href="apply.html" class="nav-cta">Get Involved</a>
-  </div>
+<a class="nav-logo" href="index.html">Spacex<span>AI</span></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="team.html">Team</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="apply.html">Get Involved</a></li>
+</ul>
+<div class="nav-right">
+<a href="https://discord.gg/7uQpQtCBdX" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">Discord</a>
+<a href="https://www.linkedin.com/company/spacexairesearch" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">LinkedIn</a>
+<a href="https://www.instagram.com/spacexairesearch/" style="color:var(--muted); text-decoration:none; margin-right:24px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">Instagram</a>
+<button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
+<svg class="icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+<svg class="icon-sun" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg>
+</button>
+<a class="nav-cta" href="apply.html">Get Involved</a>
+</div>
 </nav>
-
 <section class="fade-in" style="padding:120px 40px 60px;background:var(--deep);">
-  <div class="section-inner">
-    <div class="section-tag">Updates & Articles</div>
-    <h2 class="section-title">Latest News</h2>
-    <p style="font-size:13px;color:var(--muted);max-width:600px;line-height:1.7;margin-bottom:10px;">News posts are loaded from the <code style="font-size:11px;background:var(--surface);padding:2px 6px;border-radius:3px;">news/</code> folder. Each subfolder contains a <code style="font-size:11px;background:var(--surface);padding:2px 6px;border-radius:3px;">post.md</code> file and optional images.</p>
+<div class="section-inner">
+<div class="section-tag">Updates &amp; Articles</div>
+<h2 class="section-title">Latest News</h2>
+<p style="font-size:13px;color:var(--muted);max-width:600px;line-height:1.7;margin-bottom:10px;">News posts are loaded from the <code style="font-size:11px;background:var(--surface);padding:2px 6px;border-radius:3px;">news/</code> folder. Each subfolder contains a <code style="font-size:11px;background:var(--surface);padding:2px 6px;border-radius:3px;">post.md</code> file and optional images.</p>
+<div class="news-grid" id="newsGrid"></div>
+<!-- Social Feeds Section -->
+<div class="social-feed-section fade-in">
+<div class="section-tag">Social Media</div>
+<h3 style="font-size:24px;color:var(--white);font-family:'Syne',sans-serif;font-weight:700;margin-top:8px;">Follow Us</h3>
+<div class="social-feeds">
+<div class="social-feed-card">
+<h4>
+<svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg>
+              LinkedIn
+            </h4>
+<a href="https://www.linkedin.com/company/spacexairesearch" style="display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-decoration:none;font-size:12px;font-family:'IBM Plex Mono',monospace;margin-bottom:14px;" target="_blank">Follow @spacexairesearch ↗</a>
+<div style="width: 100%; height: 400px; max-height: 400px; overflow: hidden; position: relative; border-radius: 6px;">
+<div class="elfsight-app-46eadfe4-4280-4c51-928e-7bdb2f6eb984" data-elfsight-app-lazy=""></div>
+</div>
+</div>
+<div class="social-feed-card">
+<h4>
+<svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 7 1.25 1.25 0 0 1 16 5.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+              Instagram
+            </h4>
+<a href="https://www.instagram.com/spacexairesearch/" style="display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-decoration:none;font-size:12px;font-family:'IBM Plex Mono',monospace;margin-bottom:14px;" target="_blank">Follow @spacexairesearch ↗</a>
+<div style="width: 100%; height: 400px; max-height: 400px; overflow: hidden; position: relative; border-radius: 6px;">
+<div class="elfsight-app-930ce4eb-0109-4c52-acd0-626971709b8f" data-elfsight-app-lazy=""></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-    <div class="news-grid" id="newsGrid"></div>
-
-    <!-- Social Feeds Section -->
-    <div class="social-feed-section fade-in">
-      <div class="section-tag">Social Media</div>
-      <h3 style="font-size:24px;color:var(--white);font-family:'Syne',sans-serif;font-weight:700;margin-top:8px;">Follow Us</h3>
-      <div class="social-feeds">
-        <div class="social-feed-card">
-          <h4>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-            LinkedIn
-          </h4>
-          <a href="https://www.linkedin.com/company/spacexairesearch" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-decoration:none;font-size:12px;font-family:'IBM Plex Mono',monospace;margin-bottom:14px;">Follow @spacexairesearch →</a>
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:organization:spacexairesearch" height="400" frameborder="0" allowfullscreen="" title="LinkedIn Feed" style="background:var(--surface);border-radius:6px;"></iframe>
-        </div>
-        <div class="social-feed-card">
-          <h4>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 7 1.25 1.25 0 0 1 16 5.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
-            Instagram
-          </h4>
-          <a href="https://www.instagram.com/spacexairesearch/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-decoration:none;font-size:12px;font-family:'IBM Plex Mono',monospace;margin-bottom:14px;">Follow @spacexairesearch →</a>
-          <div style="text-align:center;padding:40px 20px;background:var(--surface);border-radius:6px;color:var(--muted);font-size:12px;line-height:1.6;">
-            <p>Instagram feed requires embedding via Meta Business tools.</p>
-            <a href="https://www.instagram.com/spacexairesearch/" target="_blank" style="display:inline-block;margin-top:12px;padding:8px 20px;background:var(--cyan);color:var(--white);text-decoration:none;border-radius:4px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">View on Instagram</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
-
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
 // ── Load news from folder-based markdown ──
@@ -81,10 +77,13 @@
 // Jinny writes posts by creating news/<folder>/post.md
 // This JS renders the cards, and when clicked, fetches and renders the markdown in a modal/viewer.
 const NEWS_MANIFEST = [
-  { folder:'satish-iac-2026', title:'SATISH v2 Accepted for IAC 2026', date:'June 1, 2026', category:'Research', excerpt:'Our flagship architecture for CubeSat risk prediction has been selected for oral presentation at IAC 2026 in Milan.' },
-  { folder:'agrotwin-launch', title:'AgroTwin Project Initiated', date:'May 15, 2026', category:'New Project', excerpt:'SpacexAI announces the launch of AgroTwin, a new digital twin framework for precision agriculture.' },
   { folder:'cohort-applications', title:'Next Cohort Applications Open June 22', date:'May 1, 2026', category:'Recruitment', excerpt:'We are opening applications for the next cohort on June 22, 2026. All tracks accepting new members.' },
 ];
+// TO FIX LINKEDIN/INSTAGRAM FEEDS:
+// 1. LinkedIn: LinkedIn does not provide public RSS feeds or easy iframes anymore without logging into their developer portal. 
+//    To embed your latest posts, use an official LinkedIn Post Embed code (click "..." on your post -> Embed this post).
+// 2. Instagram: Instagram also blocks direct iframing. 
+//    The easiest way to show an Instagram feed is to use a free tool like 'Elfsight Instagram Feed' or 'Curator.io' which generates a script tag you can just paste here.
 const catColors = { Research:'#06b6d4', 'New Project':'#10b981', Recruitment:'#a855f7', Publication:'#f59e0b' };
 const grid = document.getElementById('newsGrid');
 
@@ -153,25 +152,23 @@ if(urlParams.has('post')) {
   loadPost(urlParams.get('post'));
 }
 </script>
-
 <footer>
-  <div class="footer-logo">Spacex<span>AI</span></div>
-  <div class="footer-copy">Space AI Research Group<br>
-    <span style="font-size:9px;">© 2026 SpacexAI</span><br>
-    <div class="contact-row">
-      <a href="mailto:outreach@spacexairesearch.tech">outreach@spacexairesearch.tech</a>
-      <a href="mailto:contact.us@spacexairesearch.tech">contact.us@spacexairesearch.tech</a>
-    </div>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="team.html">Team</a>
-    <a href="news.html">News</a>
-    <a href="apply.html">Get Involved</a>
-  </div>
+<div class="footer-logo">Spacex<span>AI</span></div>
+<div class="footer-copy">Space AI Research Group<br/>
+<span style="font-size:9px;">© 2026 SpacexAI</span><br/>
+<div class="contact-row">
+<a href="mailto:outreach@spacexairesearch.tech">outreach@spacexairesearch.tech</a>
+<a href="mailto:contact.us@spacexairesearch.tech">contact.us@spacexairesearch.tech</a>
+</div>
+</div>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="research.html">Research</a>
+<a href="team.html">Team</a>
+<a href="news.html">News</a>
+<a href="apply.html">Get Involved</a>
+</div>
 </footer>
-
 <script>
   // ── CURSOR ──
   const cursor = document.getElementById('cursor');

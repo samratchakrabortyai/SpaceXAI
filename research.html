@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>SpaceXAI — Research</title>
-<meta name="description" content="SpaceXAI research publications, GLOC 2026 forthcoming presentations, research tracks, and leadership board.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
-<link rel="stylesheet" href="styles.css">
+<meta content="SpaceXAI research publications, GLOC 2026 forthcoming presentations, research tracks, and leadership board." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="styles.css" rel="stylesheet"/>
 <style>
   .leadership-split { display: grid; grid-template-columns: 1fr 280px; gap: 40px; align-items: start; }
   .leadership-top-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: 4px; }
@@ -51,539 +52,510 @@
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
 <nav>
-  <a href="index.html" class="nav-logo">Spacex<span>AI</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="research.html">Research</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="apply.html">Get Involved</a></li>
-  </ul>
-  <div class="nav-right">
-    <a href="https://discord.gg/7uQpQtCBdX" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Discord</a>
-    <a href="https://www.linkedin.com/company/spacexairesearch" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">LinkedIn</a>
-    <a href="https://www.instagram.com/spacexairesearch/" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:24px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Instagram</a>
-    <button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-    <a href="apply.html" class="nav-cta">Get Involved</a>
-  </div>
+<a class="nav-logo" href="index.html">Spacex<span>AI</span></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="team.html">Team</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="apply.html">Get Involved</a></li>
+</ul>
+<div class="nav-right">
+<a href="https://discord.gg/7uQpQtCBdX" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">Discord</a>
+<a href="https://www.linkedin.com/company/spacexairesearch" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">LinkedIn</a>
+<a href="https://www.instagram.com/spacexairesearch/" style="color:var(--muted); text-decoration:none; margin-right:24px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">Instagram</a>
+<button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
+<svg class="icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+<svg class="icon-sun" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg>
+</button>
+<a class="nav-cta" href="apply.html">Get Involved</a>
+</div>
 </nav>
-
 <!-- ═══════════════════════════════════════════════════════════════
      SECTION 1 — Publications & Ongoing Work
      ═══════════════════════════════════════════════════════════════ -->
 <section class="research-section fade-in" id="research">
-  <div class="section-inner">
-    <div class="section-tag">Publications & Ongoing Work</div>
-    <h2 class="section-title">Research output</h2>
-    <div class="fade-in">
-
-      <div class="paper-card">
-        <div class="paper-num">01</div>
-        <div class="paper-content">
-          <div class="paper-tag">Space Mission Risk · IAC 2026</div>
-          <div class="paper-title">SATISH — AI-Powered Space Mission Risk Prediction: Real-Time Failure Detection and Adaptive Contingency Planning</div>
-          <div class="paper-toggle" onclick="this.closest('.paper-card').classList.toggle('open')">View Details <span class="arrow">↓</span></div>
-          <div class="paper-details">
-            <p class="paper-abstract">A modular AI-driven framework integrating failure prediction, anomaly detection, and a decision support system for CubeSat platforms (1U–6U). Combines XGBoost, Time-Series Transformers, LSTM Autoencoders, and a PPO reinforcement learning agent with SHAP/LIME explainability throughout. Achieves 89.5–94.1% accuracy across platform classes. Aligned with UNOOSA and COSPAR guidelines.</p>
-            <div class="paper-meta">
-              <div class="paper-meta-item">Status: <span>v1 Complete · v2 In Progress</span></div>
-              <div class="paper-meta-item">Stage: <span>TRL 2–3</span></div>
-              <div class="paper-meta-item">Venue: <span>International Astronautical Congress 2026</span></div>
-              <div class="recognition-badge"><span class="r-dot"></span>IAC 2025 Oral · IAC 2026 Oral (v2) · Preselected for Acta Astronautica</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="paper-card">
-        <div class="paper-num">02</div>
-        <div class="paper-content">
-          <div class="paper-tag">AgriTech · AI Systems · Ongoing</div>
-          <div class="paper-title">AgroTwin — AI-Powered Digital Twin for Precision Agriculture</div>
-          <div class="paper-toggle" onclick="this.closest('.paper-card').classList.toggle('open')">View Details <span class="arrow">↓</span></div>
-          <div class="paper-details">
-            <p class="paper-abstract">An ongoing initiative developing a digital twin framework for precision agriculture, leveraging satellite remote sensing and AI-based environmental modelling to support real-time crop monitoring, resource optimization, and climate-resilient farming decisions.</p>
-            <div class="paper-meta">
-              <div class="paper-meta-item">Status: <span>Ongoing</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="paper-card">
-        <div class="paper-num">03</div>
-        <div class="paper-content">
-          <div class="paper-tag">UAV Systems · Ongoing</div>
-          <div class="paper-title">Fixed Wing UAV — Autonomous Systems Research</div>
-          <div class="paper-toggle" onclick="this.closest('.paper-card').classList.toggle('open')">View Details <span class="arrow">↓</span></div>
-          <div class="paper-details">
-            <p class="paper-abstract">Ongoing research into fixed-wing UAV autonomous systems, focusing on onboard AI decision-making, flight control, and mission planning under resource constraints — extending our core expertise in edge AI inference to aerial platforms.</p>
-            <div class="paper-meta">
-              <div class="paper-meta-item">Status: <span>Ongoing</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-tag">Publications &amp; Ongoing Work</div>
+<h2 class="section-title">Research output</h2>
+<div class="fade-in">
+<div class="paper-card">
+<div class="paper-num">01</div>
+<div class="paper-content">
+<div class="paper-tag">Space Mission Risk · IAC 2026</div>
+<div class="paper-title">SATISH — AI-Powered Space Mission Risk Prediction: Real-Time Failure Detection and Adaptive Contingency Planning</div>
+<div class="paper-toggle" onclick="this.closest('.paper-card').classList.toggle('open')">View Details <span class="arrow">↓</span></div>
+<div class="paper-details">
+<p class="paper-abstract">A modular AI-driven framework integrating failure prediction, anomaly detection, and a decision support system for CubeSat platforms (1U–6U). Combines XGBoost, Time-Series Transformers, LSTM Autoencoders, and a PPO reinforcement learning agent with SHAP/LIME explainability throughout. Achieves 89.5–94.1% accuracy across platform classes. Aligned with UNOOSA and COSPAR guidelines.</p>
+<div class="paper-meta">
+<div class="paper-meta-item">Status: <span>v1 Complete · v2 In Progress</span></div>
+<div class="paper-meta-item">Stage: <span>TRL 2–3</span></div>
+<div class="paper-meta-item">Venue: <span>International Astronautical Congress 2026</span></div>
+<div class="recognition-badge"><span class="r-dot"></span>IAC 2025 Oral · IAC 2026 Oral (v2) · Preselected for Acta Astronautica</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paper-card">
+<div class="paper-num">02</div>
+<div class="paper-content">
+<div class="paper-tag">AgriTech · AI Systems · Ongoing</div>
+<div class="paper-title">AgroTwin — AI-Powered Digital Twin for Precision Agriculture</div>
+<div class="paper-toggle" onclick="this.closest('.paper-card').classList.toggle('open')">View Details <span class="arrow">↓</span></div>
+<div class="paper-details">
+<p class="paper-abstract">An ongoing initiative developing a digital twin framework for precision agriculture, leveraging satellite remote sensing and AI-based environmental modelling to support real-time crop monitoring, resource optimization, and climate-resilient farming decisions.</p>
+<div class="paper-meta">
+<div class="paper-meta-item">Status: <span>Ongoing</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="paper-card">
+<div class="paper-num">03</div>
+<div class="paper-content">
+<div class="paper-tag">UAV Systems · Ongoing</div>
+<div class="paper-title">Fixed Wing UAV — Autonomous Systems Research</div>
+<div class="paper-toggle" onclick="this.closest('.paper-card').classList.toggle('open')">View Details <span class="arrow">↓</span></div>
+<div class="paper-details">
+<p class="paper-abstract">Ongoing research into fixed-wing UAV autonomous systems, focusing on onboard AI decision-making, flight control, and mission planning under resource constraints — extending our core expertise in edge AI inference to aerial platforms.</p>
+<div class="paper-meta">
+<div class="paper-meta-item">Status: <span>Ongoing</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ═══════════════════════════════════════════════════════════════
      SECTION 2 — GLOC 2026 Forthcoming Publications
      ═══════════════════════════════════════════════════════════════ -->
 <section class="projects-section fade-in" id="projects">
-  <div class="section-inner">
-    <div class="section-tag">Accepted Publications — GLOC 2026</div>
-    <h2 class="section-title">Forthcoming Presentations</h2>
-    <p class="gloc-subtitle">10 papers accepted at the IAF Global Space Conference on Climate Change (GLOC 2026, Kigali). Presentation postponed; papers remain accepted and will be presented when rescheduled.</p>
-    <div class="fade-in">
-
-      <!-- ── Literature Review Track ── -->
-      <div class="track-group-label">Literature Review Track</div>
-      <div class="project-card">
-        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
-          <div>
-            <div class="project-code">LR1</div>
-            <div class="project-name">An Autonomous On-Board Processing Architecture for Early Wildfire Detection Using a Structured CubeSat Formation</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div class="forthcoming-badge">Forthcoming Presentation</div>
-            <span class="arrow" style="color:var(--muted);">↓</span>
-          </div>
-        </div>
-        <div class="project-details">
-          <div class="project-desc">A literature-grounded architecture proposal for deploying structured CubeSat formations with onboard AI for early wildfire detection, combining formation geometry optimization with autonomous processing pipelines.</div>
-          <div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
-        </div>
-      </div>
-
-      <!-- ── Methodology Writing Track ── -->
-      <div class="track-group-label">Methodology Writing Track</div>
-      <div class="project-card">
-        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
-          <div>
-            <div class="project-code">MW1</div>
-            <div class="project-name">Resilient Space Architecture under Extreme Conditions</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div class="forthcoming-badge">Forthcoming Presentation</div>
-            <span class="arrow" style="color:var(--muted);">↓</span>
-          </div>
-        </div>
-        <div class="project-details">
-          <div class="project-desc">A methodological paper exploring design paradigms and failure mitigation strategies for space systems operating under extreme environmental and radiation conditions.</div>
-          <div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
-          <div>
-            <div class="project-code">MW2</div>
-            <div class="project-name">Review of Greenhouse Gas Production Using AI Models</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div class="forthcoming-badge">Forthcoming Presentation</div>
-            <span class="arrow" style="color:var(--muted);">↓</span>
-          </div>
-        </div>
-        <div class="project-details">
-          <div class="project-desc">A comprehensive methodological review outlining the statistical and machine learning approaches necessary to build resilient remote sensing solutions for tracking Earth's greenhouse gas productions.</div>
-          <a href="https://drive.google.com/open?id=1wj_2ae1ZbGnIa5YaVizgNmSbcpfNt52q&usp=drive_copy" target="_blank" class="apply-to-project" style="cursor:pointer;border-color:var(--border);text-decoration:none;">View Abstract PDF ↗</a>
-          <div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
-        </div>
-      </div>
-
-      <!-- ── Regulatory & Ethics Track ── -->
-      <div class="track-group-label">Regulatory & Ethics Track</div>
-      <div class="project-card">
-        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
-          <div>
-            <div class="project-code">RE1</div>
-            <div class="project-name">Explainable AI for Climate-Resilient Space Operations: A Framework for Trust and Oversight in High-Stakes Decision-Making</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div class="forthcoming-badge">Forthcoming Presentation</div>
-            <span class="arrow" style="color:var(--muted);">↓</span>
-          </div>
-        </div>
-        <div class="project-details">
-          <div class="project-desc">Developing guidelines mapping the ethical implications and formal verification pathways necessary for AI governance in high-stakes atmospheric and orbital decisions.</div>
-          <a href="https://drive.google.com/open?id=1nWrwacRQ8hunHVM4wgvGQWjQRxpZg5qE&usp=drive_copy" target="_blank" class="apply-to-project" style="cursor:pointer;border-color:var(--border);text-decoration:none;">View Abstract PDF ↗</a>
-          <div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
-          <div>
-            <div class="project-code">RE2</div>
-            <div class="project-name">Operationalizing Ethical Governance: A SNO-based Data Harmonization Pipeline for Technically Robust and Equitable Climate AI</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div class="forthcoming-badge">Forthcoming Presentation</div>
-            <span class="arrow" style="color:var(--muted);">↓</span>
-          </div>
-        </div>
-        <div class="project-details">
-          <div class="project-desc">Explores a Sensor Network Ontology (SNO) to align datasets ethically across borders and sensors, preventing demographic or regional bias in Earth observation AI.</div>
-          <a href="https://drive.google.com/open?id=1Qgx4EoVeAPpe1Sk9HuuXf47LDgBlIyug&usp=drive_copy" target="_blank" class="apply-to-project" style="cursor:pointer;border-color:var(--border);text-decoration:none;">View Abstract PDF ↗</a>
-          <div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
-          <div>
-            <div class="project-code">RE3</div>
-            <div class="project-name">From Monoculture to Resilience: Engineering Diverse AI Architecture for Robust Climate Monitoring and Equitable Adaptation</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div class="forthcoming-badge">Forthcoming Presentation</div>
-            <span class="arrow" style="color:var(--muted);">↓</span>
-          </div>
-        </div>
-        <div class="project-details">
-          <div class="project-desc">A policy-oriented exploration of algorithmic diversity as a safeguard against catastrophic failure in automated climate response models.</div>
-          <a href="https://drive.google.com/open?id=14nloExTqotJpgItKiXDpXnXiMPbtmfbK&usp=drive_copy" target="_blank" class="apply-to-project" style="cursor:pointer;border-color:var(--border);text-decoration:none;">View Abstract PDF ↗</a>
-          <div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
-        </div>
-      </div>
-
-      <!-- ── Onboard Intelligence & Systems Track ── -->
-      <div class="track-group-label">Onboard Intelligence & Systems Track</div>
-      <div class="project-card">
-        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
-          <div>
-            <div class="project-code">SA1</div>
-            <div class="project-name">Optimized Ground Segment Framework for Efficient Processing of Copernicus Sentinel-2 Data Streams</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div class="forthcoming-badge">Forthcoming Presentation</div>
-            <span class="arrow" style="color:var(--muted);">↓</span>
-          </div>
-        </div>
-        <div class="project-details">
-          <div class="project-desc">An architectural blueprint bridging massive Sentinel-2 optical data ingestion with real-time analytics engines, designed to minimize latency from raw imagery to predictive insight.</div>
-          <a href="https://drive.google.com/open?id=1mXpT3fBU89e4XBb2kdQHEcSQ08kmj8WD&usp=drive_copy" target="_blank" class="apply-to-project" style="cursor:pointer;border-color:var(--border);text-decoration:none;">View Abstract PDF ↗</a>
-          <div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
-          <div>
-            <div class="project-code">TF1</div>
-            <div class="project-name">Leveraging MethaneSAT Insights for Finer Methane Emission Mapping</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div class="forthcoming-badge">Forthcoming Presentation</div>
-            <span class="arrow" style="color:var(--muted);">↓</span>
-          </div>
-        </div>
-        <div class="project-details">
-          <div class="project-desc">Applying novel computer vision frameworks over raw MethaneSAT telemetry to locate emission sources globally at an unprecedented resolution scale.</div>
-          <a href="https://drive.google.com/open?id=1TpLfntQ2_CAY751BCNIsXZlbqg3g_TuW&usp=drive_copy" target="_blank" class="apply-to-project" style="cursor:pointer;border-color:var(--border);text-decoration:none;">View Abstract PDF ↗</a>
-          <div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
-          <div>
-            <div class="project-code">TF2</div>
-            <div class="project-name">Lightweight Optical and Microwave Preprocessing Framework for Flood Monitoring Using CubeSat and Sentinel Data</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div class="forthcoming-badge">Forthcoming Presentation</div>
-            <span class="arrow" style="color:var(--muted);">↓</span>
-          </div>
-        </div>
-        <div class="project-details">
-          <div class="project-desc">Engineering an embedded inference pipeline capable of running optical+SAR data fusion models onboard resource-constrained small satellites for instant flood extent mapping.</div>
-          <a href="https://drive.google.com/open?id=1q2BlUZnu_qdHo-8io3xCZlUkmOIJM8Gi&usp=drive_copy" target="_blank" class="apply-to-project" style="cursor:pointer;border-color:var(--border);text-decoration:none;">View Abstract PDF ↗</a>
-          <div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-header" onclick="this.parentElement.classList.toggle('open')">
-          <div>
-            <div class="project-code">TF3</div>
-            <div class="project-name">A Cloud-Agnostic, Multi-Temporal Framework for Robust Environmental Change Detection and Alerting Using Sentinel and CubeSat Data</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div class="forthcoming-badge">Forthcoming Presentation</div>
-            <span class="arrow" style="color:var(--muted);">↓</span>
-          </div>
-        </div>
-        <div class="project-details">
-          <div class="project-desc">A dual-stage AI architecture bridging CubeSat event detection with heavy Sentinel validation, allowing uninterrupted situational awareness through intermittent cloud coverage.</div>
-          <a href="https://drive.google.com/open?id=1Z_OI7ksVgSnqHM0bRCJgGsME_UJWlv2Y&usp=drive_copy" target="_blank" class="apply-to-project" style="cursor:pointer;border-color:var(--border);text-decoration:none;">View Abstract PDF ↗</a>
-          <div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-tag">Accepted Publications — GLOC 2026</div>
+<h2 class="section-title">Forthcoming Presentations</h2>
+<p class="gloc-subtitle">10 papers accepted at the IAF Global Space Conference on Climate Change (GLOC 2026, Kigali). Presentation postponed; papers remain accepted and will be presented when rescheduled.</p>
+<div class="fade-in">
+<!-- ── Literature Review Track ── -->
+<div class="track-group-label">Literature Review Track</div>
+<div class="project-card">
+<div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+<div>
+<div class="project-code">LR1</div>
+<div class="project-name">An Autonomous On-Board Processing Architecture for Early Wildfire Detection Using a Structured CubeSat Formation</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="forthcoming-badge">Forthcoming Presentation</div>
+<span class="arrow" style="color:var(--muted);">↓</span>
+</div>
+</div>
+<div class="project-details">
+<div class="project-desc">A literature-grounded architecture proposal for deploying structured CubeSat formations with onboard AI for early wildfire detection, combining formation geometry optimization with autonomous processing pipelines.</div>
+<div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
+</div>
+</div>
+<!-- ── Methodology Writing Track ── -->
+<div class="track-group-label">Methodology Writing Track</div>
+<div class="project-card">
+<div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+<div>
+<div class="project-code">MW1</div>
+<div class="project-name">Resilient Space Architecture under Extreme Conditions</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="forthcoming-badge">Forthcoming Presentation</div>
+<span class="arrow" style="color:var(--muted);">↓</span>
+</div>
+</div>
+<div class="project-details">
+<div class="project-desc">A methodological paper exploring design paradigms and failure mitigation strategies for space systems operating under extreme environmental and radiation conditions.</div>
+<div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+<div>
+<div class="project-code">MW2</div>
+<div class="project-name">Review of Greenhouse Gas Production Using AI Models</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="forthcoming-badge">Forthcoming Presentation</div>
+<span class="arrow" style="color:var(--muted);">↓</span>
+</div>
+</div>
+<div class="project-details">
+<div class="project-desc">A comprehensive methodological review outlining the statistical and machine learning approaches necessary to build resilient remote sensing solutions for tracking Earth's greenhouse gas productions.</div>
+<a class="apply-to-project" href="https://drive.google.com/open?id=1wj_2ae1ZbGnIa5YaVizgNmSbcpfNt52q&amp;usp=drive_copy" style="cursor:pointer;border-color:var(--border);text-decoration:none;" target="_blank">View Abstract PDF ↗</a>
+<div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
+</div>
+</div>
+<!-- ── Regulatory & Ethics Track ── -->
+<div class="track-group-label">Regulatory &amp; Ethics Track</div>
+<div class="project-card">
+<div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+<div>
+<div class="project-code">RE1</div>
+<div class="project-name">Explainable AI for Climate-Resilient Space Operations: A Framework for Trust and Oversight in High-Stakes Decision-Making</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="forthcoming-badge">Forthcoming Presentation</div>
+<span class="arrow" style="color:var(--muted);">↓</span>
+</div>
+</div>
+<div class="project-details">
+<div class="project-desc">Developing guidelines mapping the ethical implications and formal verification pathways necessary for AI governance in high-stakes atmospheric and orbital decisions.</div>
+<a class="apply-to-project" href="https://drive.google.com/open?id=1nWrwacRQ8hunHVM4wgvGQWjQRxpZg5qE&amp;usp=drive_copy" style="cursor:pointer;border-color:var(--border);text-decoration:none;" target="_blank">View Abstract PDF ↗</a>
+<div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+<div>
+<div class="project-code">RE2</div>
+<div class="project-name">Operationalizing Ethical Governance: A SNO-based Data Harmonization Pipeline for Technically Robust and Equitable Climate AI</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="forthcoming-badge">Forthcoming Presentation</div>
+<span class="arrow" style="color:var(--muted);">↓</span>
+</div>
+</div>
+<div class="project-details">
+<div class="project-desc">Explores a Sensor Network Ontology (SNO) to align datasets ethically across borders and sensors, preventing demographic or regional bias in Earth observation AI.</div>
+<a class="apply-to-project" href="https://drive.google.com/open?id=1Qgx4EoVeAPpe1Sk9HuuXf47LDgBlIyug&amp;usp=drive_copy" style="cursor:pointer;border-color:var(--border);text-decoration:none;" target="_blank">View Abstract PDF ↗</a>
+<div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+<div>
+<div class="project-code">RE3</div>
+<div class="project-name">From Monoculture to Resilience: Engineering Diverse AI Architecture for Robust Climate Monitoring and Equitable Adaptation</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="forthcoming-badge">Forthcoming Presentation</div>
+<span class="arrow" style="color:var(--muted);">↓</span>
+</div>
+</div>
+<div class="project-details">
+<div class="project-desc">A policy-oriented exploration of algorithmic diversity as a safeguard against catastrophic failure in automated climate response models.</div>
+<a class="apply-to-project" href="https://drive.google.com/open?id=14nloExTqotJpgItKiXDpXnXiMPbtmfbK&amp;usp=drive_copy" style="cursor:pointer;border-color:var(--border);text-decoration:none;" target="_blank">View Abstract PDF ↗</a>
+<div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
+</div>
+</div>
+<!-- ── Onboard Intelligence & Systems Track ── -->
+<div class="track-group-label">Onboard Intelligence &amp; Systems Track</div>
+<div class="project-card">
+<div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+<div>
+<div class="project-code">SA1</div>
+<div class="project-name">Optimized Ground Segment Framework for Efficient Processing of Copernicus Sentinel-2 Data Streams</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="forthcoming-badge">Forthcoming Presentation</div>
+<span class="arrow" style="color:var(--muted);">↓</span>
+</div>
+</div>
+<div class="project-details">
+<div class="project-desc">An architectural blueprint bridging massive Sentinel-2 optical data ingestion with real-time analytics engines, designed to minimize latency from raw imagery to predictive insight.</div>
+<a class="apply-to-project" href="https://drive.google.com/open?id=1mXpT3fBU89e4XBb2kdQHEcSQ08kmj8WD&amp;usp=drive_copy" style="cursor:pointer;border-color:var(--border);text-decoration:none;" target="_blank">View Abstract PDF ↗</a>
+<div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+<div>
+<div class="project-code">TF1</div>
+<div class="project-name">Leveraging MethaneSAT Insights for Finer Methane Emission Mapping</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="forthcoming-badge">Forthcoming Presentation</div>
+<span class="arrow" style="color:var(--muted);">↓</span>
+</div>
+</div>
+<div class="project-details">
+<div class="project-desc">Applying novel computer vision frameworks over raw MethaneSAT telemetry to locate emission sources globally at an unprecedented resolution scale.</div>
+<a class="apply-to-project" href="https://drive.google.com/open?id=1TpLfntQ2_CAY751BCNIsXZlbqg3g_TuW&amp;usp=drive_copy" style="cursor:pointer;border-color:var(--border);text-decoration:none;" target="_blank">View Abstract PDF ↗</a>
+<div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+<div>
+<div class="project-code">TF2</div>
+<div class="project-name">Lightweight Optical and Microwave Preprocessing Framework for Flood Monitoring Using CubeSat and Sentinel Data</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="forthcoming-badge">Forthcoming Presentation</div>
+<span class="arrow" style="color:var(--muted);">↓</span>
+</div>
+</div>
+<div class="project-details">
+<div class="project-desc">Engineering an embedded inference pipeline capable of running optical+SAR data fusion models onboard resource-constrained small satellites for instant flood extent mapping.</div>
+<a class="apply-to-project" href="https://drive.google.com/open?id=1q2BlUZnu_qdHo-8io3xCZlUkmOIJM8Gi&amp;usp=drive_copy" style="cursor:pointer;border-color:var(--border);text-decoration:none;" target="_blank">View Abstract PDF ↗</a>
+<div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
+</div>
+</div>
+<div class="project-card">
+<div class="project-header" onclick="this.parentElement.classList.toggle('open')">
+<div>
+<div class="project-code">TF3</div>
+<div class="project-name">A Cloud-Agnostic, Multi-Temporal Framework for Robust Environmental Change Detection and Alerting Using Sentinel and CubeSat Data</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="forthcoming-badge">Forthcoming Presentation</div>
+<span class="arrow" style="color:var(--muted);">↓</span>
+</div>
+</div>
+<div class="project-details">
+<div class="project-desc">A dual-stage AI architecture bridging CubeSat event detection with heavy Sentinel validation, allowing uninterrupted situational awareness through intermittent cloud coverage.</div>
+<a class="apply-to-project" href="https://drive.google.com/open?id=1Z_OI7ksVgSnqHM0bRCJgGsME_UJWlv2Y&amp;usp=drive_copy" style="cursor:pointer;border-color:var(--border);text-decoration:none;" target="_blank">View Abstract PDF ↗</a>
+<div class="venue-tag">Venue: GLOC 2026 · Kigali</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ═══════════════════════════════════════════════════════════════
      SECTION 3 — Research Tracks
      ═══════════════════════════════════════════════════════════════ -->
 <section class="tracks-section" id="tracks">
-  <div class="section-inner">
-    <div class="section-tag">How We're Organized</div>
-    <h2 class="section-title">Research tracks</h2>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:48px;line-height:1.8;max-width:580px;">Each track operates independently with a dedicated lead, contributing to our shared research output. Tap any track to see its members.</p>
-    <div class="fade-in">
-
-      <div class="track-card" onclick="toggleTrack(this)">
-        <div class="track-header">
-          <div class="track-left">
-            <div class="track-label">Secretariat</div>
-            <div class="track-name">Secretariat — Operations, Media & Outreach</div>
-            <div class="track-lead">Secretary Lead: <span>Chidinma Amanna</span> &nbsp;·&nbsp; Overseen by: <span>Anh (Jinny) Truong</span></div>
-            <div class="track-desc">The internal engine and external face of SpacexAI. Three sub-teams keep the group aligned, visible, and growing — Operations handles the internal machinery, Media handles visibility, Outreach handles external presence.</div>
-          </div>
-          <div class="track-toggle">Sub-teams <span class="arrow">↓</span></div>
-        </div>
-        <div class="track-members">
-          <div class="members-label" style="margin-top:18px;">Operations — Internal Engine</div>
-          <div style="font-size:11px;color:var(--very-muted);margin-bottom:10px;line-height:1.7;">Scheduling · Meeting minutes · Internal documentation · Member onboarding/offboarding · Task tracking across all research tracks<br><span style="color:var(--cyan);">Static: Knowledge Staff &nbsp;·&nbsp; Dynamic: Operations Coordinator</span></div>
-          <div class="members-grid">
-            <div class="member-chip chip-lead">Chidinma Amanna</div>
-            <div class="member-chip chip-sec">Charlotte Nguyen</div>
-            <div class="member-chip chip-sec">Sanjukta Deshpande</div>
-            <div class="member-chip chip-sec">Marcus Nguyen</div>
-          </div>
-
-          <div class="members-label" style="margin-top:24px;">Media — Visibility Layer</div>
-          <div style="font-size:11px;color:var(--very-muted);margin-bottom:10px;line-height:1.7;">LinkedIn · Instagram · Content calendar · Announcements · Conference coverage · Member spotlights<br><span style="color:var(--cyan);">Static: Media Planner &nbsp;·&nbsp; Dynamic: Copywriter + Account</span></div>
-          <div class="members-grid">
-            <div class="member-chip chip-sec">Charlotte Nguyen</div>
-            <div class="member-chip chip-sec">Marcus Nguyen</div>
-            <div class="member-chip chip-sec">Recruiting</div>
-          </div>
-
-          <div class="members-label" style="margin-top:24px;">Outreach — External Face</div>
-          <div style="font-size:11px;color:var(--very-muted);margin-bottom:10px;line-height:1.7;">Partnership outreach · Sponsorship · Conference networking · Startup spinoff external communications<br><span style="color:var(--cyan);">Static: Outreach Strategist &nbsp;·&nbsp; Dynamic: Outreach Associate</span></div>
-          <div class="members-grid">
-            <div class="member-chip chip-sec">Recruiting</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="track-card" onclick="toggleTrack(this)">
-        <div class="track-header">
-          <div class="track-left">
-            <div class="track-label">Literature Review</div>
-            <div class="track-name">LR — State of the Art</div>
-            <div class="track-lead">Lead: <span>Isabel LaCoss</span> · Embry-Riddle Aeronautical University</div>
-            <div class="track-desc">Surveys existing research across space AI, anomaly detection, and autonomous systems to ground our work in the current state of the field and identify research gaps.</div>
-          </div>
-          <div class="track-toggle">Members <span class="arrow">↓</span></div>
-        </div>
-        <div class="track-members">
-          <div class="members-label">Members</div>
-          <div class="members-grid">
-            <div class="member-chip chip-lead">Isabel LaCoss</div>
-            <div class="member-chip chip-lr">Abdelmalek Saadi-Drissi</div>
-            <div class="member-chip chip-lr">Bhuvan Ravikumar</div>
-            <div class="member-chip chip-lr">Emil Velichka</div>
-            <div class="member-chip chip-lr">Hsien Hao Lai</div>
-            <div class="member-chip chip-lr">Jimin Choi</div>
-            <div class="member-chip chip-lr">Robert Larini</div>
-            <div class="member-chip chip-lr">Sanjukta Deshpande</div>
-            <div class="member-chip chip-lr">Leyli Oliver Amuzu Justice</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="track-card" onclick="toggleTrack(this)">
-        <div class="track-header">
-          <div class="track-left">
-            <div class="track-label">Methodology Writing</div>
-            <div class="track-name">MW — Research Design & Writing</div>
-            <div class="track-lead">Lead: <span>Paarvi Wadhwa</span> · University of Delhi &nbsp;·&nbsp; Co-Lead: <span>Karthikeya Moyye</span></div>
-            <div class="track-desc">Develops the methodological foundations of our papers — experimental design, data strategy, mathematical formulation, and academic writing.</div>
-          </div>
-          <div class="track-toggle">Members <span class="arrow">↓</span></div>
-        </div>
-        <div class="track-members">
-          <div class="members-label">Members</div>
-          <div class="members-grid">
-            <div class="member-chip chip-lead">Paarvi Wadhwa</div>
-            <div class="member-chip chip-lead">Karthikeya Moyye</div>
-            <div class="member-chip chip-mw">Abdelmalek Saadi-Drissi</div>
-            <div class="member-chip chip-mw">Anish Mahapatra</div>
-            <div class="member-chip chip-mw">Aryan Kumar Srivastav</div>
-            <div class="member-chip chip-mw">Hasibul Hasan Shanto</div>
-            <div class="member-chip chip-mw">Meghana Sannapareddy</div>
-            <div class="member-chip chip-mw">Om Atmaram Khairnar</div>
-            <div class="member-chip chip-mw">Paula Ixquiac</div>
-            <div class="member-chip chip-mw">Tanvi Gupta</div>
-            <div class="member-chip chip-mw">Vidhi Jain</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="track-card" onclick="toggleTrack(this)">
-        <div class="track-header">
-          <div class="track-left">
-            <div class="track-label">Regulatory & Ethics</div>
-            <div class="track-name">RE — Regulatory & Ethics</div>
-            <div class="track-lead">Lead: <span>Dr. Rachita Agrawal</span></div>
-            <div class="track-desc">Develops governance frameworks for AI in space — regulatory compliance, ethical oversight, human-AI accountability, alignment with UNOOSA and COSPAR guidelines.</div>
-          </div>
-          <div class="track-toggle">Members <span class="arrow">↓</span></div>
-        </div>
-        <div class="track-members">
-          <div class="members-label">Members</div>
-          <div class="members-grid">
-            <div class="member-chip chip-lead">Dr. Rachita Agrawal</div>
-            <div class="member-chip chip-re">M. Abdullah Khan</div>
-            <div class="member-chip chip-re">Anh Truong</div>
-            <div class="member-chip chip-re">Sulekha Komeravelli</div>
-            <div class="member-chip chip-re">Benjamin Brumm</div>
-            <div class="member-chip chip-re">Romane Croizet Fontane</div>
-            <div class="member-chip chip-re">Jessica Durbano</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="track-card" onclick="toggleTrack(this)">
-        <div class="track-header">
-          <div class="track-left">
-            <div class="track-label">Onboard Intelligence & Systems</div>
-            <div class="track-name">OIS — Architecture, Engineering & Validation</div>
-            <div class="track-lead">Leads: <span>Bhuvan Ravikumar</span>, <span>Vidhi Jain</span>, <span>Manish R. Tiwari</span>, <span>Giustina Di Donato</span></div>
-            <div class="track-desc">Combines systems architecture with onboard AI model validation. Designs hardware pipelines and builds edge-optimized ML models for resource-constrained platforms.</div>
-          </div>
-          <div class="track-toggle">Sub-tracks <span class="arrow">↓</span></div>
-        </div>
-        <div class="track-members">
-          <div class="members-label" style="margin-top:18px;">Systems Architecture (SA)</div>
-          <div class="members-grid">
-            <div class="member-chip chip-lead">Bhuvan Ravikumar</div>
-            <div class="member-chip chip-lead">Giustina Di Donato</div>
-            <div class="member-chip chip-sa">Carlos Morales-Ramirez</div>
-            <div class="member-chip chip-sa">Floris Weyand</div>
-            <div class="member-chip chip-sa">Chidinma Amanna</div>
-            <div class="member-chip chip-sa">Tanmay Sharma</div>
-            <div class="member-chip chip-sa">Benjamin Brumm</div>
-          </div>
-
-          <div class="members-label" style="margin-top:24px;">Technical Frameworks & AI Engineering (TF)</div>
-          <div class="members-grid">
-            <div class="member-chip chip-lead">Vidhi Jain</div>
-            <div class="member-chip chip-lead">Manish R. Tiwari</div>
-            <div class="member-chip chip-tf">Anish Mahapatra</div>
-            <div class="member-chip chip-tf">Aryan Kumar Srivastav</div>
-            <div class="member-chip chip-tf">Hasibul Hasan Shanto</div>
-            <div class="member-chip chip-tf">Jeeval Shah</div>
-            <div class="member-chip chip-tf">Karthikeya Moyye</div>
-            <div class="member-chip chip-tf">Vivekini Mata</div>
-            <div class="member-chip chip-tf">Meghana Sannapareddy</div>
-            <div class="member-chip chip-tf">Mudit Khater</div>
-            <div class="member-chip chip-tf">Sanjukta Deshpande</div>
-            <div class="member-chip chip-tf">Swayam Sanjay Pawar</div>
-            <div class="member-chip chip-tf">Yassine Yousfi</div>
-            <div class="member-chip chip-tf">Floris Weyand</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-tag">How We're Organized</div>
+<h2 class="section-title">Research tracks</h2>
+<p style="font-size:13px;color:var(--muted);margin-bottom:48px;line-height:1.8;max-width:580px;">Each track operates independently with a dedicated lead, contributing to our shared research output. Tap any track to see its members.</p>
+<div class="fade-in">
+<div class="track-card" onclick="toggleTrack(this)">
+<div class="track-header">
+<div class="track-left">
+<div class="track-label">Secretariat</div>
+<div class="track-name">Secretariat — Operations, Media &amp; Outreach</div>
+<div class="track-lead">Secretary Lead: <span>Chidinma Amanna</span>  ·  Overseen by: <span>Anh (Jinny) Truong</span></div>
+<div class="track-desc">The internal engine and external face of SpacexAI. Three sub-teams keep the group aligned, visible, and growing — Operations handles the internal machinery, Media handles visibility, Outreach handles external presence.</div>
+</div>
+<div class="track-toggle">Sub-teams <span class="arrow">↓</span></div>
+</div>
+<div class="track-members">
+<div class="members-label" style="margin-top:18px;">Operations — Internal Engine</div>
+<div style="font-size:11px;color:var(--very-muted);margin-bottom:10px;line-height:1.7;">Scheduling · Meeting minutes · Internal documentation · Member onboarding/offboarding · Task tracking across all research tracks<br/><span style="color:var(--cyan);">Static: Knowledge Staff  ·  Dynamic: Operations Coordinator</span></div>
+<div class="members-grid">
+<div class="member-chip chip-lead">Chidinma Amanna</div>
+<div class="member-chip chip-sec">Charlotte Nguyen</div>
+<div class="member-chip chip-sec">Sanjukta Deshpande</div>
+<div class="member-chip chip-sec">Marcus Nguyen</div>
+</div>
+<div class="members-label" style="margin-top:24px;">Media — Visibility Layer</div>
+<div style="font-size:11px;color:var(--very-muted);margin-bottom:10px;line-height:1.7;">LinkedIn · Instagram · Content calendar · Announcements · Conference coverage · Member spotlights<br/><span style="color:var(--cyan);">Static: Media Planner  ·  Dynamic: Copywriter + Account</span></div>
+<div class="members-grid">
+<div class="member-chip chip-sec">Charlotte Nguyen</div>
+<div class="member-chip chip-sec">Marcus Nguyen</div>
+<div class="member-chip chip-sec">Recruiting</div>
+</div>
+<div class="members-label" style="margin-top:24px;">Outreach — External Face</div>
+<div style="font-size:11px;color:var(--very-muted);margin-bottom:10px;line-height:1.7;">Partnership outreach · Sponsorship · Conference networking · Startup spinoff external communications<br/><span style="color:var(--cyan);">Static: Outreach Strategist  ·  Dynamic: Outreach Associate</span></div>
+<div class="members-grid">
+<div class="member-chip chip-sec">Recruiting</div>
+</div>
+</div>
+</div>
+<div class="track-card" onclick="toggleTrack(this)">
+<div class="track-header">
+<div class="track-left">
+<div class="track-label">Literature Review</div>
+<div class="track-name">LR — State of the Art</div>
+<div class="track-lead">Lead: <span>Isabel LaCoss</span> · Embry-Riddle Aeronautical University</div>
+<div class="track-desc">Surveys existing research across space AI, anomaly detection, and autonomous systems to ground our work in the current state of the field and identify research gaps.</div>
+</div>
+<div class="track-toggle">Members <span class="arrow">↓</span></div>
+</div>
+<div class="track-members">
+<div class="members-label">Members</div>
+<div class="members-grid">
+<div class="member-chip chip-lead">Isabel LaCoss</div>
+<div class="member-chip chip-lr">Abdelmalek Saadi-Drissi</div>
+<div class="member-chip chip-lr">Bhuvan Ravikumar</div>
+<div class="member-chip chip-lr">Emil Velichka</div>
+<div class="member-chip chip-lr">Hsien Hao Lai</div>
+<div class="member-chip chip-lr">Jimin Choi</div>
+<div class="member-chip chip-lr">Robert Larini</div>
+<div class="member-chip chip-lr">Sanjukta Deshpande</div>
+<div class="member-chip chip-lr">Leyli Oliver Amuzu Justice</div>
+</div>
+</div>
+</div>
+<div class="track-card" onclick="toggleTrack(this)">
+<div class="track-header">
+<div class="track-left">
+<div class="track-label">Methodology Writing</div>
+<div class="track-name">MW — Research Design &amp; Writing</div>
+<div class="track-lead">Lead: <span>Paarvi Wadhwa</span> · University of Delhi  ·  Co-Lead: <span>Karthikeya Moyye</span></div>
+<div class="track-desc">Develops the methodological foundations of our papers — experimental design, data strategy, mathematical formulation, and academic writing.</div>
+</div>
+<div class="track-toggle">Members <span class="arrow">↓</span></div>
+</div>
+<div class="track-members">
+<div class="members-label">Members</div>
+<div class="members-grid">
+<div class="member-chip chip-lead">Paarvi Wadhwa</div>
+<div class="member-chip chip-lead">Karthikeya Moyye</div>
+<div class="member-chip chip-mw">Abdelmalek Saadi-Drissi</div>
+<div class="member-chip chip-mw">Anish Mahapatra</div>
+<div class="member-chip chip-mw">Aryan Kumar Srivastav</div>
+<div class="member-chip chip-mw">Hasibul Hasan Shanto</div>
+<div class="member-chip chip-mw">Meghana Sannapareddy</div>
+<div class="member-chip chip-mw">Om Atmaram Khairnar</div>
+<div class="member-chip chip-mw">Paula Ixquiac</div>
+<div class="member-chip chip-mw">Tanvi Gupta</div>
+<div class="member-chip chip-mw">Vidhi Jain</div>
+</div>
+</div>
+</div>
+<div class="track-card" onclick="toggleTrack(this)">
+<div class="track-header">
+<div class="track-left">
+<div class="track-label">Regulatory &amp; Ethics</div>
+<div class="track-name">RE — Regulatory &amp; Ethics</div>
+<div class="track-lead">Lead: <span>Dr. Rachita Agrawal</span></div>
+<div class="track-desc">Develops governance frameworks for AI in space — regulatory compliance, ethical oversight, human-AI accountability, alignment with UNOOSA and COSPAR guidelines.</div>
+</div>
+<div class="track-toggle">Members <span class="arrow">↓</span></div>
+</div>
+<div class="track-members">
+<div class="members-label">Members</div>
+<div class="members-grid">
+<div class="member-chip chip-lead">Dr. Rachita Agrawal</div>
+<div class="member-chip chip-re">M. Abdullah Khan</div>
+<div class="member-chip chip-re">Anh Truong</div>
+<div class="member-chip chip-re">Sulekha Komeravelli</div>
+<div class="member-chip chip-re">Benjamin Brumm</div>
+<div class="member-chip chip-re">Romane Croizet Fontane</div>
+<div class="member-chip chip-re">Jessica Durbano</div>
+</div>
+</div>
+</div>
+<div class="track-card" onclick="toggleTrack(this)">
+<div class="track-header">
+<div class="track-left">
+<div class="track-label">Onboard Intelligence &amp; Systems</div>
+<div class="track-name">OIS — Architecture, Engineering &amp; Validation</div>
+<div class="track-lead">Leads: <span>Bhuvan Ravikumar</span>, <span>Vidhi Jain</span>, <span>Manish R. Tiwari</span>, <span>Giustina Di Donato</span></div>
+<div class="track-desc">Combines systems architecture with onboard AI model validation. Designs hardware pipelines and builds edge-optimized ML models for resource-constrained platforms.</div>
+</div>
+<div class="track-toggle">Sub-tracks <span class="arrow">↓</span></div>
+</div>
+<div class="track-members">
+<div class="members-label" style="margin-top:18px;">Systems Architecture (SA)</div>
+<div class="members-grid">
+<div class="member-chip chip-lead">Bhuvan Ravikumar</div>
+<div class="member-chip chip-lead">Giustina Di Donato</div>
+<div class="member-chip chip-sa">Carlos Morales-Ramirez</div>
+<div class="member-chip chip-sa">Floris Weyand</div>
+<div class="member-chip chip-sa">Chidinma Amanna</div>
+<div class="member-chip chip-sa">Tanmay Sharma</div>
+<div class="member-chip chip-sa">Benjamin Brumm</div>
+</div>
+<div class="members-label" style="margin-top:24px;">Technical Frameworks &amp; AI Engineering (TF)</div>
+<div class="members-grid">
+<div class="member-chip chip-lead">Vidhi Jain</div>
+<div class="member-chip chip-lead">Manish R. Tiwari</div>
+<div class="member-chip chip-tf">Anish Mahapatra</div>
+<div class="member-chip chip-tf">Aryan Kumar Srivastav</div>
+<div class="member-chip chip-tf">Hasibul Hasan Shanto</div>
+<div class="member-chip chip-tf">Jeeval Shah</div>
+<div class="member-chip chip-tf">Karthikeya Moyye</div>
+<div class="member-chip chip-tf">Vivekini Mata</div>
+<div class="member-chip chip-tf">Meghana Sannapareddy</div>
+<div class="member-chip chip-tf">Mudit Khater</div>
+<div class="member-chip chip-tf">Sanjukta Deshpande</div>
+<div class="member-chip chip-tf">Swayam Sanjay Pawar</div>
+<div class="member-chip chip-tf">Yassine Yousfi</div>
+<div class="member-chip chip-tf">Floris Weyand</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ═══════════════════════════════════════════════════════════════
      SECTION 4 — Leadership Board (split layout)
      ═══════════════════════════════════════════════════════════════ -->
 <section class="leadership-section" id="team">
-  <div class="section-inner">
-    <div class="section-tag">People</div>
-    <h2 class="section-title">Leadership board</h2>
-    <div class="leadership-split fade-in">
-
-      <!-- Left: Leadership Cards -->
-      <div>
-        <!-- Top row — 3 leads at SAME level -->
-        <div class="leadership-top-row">
-          <div class="lead-card"><div class="lead-role">PG Lead</div><div class="lead-name">Samrat Chakraborty</div><div class="lead-affil">Indian Association for the Cultivation of Science</div></div>
-          <div class="lead-card"><div class="lead-role">PG Co-Lead</div><div class="lead-name">Alizay Fatima</div><div class="lead-affil">Institute of Space Technology, Pakistan</div></div>
-          <div class="lead-card"><div class="lead-role">PG Co-Lead</div><div class="lead-name">Anh (Jinny) Truong</div><div class="lead-affil">Foreign Trade University / University of Northampton</div></div>
-        </div>
-        <!-- Track leads -->
-        <div class="leadership-grid">
-          <div class="lead-card"><div class="lead-role">Literature Review Lead</div><div class="lead-name">Isabel LaCoss</div><div class="lead-affil">Embry-Riddle Aeronautical University</div></div>
-          <div class="lead-card"><div class="lead-role">Methodology Writing Lead</div><div class="lead-name">Paarvi Wadhwa</div><div class="lead-affil">University of Delhi</div></div>
-          <div class="lead-card"><div class="lead-role">Methodology Writing Co-Lead</div><div class="lead-name">Karthikeya Moyye</div><div class="lead-affil">Independent Researcher</div></div>
-          <div class="lead-card"><div class="lead-role">Regulatory / Ethics Lead</div><div class="lead-name">Dr. Rachita Agrawal</div><div class="lead-affil">—</div></div>
-          <div class="lead-card"><div class="lead-role">Systems Architecture Lead (OIS)</div><div class="lead-name">Bhuvan Ravikumar</div><div class="lead-affil">University of Southern California</div></div>
-          <div class="lead-card"><div class="lead-role">Systems Architecture Co-Lead (OIS)</div><div class="lead-name">Giustina Di Donato</div><div class="lead-affil">—</div></div>
-          <div class="lead-card"><div class="lead-role">TF Co-Lead (OIS)</div><div class="lead-name">Vidhi Jain</div><div class="lead-affil">—</div></div>
-          <div class="lead-card"><div class="lead-role">TF Co-Lead (OIS)</div><div class="lead-name">Manish R. Tiwari</div><div class="lead-affil">IIT Mandi (CCE)</div></div>
-          <div class="lead-card"><div class="lead-role">Secretariat Lead</div><div class="lead-name">Chidinma Amanna</div><div class="lead-affil">Operations · Media · Outreach</div></div>
-        </div>
-      </div>
-
-      <!-- Right: Advisory Board sidebar -->
-      <div class="advisor-sidebar">
-        <div class="divider-label">Advisory Board</div>
-        <div class="advisor-grid">
-          <div class="advisor-card"><div class="advisor-role">Cybersecurity Advisor</div><div class="advisor-name">Romane Croizet Fontane</div></div>
-          <div class="advisor-card"><div class="advisor-role">Legal Advisor</div><div class="advisor-name">Joseph Turano</div></div>
-          <div class="advisor-card"><div class="advisor-role">Senior Technical Advisor</div><div class="advisor-name">Jimin Choi</div><div class="advisor-affil" style="font-size:10px;color:var(--muted);margin-top:4px;">University of Michigan</div></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-tag">People</div>
+<h2 class="section-title">Leadership board</h2>
+<div class="leadership-split fade-in">
+<!-- Left: Leadership Cards -->
+<div>
+<!-- Top row — 3 leads at SAME level -->
+<div class="leadership-top-row">
+<div class="lead-card"><div class="lead-role">PG Lead</div><div class="lead-name">Samrat Chakraborty</div><div class="lead-affil">Indian Association for the Cultivation of Science</div></div>
+<div class="lead-card"><div class="lead-role">PG Co-Lead</div><div class="lead-name">Alizay Fatima</div><div class="lead-affil">Institute of Space Technology, Pakistan</div></div>
+<div class="lead-card"><div class="lead-role">PG Co-Lead</div><div class="lead-name">Anh (Jinny) Truong</div><div class="lead-affil">Foreign Trade University / University of Northampton</div></div>
+</div>
+<!-- Track leads -->
+<div class="leadership-grid">
+<div class="lead-card"><div class="lead-role">Literature Review Lead</div><div class="lead-name">Isabel LaCoss</div><div class="lead-affil">Embry-Riddle Aeronautical University</div></div>
+<div class="lead-card"><div class="lead-role">Methodology Writing Lead</div><div class="lead-name">Paarvi Wadhwa</div><div class="lead-affil">University of Delhi</div></div>
+<div class="lead-card"><div class="lead-role">Methodology Writing Co-Lead</div><div class="lead-name">Karthikeya Moyye</div><div class="lead-affil">Independent Researcher</div></div>
+<div class="lead-card"><div class="lead-role">Regulatory / Ethics Lead</div><div class="lead-name">Dr. Rachita Agrawal</div><div class="lead-affil">—</div></div>
+<div class="lead-card"><div class="lead-role">Systems Architecture Lead (OIS)</div><div class="lead-name">Bhuvan Ravikumar</div><div class="lead-affil">University of Southern California</div></div>
+<div class="lead-card"><div class="lead-role">Systems Architecture Co-Lead (OIS)</div><div class="lead-name">Giustina Di Donato</div><div class="lead-affil">—</div></div>
+<div class="lead-card"><div class="lead-role">TF Co-Lead (OIS)</div><div class="lead-name">Vidhi Jain</div><div class="lead-affil">—</div></div>
+<div class="lead-card"><div class="lead-role">TF Co-Lead (OIS)</div><div class="lead-name">Manish R. Tiwari</div><div class="lead-affil">IIT Mandi (CCE)</div></div>
+<div class="lead-card"><div class="lead-role">Secretariat Lead</div><div class="lead-name">Chidinma Amanna</div><div class="lead-affil">Operations · Media · Outreach</div></div>
+</div>
+</div>
+<!-- Right: Advisory Board sidebar -->
+<div class="advisor-sidebar">
+<div class="divider-label">Advisory Board</div>
+<div class="advisor-grid">
+<div class="advisor-card"><div class="advisor-role">Cybersecurity Advisor</div><div class="advisor-name">Romane Croizet Fontane</div></div>
+<div class="advisor-card"><div class="advisor-role">Legal Advisor</div><div class="advisor-name">Joseph Turano</div></div>
+<div class="advisor-card"><div class="advisor-role">Senior Technical Advisor</div><div class="advisor-name">Jimin Choi</div><div class="advisor-affil" style="font-size:10px;color:var(--muted);margin-top:4px;">University of Michigan</div></div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ═══════════════════════════════════════════════════════════════
      SECTION 5 — External Support
      ═══════════════════════════════════════════════════════════════ -->
 <section class="collab-section" id="collab">
-  <div class="section-inner">
-    <div class="section-tag">External Support</div>
-    <h2 class="section-title">External Support</h2>
-    <div class="collab-grid fade-in">
-      <div class="collab-card">
-        <div class="collab-name">SGAC Community</div>
-        <div class="collab-desc">Our members are active participants in the Space Generation Advisory Council network — connecting early-career space professionals across 190+ countries. Several founding members were recruited through SGAC community channels.</div>
-      </div>
-      <div class="collab-card">
-        <div class="collab-name">UC Berkeley — REYES Program</div>
-        <div class="collab-desc">Research Experience for Young Engineers and Scientists. Preliminary members recruitment conducted through the REYES network, bringing in early-stage researchers with strong quantitative backgrounds.</div>
-      </div>
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-tag">External Support</div>
+<h2 class="section-title">External Support</h2>
+<div class="collab-grid fade-in">
+<div class="collab-card">
+<div class="collab-name">SGAC Community</div>
+<div class="collab-desc">Our members are active participants in the Space Generation Advisory Council network — connecting early-career space professionals across 190+ countries. Several founding members were recruited through SGAC community channels.</div>
+</div>
+<div class="collab-card">
+<div class="collab-name">UC Berkeley — REYES Program</div>
+<div class="collab-desc">Research Experience for Young Engineers and Scientists. Preliminary members recruitment conducted through the REYES network, bringing in early-stage researchers with strong quantitative backgrounds.</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ═══════════════════════════════════════════════════════════════
      FOOTER
      ═══════════════════════════════════════════════════════════════ -->
 <footer>
-  <div class="footer-logo">Spacex<span>AI</span></div>
-  <div class="footer-copy">Space AI Research Group<br>
-    <span style="font-size:9px;">© 2026 SpacexAI</span><br>
-    <div class="contact-row">
-      <a href="mailto:outreach@spacexairesearch.tech">outreach@spacexairesearch.tech</a>
-      <a href="mailto:contact.us@spacexairesearch.tech">contact.us@spacexairesearch.tech</a>
-    </div>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="team.html">Team</a>
-    <a href="news.html">News</a>
-    <a href="apply.html">Get Involved</a>
-  </div>
+<div class="footer-logo">Spacex<span>AI</span></div>
+<div class="footer-copy">Space AI Research Group<br/>
+<span style="font-size:9px;">© 2026 SpacexAI</span><br/>
+<div class="contact-row">
+<a href="mailto:outreach@spacexairesearch.tech">outreach@spacexairesearch.tech</a>
+<a href="mailto:contact.us@spacexairesearch.tech">contact.us@spacexairesearch.tech</a>
+</div>
+</div>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="research.html">Research</a>
+<a href="team.html">Team</a>
+<a href="news.html">News</a>
+<a href="apply.html">Get Involved</a>
+</div>
 </footer>
-
 <script>
   // ── CURSOR ──
   const cursor = document.getElementById('cursor');
