@@ -1,127 +1,123 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>SpaceXAI — Space AI Research Group</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
 <div class="notice-banner" id="noticeBanner" onclick="toggleNotice()">
-  <div class="notice-banner-bar">Applications for the next cohort will open on June 22, 2026. Partnership and collaboration enquiries are open year-round — use the Get Involved form.</div>
+<div class="notice-banner-bar">Applications for the next cohort will open on June 22, 2026. Partnership and collaboration enquiries are open year-round — use the Get Involved form.</div>
 </div>
-
 <nav>
-  <a href="index.html" class="nav-logo">Spacex<span>AI</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="research.html">Research</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="apply.html">Get Involved</a></li>
-  </ul>
-  <div class="nav-right">
-    <a href="https://discord.gg/7uQpQtCBdX" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Discord</a>
-    <a href="https://www.linkedin.com/company/spacexairesearch" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">LinkedIn</a>
-    <a href="https://www.instagram.com/spacexairesearch/" target="_blank" style="color:var(--muted); text-decoration:none; margin-right:24px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;">Instagram</a>
-    <button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-    <a href="apply.html" class="nav-cta">Get Involved</a>
-  </div>
+<a class="nav-logo" href="index.html">Spacex<span>AI</span></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="team.html">Team</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="apply.html">Get Involved</a></li>
+</ul>
+<div class="nav-right">
+<a href="https://discord.gg/7uQpQtCBdX" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">Discord</a>
+<a href="https://www.linkedin.com/company/spacexairesearch" style="color:var(--muted); text-decoration:none; margin-right:16px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">LinkedIn</a>
+<a href="https://www.instagram.com/spacexairesearch/" style="color:var(--muted); text-decoration:none; margin-right:24px; font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:500;" target="_blank">Instagram</a>
+<button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
+<svg class="icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+<svg class="icon-sun" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg>
+</button>
+<a class="nav-cta" href="apply.html">Get Involved</a>
+<button aria-label="Toggle navigation" class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button></div>
 </nav>
 <section class="hero">
-  <div class="hero-orbit"></div>
-  <div class="hero-orbit-2"></div>
-  <div class="hero-tag">Space AI Research Group</div>
-  <h1>Building <em>trustworthy</em><br>AI for the<br>final frontier</h1>
-  <p class="hero-sub">We develop autonomous, interpretable AI systems for space missions — from onboard inference on resource-constrained CubeSats to formal verification of mission-critical decision-making. Pre-deployment validation, not post-incident response.</p>
-  
-  <div class="hero-actions">
-    <a href="research.html" class="btn-primary">View Research</a>
-    <a href="apply.html" class="btn-ghost">Get involved →</a>
-  </div>
-  <div class="stats-row">
-    <div class="stat-block">
-      <div class="stat-number stat-counter" data-target="40" data-suffix="+" style="color:#00d4ff;">0</div>
-      <div class="stat-label">Members</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-number stat-counter" data-target="18" data-suffix="+" style="color:#f59e0b;">0</div>
-      <div class="stat-label">Countries</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-number stat-counter" data-target="11" data-suffix="+" style="color:#10b981;">0</div>
-      <div class="stat-label">Publications</div>
-    </div>
-    <div class="stat-badges">
-      <div class="badge-pill stat-cyan">
-        <span class="badge-dot stat-cyan"></span>
-        <span class="badge-text stat-cyan">IAC 2025 Oral Presentation</span>
-      </div>
-      <div class="badge-pill stat-amber">
-        <span class="badge-dot stat-amber"></span>
-        <span class="badge-text stat-amber">Preselected · Acta Astronautica</span>
-      </div>
-    </div>
-  </div>
+<div class="hero-orbit"></div>
+<div class="hero-orbit-2"></div>
+<div class="hero-tag">Space AI Research Group</div>
+<h1>Building <em>trustworthy</em><br/>AI for the<br/>final frontier</h1>
+<p class="hero-sub">We develop autonomous, interpretable AI systems for space missions — from onboard inference on resource-constrained CubeSats to formal verification of mission-critical decision-making. Pre-deployment validation, not post-incident response.</p>
+<div class="hero-actions">
+<a class="btn-primary" href="research.html">View Research</a>
+<a class="btn-ghost" href="apply.html">Get involved →</a>
+</div>
+<div class="stats-row">
+<div class="stat-block">
+<div class="stat-number stat-counter" data-suffix="+" data-target="40" style="color:#00d4ff;">0</div>
+<div class="stat-label">Members</div>
+</div>
+<div class="stat-block">
+<div class="stat-number stat-counter" data-suffix="+" data-target="18" style="color:#f59e0b;">0</div>
+<div class="stat-label">Countries</div>
+</div>
+<div class="stat-block">
+<div class="stat-number stat-counter" data-suffix="+" data-target="11" style="color:#10b981;">0</div>
+<div class="stat-label">Publications</div>
+</div>
+<div class="stat-badges">
+<div class="badge-pill stat-cyan">
+<span class="badge-dot stat-cyan"></span>
+<span class="badge-text stat-cyan">IAC 2025 Oral Presentation</span>
+</div>
+<div class="badge-pill stat-amber">
+<span class="badge-dot stat-amber"></span>
+<span class="badge-text stat-amber">Preselected · Acta Astronautica</span>
+</div>
+</div>
+</div>
 </section>
 <section class="vision-section fade-in" id="vision">
-  <div class="section-inner">
-    <div class="section-tag">Our Philosophy</div>
-    <h2 class="section-title">Why we exist</h2>
-    <div class="vision-grid fade-in">
-      <div class="vision-card" data-num="I">
-        <h3>Pre-Deployment Validation</h3>
-        <p>Our methodology centers on interpretable AI validated before launch. We engineer systems that explain their decision pathways — not after something goes wrong, but before it ever could.</p>
-      </div>
-      <div class="vision-card" data-num="II">
-        <h3>Full-Stack AI Engineering</h3>
-        <p>From ML model architecture through deployment pipelines — covering onboard inference, satellite health monitoring, and Earth observation analytics across hardware constraints and radiation-hardened computing.</p>
-      </div>
-      <div class="vision-card" data-num="III">
-        <h3>Mission-Critical Safety</h3>
-        <p>Formal verification for AI in life-critical systems. Mars rover decision-making, satellite collision avoidance — mathematical proofs of behavior bounds, not just security hardening.</p>
-      </div>
-      <div class="vision-card" data-num="IV">
-        <h3>Explainability as Requirement</h3>
-        <p>XAI in space isn't academic — when a satellite autonomously changes orbit, operators need to understand why. We're building the language for human-AI communication in space operations.</p>
-      </div>
-      <div class="vision-card" data-num="V">
-        <h3>Quantum-Classical Hybrid Computing</h3>
-        <p>Our QML division explores quantum algorithms for remote sensing and optimization in orbital mechanics — at the intersection of theoretical computer science and practical space engineering.</p>
-      </div>
-      <div class="vision-card" data-num="VI">
-        <h3>Hands-On Mission Integration</h3>
-        <p>Real hardware, real launches, real data. Debugging edge computing on 10cm³ satellites, optimizing power budgets for neural networks, handling intermittent ground station contacts.</p>
-      </div>
-      <div class="vision-card" data-num="VII">
-        <h3>Not Hype. Not Flashy.</h3>
-        <p>Reliability. Explainability. Accountability. We are not building AI that impresses — we are building AI that you can trust when the margin for error is zero.</p>
-      </div>
-      <div class="vision-card" data-num="VIII">
-        <h3>AI That Helps, Not Replaces</h3>
-        <p>We don't build AI to replace humans in space exploration. We build AI to help them operate in the most vulnerable environment humanity has ever attempted — where there is no margin, no fallback, and no second chance.</p>
-      </div>
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-tag">Our Philosophy</div>
+<h2 class="section-title">Why we exist</h2>
+<div class="vision-grid fade-in">
+<div class="vision-card" data-num="I">
+<h3>Pre-Deployment Validation</h3>
+<p>Our methodology centers on interpretable AI validated before launch. We engineer systems that explain their decision pathways — not after something goes wrong, but before it ever could.</p>
+</div>
+<div class="vision-card" data-num="II">
+<h3>Full-Stack AI Engineering</h3>
+<p>From ML model architecture through deployment pipelines — covering onboard inference, satellite health monitoring, and Earth observation analytics across hardware constraints and radiation-hardened computing.</p>
+</div>
+<div class="vision-card" data-num="III">
+<h3>Mission-Critical Safety</h3>
+<p>Formal verification for AI in life-critical systems. Mars rover decision-making, satellite collision avoidance — mathematical proofs of behavior bounds, not just security hardening.</p>
+</div>
+<div class="vision-card" data-num="IV">
+<h3>Explainability as Requirement</h3>
+<p>XAI in space isn't academic — when a satellite autonomously changes orbit, operators need to understand why. We're building the language for human-AI communication in space operations.</p>
+</div>
+<div class="vision-card" data-num="V">
+<h3>Quantum-Classical Hybrid Computing</h3>
+<p>Our QML division explores quantum algorithms for remote sensing and optimization in orbital mechanics — at the intersection of theoretical computer science and practical space engineering.</p>
+</div>
+<div class="vision-card" data-num="VI">
+<h3>Hands-On Mission Integration</h3>
+<p>Real hardware, real launches, real data. Debugging edge computing on 10cm³ satellites, optimizing power budgets for neural networks, handling intermittent ground station contacts.</p>
+</div>
+<div class="vision-card" data-num="VII">
+<h3>Not Hype. Not Flashy.</h3>
+<p>Reliability. Explainability. Accountability. We are not building AI that impresses — we are building AI that you can trust when the margin for error is zero.</p>
+</div>
+<div class="vision-card" data-num="VIII">
+<h3>AI That Helps, Not Replaces</h3>
+<p>We don't build AI to replace humans in space exploration. We build AI to help them operate in the most vulnerable environment humanity has ever attempted — where there is no margin, no fallback, and no second chance.</p>
+</div>
+</div>
+</div>
 </section>
-
 <section class="fade-in" id="satish" style="padding:100px 40px;background:var(--deep);border-top:1px solid rgba(255,255,255,0.05);">
-  <div class="section-inner">
-    <div class="section-tag">Flagship Product</div>
-    <h2 class="section-title" style="font-size:clamp(32px,5vw,64px);margin-bottom:12px;">SATISH Architecture</h2>
-    <p style="font-size:14px;color:var(--muted);max-width:800px;line-height:1.8;margin-bottom:40px;">Spacecraft Autonomous Telemetry Intelligence and Safety Handling — a modular AI safety system for CubeSats that detects failures, flags anomalies, recommends corrective actions, and explains every decision.</p>
-
-    <style>
+<div class="section-inner">
+<div class="section-tag">Flagship Product</div>
+<h2 class="section-title" style="font-size:clamp(32px,5vw,64px);margin-bottom:12px;">SATISH Architecture</h2>
+<p style="font-size:14px;color:var(--muted);max-width:800px;line-height:1.8;margin-bottom:40px;">Spacecraft Autonomous Telemetry Intelligence and Safety Handling — a modular AI safety system for CubeSats that detects failures, flags anomalies, recommends corrective actions, and explains every decision.</p>
+<style>
       .arch-grid {
         display: grid;
         grid-template-columns: 220px 60px 220px 60px 280px 60px 240px;
@@ -209,123 +205,108 @@
       .spec-item { display: flex; align-items: center; gap: 8px; font-size: 11px; font-family: 'IBM Plex Mono', monospace; color: var(--muted); }
       .spec-item span { color: var(--amber); font-weight: bold; }
     </style>
-
-    <div class="arch-grid fade-in">
-      
-      <!-- TOP ROW: Mission Control -->
-      <div style="grid-column: 1 / -1; grid-row: 1; display: flex; justify-content: space-around; padding-bottom: 20px; border-bottom: 1px solid var(--border); position: relative;">
-        <div class="arch-group-label" style="left: 50%; transform: translateX(-50%); top: -10px; font-size: 11px; color: #ec4899; z-index: 5;">MISSION CONTROL</div>
-        <div class="arch-node" style="border-color: #ec4899; width: 240px;">
-          <h4>Ground Station</h4><small style="color:#ec4899;">Mission Ops</small>
-        </div>
-        <div class="arch-node" style="border-color: #ec4899; width: 240px;">
-          <h4>Human Operator</h4><small style="color:#ec4899;">Manual Override & Approval</small>
-        </div>
-      </div>
-
-      <!-- ROW 2: Core Flow -->
-      <!-- Left: Subsystems -->
-      <div class="arch-group" style="grid-column: 1; grid-row: 2; justify-content: center;">
-        <div class="arch-group-label">Satellite Subsystems</div>
-        <div class="arch-node" style="padding: 8px;"><h4>COMM</h4></div>
-        <div class="arch-node" style="padding: 8px;"><h4>Propulsion</h4></div>
-        <div class="arch-node" style="padding: 8px;"><h4>ADCS</h4></div>
-        <div class="arch-node" style="padding: 8px;"><h4>EPS</h4></div>
-        <div class="arch-node" style="padding: 8px;"><h4>Sensors</h4></div>
-      </div>
-
-      <!-- Arrow -->
-      <div class="arch-line" style="grid-column: 2; grid-row: 2;">
-        <svg><line x1="0" y1="0" x2="60" y2="0"/><polygon points="60,0 55,-5 55,5"/></svg>
-      </div>
-
-      <!-- Flight Comp / Telemetry -->
-      <div style="grid-column: 3; grid-row: 2; display: flex; flex-direction: column; justify-content: center; gap: 40px; position: relative;">
-        <div class="arch-node">
-          <h4>Flight Computer</h4><small>OBC</small>
-        </div>
-        <div class="arch-line-vertical" style="position: absolute; top: 80px; left: 50%; height: 40px; transform: translateX(-50%);">
-          <svg><line x1="0" y1="0" x2="0" y2="40"/><polygon points="0,40 -5,35 5,35"/></svg>
-        </div>
-        <div class="arch-node" style="border-color: var(--cyan);">
-          <h4>Telemetry Module</h4><small>Data Acquisition</small>
-        </div>
-      </div>
-
-      <!-- Arrow -->
-      <div class="arch-line" style="grid-column: 4; grid-row: 2;">
-        <svg><line x1="0" y1="0" x2="60" y2="0"/><polygon points="60,0 55,-5 55,5"/></svg>
-        <div class="arch-label" style="top: -20px;">Onboard Data</div>
-      </div>
-
-      <!-- Risk Prediction Layer -->
-      <div class="arch-group" style="grid-column: 5; grid-row: 2; background: rgba(0,212,255,0.03); border-color: rgba(0,212,255,0.3);">
-        <div class="arch-group-label" style="color: #00d4ff;">Risk Prediction Layer</div>
-        <div class="arch-node" style="border-color: rgba(0,212,255,0.4);">
-          <h4>Anomaly Detection</h4><small style="color: #00d4ff;">LSTM / Autoencoder</small>
-        </div>
-        <div class="arch-line-vertical" style="height: 30px;">
-          <svg><line x1="0" y1="0" x2="0" y2="30"/><polygon points="0,30 -5,25 5,25"/></svg>
-          <div class="arch-label" style="right: -80px;">Anomaly Flags</div>
-        </div>
-        <div class="arch-node" style="border-color: rgba(0,212,255,0.4);">
-          <h4>Failure Prediction</h4><small style="color: #00d4ff;">XGBoost / TST</small>
-        </div>
-      </div>
-
-      <!-- Arrow -->
-      <div class="arch-line" style="grid-column: 6; grid-row: 2;">
-        <svg><line x1="0" y1="0" x2="60" y2="0"/><polygon points="60,0 55,-5 55,5"/></svg>
-      </div>
-
-      <!-- Decision Support System -->
-      <div class="arch-group" style="grid-column: 7; grid-row: 2; border-color: var(--amber); background: rgba(245,158,11,0.05);">
-        <div class="arch-group-label" style="color: var(--amber);">Decision Module</div>
-        <div class="arch-node" style="border-color: var(--amber);">
-          <h4>Decision Support System</h4><small style="color: var(--amber);">PPO RL Agent</small>
-        </div>
-        <div class="arch-node" style="border-color: #ec4899; margin-top: 10px;">
-          <h4>Ethics & Policy</h4><small style="color: #ec4899;">UNOOSA Guideline Guardrails</small>
-        </div>
-      </div>
-
-      <!-- ROW 3: Reconfiguration -->
-      <div style="grid-column: 1 / -1; grid-row: 3; display: flex; justify-content: center; gap: 40px; margin-top: 20px; padding-top: 20px; border-top: 1px dashed var(--border);">
-        <div class="arch-node" style="border-color: var(--amber); width: 320px;">
-          <h4>Resource Reconfiguration Engine</h4><small style="color: var(--amber);">Execution & Command</small>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="tech-specs-bar fade-in">
-      <div class="spec-item"><span>Accuracy:</span> 89.5–94.1%</div>
-      <div class="spec-item"><span>Platforms:</span> 1U · 3U · 6U CubeSat</div>
-      <div class="spec-item"><span>XAI Models:</span> SHAP + LIME Integration</div>
-      <div class="spec-item"><span>Governance:</span> UNOOSA · COSPAR Compliant</div>
-    </div>
-
-  </div>
+<div class="arch-grid fade-in">
+<!-- TOP ROW: Mission Control -->
+<div style="grid-column: 1 / -1; grid-row: 1; display: flex; justify-content: space-around; padding-bottom: 20px; border-bottom: 1px solid var(--border); position: relative;">
+<div class="arch-group-label" style="left: 50%; transform: translateX(-50%); top: -10px; font-size: 11px; color: #ec4899; z-index: 5;">MISSION CONTROL</div>
+<div class="arch-node" style="border-color: #ec4899; width: 240px;">
+<h4>Ground Station</h4><small style="color:#ec4899;">Mission Ops</small>
+</div>
+<div class="arch-node" style="border-color: #ec4899; width: 240px;">
+<h4>Human Operator</h4><small style="color:#ec4899;">Manual Override &amp; Approval</small>
+</div>
+</div>
+<!-- ROW 2: Core Flow -->
+<!-- Left: Subsystems -->
+<div class="arch-group" style="grid-column: 1; grid-row: 2; justify-content: center;">
+<div class="arch-group-label">Satellite Subsystems</div>
+<div class="arch-node" style="padding: 8px;"><h4>COMM</h4></div>
+<div class="arch-node" style="padding: 8px;"><h4>Propulsion</h4></div>
+<div class="arch-node" style="padding: 8px;"><h4>ADCS</h4></div>
+<div class="arch-node" style="padding: 8px;"><h4>EPS</h4></div>
+<div class="arch-node" style="padding: 8px;"><h4>Sensors</h4></div>
+</div>
+<!-- Arrow -->
+<div class="arch-line" style="grid-column: 2; grid-row: 2;">
+<svg><line x1="0" x2="60" y1="0" y2="0"></line><polygon points="60,0 55,-5 55,5"></polygon></svg>
+</div>
+<!-- Flight Comp / Telemetry -->
+<div style="grid-column: 3; grid-row: 2; display: flex; flex-direction: column; justify-content: center; gap: 40px; position: relative;">
+<div class="arch-node">
+<h4>Flight Computer</h4><small>OBC</small>
+</div>
+<div class="arch-line-vertical" style="position: absolute; top: 80px; left: 50%; height: 40px; transform: translateX(-50%);">
+<svg><line x1="0" x2="0" y1="0" y2="40"></line><polygon points="0,40 -5,35 5,35"></polygon></svg>
+</div>
+<div class="arch-node" style="border-color: var(--cyan);">
+<h4>Telemetry Module</h4><small>Data Acquisition</small>
+</div>
+</div>
+<!-- Arrow -->
+<div class="arch-line" style="grid-column: 4; grid-row: 2;">
+<svg><line x1="0" x2="60" y1="0" y2="0"></line><polygon points="60,0 55,-5 55,5"></polygon></svg>
+<div class="arch-label" style="top: -20px;">Onboard Data</div>
+</div>
+<!-- Risk Prediction Layer -->
+<div class="arch-group" style="grid-column: 5; grid-row: 2; background: rgba(0,212,255,0.03); border-color: rgba(0,212,255,0.3);">
+<div class="arch-group-label" style="color: #00d4ff;">Risk Prediction Layer</div>
+<div class="arch-node" style="border-color: rgba(0,212,255,0.4);">
+<h4>Anomaly Detection</h4><small style="color: #00d4ff;">LSTM / Autoencoder</small>
+</div>
+<div class="arch-line-vertical" style="height: 30px;">
+<svg><line x1="0" x2="0" y1="0" y2="30"></line><polygon points="0,30 -5,25 5,25"></polygon></svg>
+<div class="arch-label" style="right: -80px;">Anomaly Flags</div>
+</div>
+<div class="arch-node" style="border-color: rgba(0,212,255,0.4);">
+<h4>Failure Prediction</h4><small style="color: #00d4ff;">XGBoost / TST</small>
+</div>
+</div>
+<!-- Arrow -->
+<div class="arch-line" style="grid-column: 6; grid-row: 2;">
+<svg><line x1="0" x2="60" y1="0" y2="0"></line><polygon points="60,0 55,-5 55,5"></polygon></svg>
+</div>
+<!-- Decision Support System -->
+<div class="arch-group" style="grid-column: 7; grid-row: 2; border-color: var(--amber); background: rgba(245,158,11,0.05);">
+<div class="arch-group-label" style="color: var(--amber);">Decision Module</div>
+<div class="arch-node" style="border-color: var(--amber);">
+<h4>Decision Support System</h4><small style="color: var(--amber);">PPO RL Agent</small>
+</div>
+<div class="arch-node" style="border-color: #ec4899; margin-top: 10px;">
+<h4>Ethics &amp; Policy</h4><small style="color: #ec4899;">UNOOSA Guideline Guardrails</small>
+</div>
+</div>
+<!-- ROW 3: Reconfiguration -->
+<div style="grid-column: 1 / -1; grid-row: 3; display: flex; justify-content: center; gap: 40px; margin-top: 20px; padding-top: 20px; border-top: 1px dashed var(--border);">
+<div class="arch-node" style="border-color: var(--amber); width: 320px;">
+<h4>Resource Reconfiguration Engine</h4><small style="color: var(--amber);">Execution &amp; Command</small>
+</div>
+</div>
+</div>
+<div class="tech-specs-bar fade-in">
+<div class="spec-item"><span>Accuracy:</span> 89.5–94.1%</div>
+<div class="spec-item"><span>Platforms:</span> 1U · 3U · 6U CubeSat</div>
+<div class="spec-item"><span>XAI Models:</span> SHAP + LIME Integration</div>
+<div class="spec-item"><span>Governance:</span> UNOOSA · COSPAR Compliant</div>
+</div>
+</div>
 </section>
-
 <footer>
-  <div class="footer-logo">Spacex<span>AI</span></div>
-  <div class="footer-copy">Space AI Research Group<br>
-    <span style="font-size:9px;">© 2026 SpacexAI</span><br>
-    <div class="contact-row">
-      <a href="mailto:outreach@spacexairesearch.tech">outreach@spacexairesearch.tech</a>
-      <a href="mailto:contact.us@spacexairesearch.tech">contact.us@spacexairesearch.tech</a>
-    </div>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="team.html">Team</a>
-    <a href="news.html">News</a>
-    <a href="apply.html">Get Involved</a>
-  </div>
+<div class="footer-logo">Spacex<span>AI</span></div>
+<div class="footer-copy">Space AI Research Group<br/>
+<span style="font-size:9px;">© 2026 SpacexAI</span><br/>
+<div class="contact-row">
+<a href="mailto:outreach@spacexairesearch.tech">outreach@spacexairesearch.tech</a>
+<a href="mailto:contact.us@spacexairesearch.tech">contact.us@spacexairesearch.tech</a>
+</div>
+</div>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="research.html">Research</a>
+<a href="team.html">Team</a>
+<a href="news.html">News</a>
+<a href="apply.html">Get Involved</a>
+</div>
 </footer>
-
 <script>
   // ── CURSOR ──
   const cursor = document.getElementById('cursor');
@@ -445,5 +426,22 @@
 
   document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
 </script>
-</body>
+<script>
+  // Mobile Menu Toggle
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.querySelector('.nav-links');
+  if(mobileBtn && navLinks) {
+    mobileBtn.addEventListener('click', () => {
+      mobileBtn.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+</script></body>
 </html>
