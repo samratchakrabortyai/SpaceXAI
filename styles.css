@@ -480,3 +480,40 @@ html.light .mobile-menu-btn span { background: var(--cyan); }
     .nav-links a { font-size: 24px; letter-spacing: 3px; }
     .nav-right > a:not(.nav-cta) { display: none; } /* Hide small social text links on mobile to save space */
 }
+
+
+@media(max-width: 768px) {
+    /* Clever way: stack nodes one below another in a vertical scrolling box */
+    .org-track-grid {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        max-height: 450px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 10px;
+        scroll-snap-type: y mandatory;
+    }
+    .org-track-grid::-webkit-scrollbar { width: 4px; }
+    .org-track-grid::-webkit-scrollbar-thumb { background: rgba(126,63,97,0.4); border-radius: 4px; }
+    .org-node {
+        width: 100%;
+        max-width: 280px;
+        scroll-snap-align: start;
+    }
+    .org-track-container {
+        padding: 20px 10px;
+    }
+    .organogram-container {
+        padding: 0;
+    }
+}
+
+
+@media(max-width: 768px) {
+    .org-level {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+}
