@@ -277,7 +277,7 @@
   function deadlineDate(){const d=new Date();d.setDate(d.getDate()+7);return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
 
   function submitForm(type){
-    const WEBHOOK='https://discord.com/api/webhooks/1480664373839003730/hjRL6zt37GdLIYXL35L4LPUghTqb5fKcrceMOvXanAoOO8sa4rrf0IJcsMsBpPoYcJjl';
+    const WEBHOOK='...';
     let name,email,desc,extra='',projectVal='';
     if(type==='join'){name=(document.getElementById('j-first').value+' '+document.getElementById('j-last').value).trim();email=document.getElementById('j-email').value.trim();desc=document.getElementById('j-why').value.trim();projectVal=document.getElementById('j-project').value;extra='Project: '+projectVal+'\nAffiliation: '+document.getElementById('j-affil').value;}
     else if(type==='secretariat'){name=(document.getElementById('s-first').value+' '+document.getElementById('s-last').value).trim();email=document.getElementById('s-email').value.trim();desc=document.getElementById('s-why').value.trim();projectVal=document.getElementById('s-role').value;extra='Role: '+projectVal+'\nAffiliation: '+document.getElementById('s-affil').value+'\nLinkedIn: '+(document.getElementById('s-link').value||'—');}
