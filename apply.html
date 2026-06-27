@@ -34,6 +34,7 @@
 <a class="nav-cta" href="apply.html">Get Involved</a>
 <button aria-label="Toggle navigation" class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button></div>
 </nav>
+<div id="menuOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:98;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);"></div>
 <section class="apply-section fade-in" id="apply">
 <div class="section-inner">
 <div class="apply-wrapper">
@@ -45,7 +46,7 @@
 <div class="apply-options">
 <button class="apply-option-btn active" onclick="switchMode('join', this)">
 <span class="opt-icon">🛰</span>
-<div><span class="opt-label">Join a project</span><span class="opt-desc">Become a member and contribute to an active research track</span></div>
+<div><span class="opt-label">Join a project</span><span class="opt-desc">All research tracks are open — LR, MW, RE, and OIS</span></div>
 </button>
 <button class="apply-option-btn" onclick="switchMode('propose', this)">
 <span class="opt-icon">💡</span>
@@ -81,14 +82,29 @@
 <div class="form-group"><label>Background / Affiliation</label><input id="j-affil" placeholder="MSc AI, University of X" type="text"/></div>
 <div class="form-group">
 <label>Project *</label>
-<select disabled="" id="j-project">
-<option value="">Applications currently closed</option>
-<optgroup label="Operational Roles"></optgroup>
+<select id="j-project">
+<option value="">-- Select a Track --</option>
+<optgroup label="Literature Review (LR)">
+<option value="lr1">Literature Review — Researcher</option>
+</optgroup>
+<optgroup label="Methodology Writing (MW)">
+<option value="mw1">Methodology Writing — Writer / Researcher</option>
+<option value="mw2">Methodology Writing — Reviewer</option>
+</optgroup>
+<optgroup label="Regulatory &amp; Ethics (RE)">
+<option value="re1">Regulatory &amp; Ethics — Researcher</option>
+<option value="re2">Regulatory &amp; Ethics — Policy Analyst</option>
+<option value="re3">Regulatory &amp; Ethics — Legal Reviewer</option>
+</optgroup>
+<optgroup label="Onboard Intelligence &amp; Systems (OIS)">
+<option value="sa1">OIS — Systems Architecture (SA)</option>
+<option value="tf1">OIS — Technical Frameworks (TF)</option>
+<option value="tf2">OIS — Technical Frameworks — ML Focus</option>
+<option value="tf3">OIS — Technical Frameworks — Systems Focus</option>
+</optgroup>
 </select>
 </div>
-<div id="closedWarning" style="display:none;margin-top:6px;padding:10px 14px;background:rgba(255,100,100,0.08);border:1px solid rgba(255,100,100,0.25);font-size:10px;color:#ff9999;letter-spacing:0.5px;line-height:1.7;border-radius:4px;">
-              Applications for this project are temporarily closed. Please select an open project or apply to the Secretariat / Editor / Social Media roles.
-            </div>
+
 <div class="form-group"><label>Why this project? What do you bring? *</label><textarea id="j-why" placeholder="Be direct. What have you built, what are you thinking about, and why this project?"></textarea></div>
 <div class="form-group"><label>GitHub / Portfolio (optional)</label><input id="j-link" placeholder="github.com/yourprofile" type="text"/></div>
 <button class="submit-btn" onclick="submitForm('join')">Submit Application</button>
@@ -119,9 +135,7 @@
 </div>
 <div class="form-section" id="mode-secretariat">
 <div class="form-title">Join the Secretariat</div>
-<div style="font-size:10px;color:var(--very-muted);margin-bottom:20px;line-height:1.8;padding:12px 14px;border:1px solid rgba(126,63,97,0.12);background:rgba(126,63,97,0.03);border-radius:4px;">
-              The Secretariat keeps SpacexAI running — Operations, Media, and Outreach. These roles are <span style="color:var(--cyan);">fully open</span> while research track applications are paused.
-            </div>
+<div style="font-size:10px;color:var(--very-muted);margin-bottom:20px;line-height:1.8;padding:12px 14px;border:1px solid rgba(126,63,97,0.12);background:rgba(126,63,97,0.03);border-radius:4px;"><span style="color:var(--cyan);">All Secretariat roles are open. </span>Operations, Media, and Outreach — apply now.</div>
 <div class="form-row">
 <div class="form-group"><label>First Name *</label><input id="s-first" placeholder="Ada" type="text"/></div>
 <div class="form-group"><label>Last Name *</label><input id="s-last" placeholder="Lovelace" type="text"/></div>
@@ -130,8 +144,8 @@
 <div class="form-group"><label>Background / Affiliation</label><input id="s-affil" placeholder="Your background or current role" type="text"/></div>
 <div class="form-group">
 <label>Sub-team &amp; Role *</label>
-<select disabled="" id="s-role">
-<option value="">Applications currently closed</option>
+<select id="s-role">
+<option value="">-- Select a Role --</option>
 <optgroup label="Operations — Internal Engine">
 <option value="ops-coordinator">Operations Coordinator — Scheduling, onboarding, task tracking</option>
 <option value="ops-knowledge">Knowledge Staff — Documentation, internal records, progress tracking</option>
@@ -139,9 +153,11 @@
 <optgroup label="Media — Visibility Layer">
 <option value="media-planner">Media Planner — Content strategy, calendar, briefing</option>
 <option value="media-copywriter">Copywriter — LinkedIn, Instagram, science communication</option>
-<option value="media-account">Account Manager — Community, DMs, comments, LinkedIn + Instagram</option>
+<option value="media-account">Account Manager — Community, DMs, comments</option>
 </optgroup>
 <optgroup label="Outreach — External Face">
+<option value="outreach-strategist">Outreach Strategist — Partnerships, university outreach</option>
+<option value="outreach-associate">Outreach Associate — Emails, follow-ups, coordination</option>
 </optgroup>
 </select>
 </div>
@@ -277,7 +293,7 @@
   function deadlineDate(){const d=new Date();d.setDate(d.getDate()+7);return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
 
   function submitForm(type){
-    const WEBHOOK='...';
+    const WEBHOOK='https://icy-art-0403.nooneknowme2004.workers.dev/';
     let name,email,desc,extra='',projectVal='';
     if(type==='join'){name=(document.getElementById('j-first').value+' '+document.getElementById('j-last').value).trim();email=document.getElementById('j-email').value.trim();desc=document.getElementById('j-why').value.trim();projectVal=document.getElementById('j-project').value;extra='Project: '+projectVal+'\nAffiliation: '+document.getElementById('j-affil').value;}
     else if(type==='secretariat'){name=(document.getElementById('s-first').value+' '+document.getElementById('s-last').value).trim();email=document.getElementById('s-email').value.trim();desc=document.getElementById('s-why').value.trim();projectVal=document.getElementById('s-role').value;extra='Role: '+projectVal+'\nAffiliation: '+document.getElementById('s-affil').value+'\nLinkedIn: '+(document.getElementById('s-link').value||'—');}
@@ -325,21 +341,76 @@
   document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
 </script>
 <script>
-  // Mobile Menu Toggle
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const navLinks = document.querySelector('.nav-links');
-  if(mobileBtn && navLinks) {
-    mobileBtn.addEventListener('click', () => {
-      mobileBtn.classList.toggle('active');
-      navLinks.classList.toggle('active');
+(function() {
+  function initMobileMenu() {
+    var btn = document.getElementById('mobileMenuBtn');
+    var nav = document.querySelector('.nav-links');
+    var overlay = document.getElementById('menuOverlay');
+    if (!btn || !nav) return;
+
+    function openMenu() {
+      btn.classList.add('active');
+      nav.classList.add('active');
+      if (overlay) overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      btn.classList.remove('active');
+      nav.classList.remove('active');
+      if (overlay) overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function toggleMenu() {
+      if (btn.classList.contains('active')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    // Use both click and touchend for max compatibility
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
     });
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileBtn.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
+    btn.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Close on link click
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+      link.addEventListener('touchend', closeMenu);
+    });
+
+    // Close on overlay tap
+    if (overlay) {
+      overlay.addEventListener('click', closeMenu);
+      overlay.addEventListener('touchend', closeMenu);
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Close if screen resizes to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) closeMenu();
     });
   }
-</script></body>
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
+})();
+</script>
+</body>
 </html>

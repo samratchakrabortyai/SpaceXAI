@@ -15,7 +15,7 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 <div class="notice-banner" id="noticeBanner" onclick="toggleNotice()">
-<div class="notice-banner-bar">Applications for the next cohort will open on June 22, 2026. Partnership and collaboration enquiries are open year-round — use the Get Involved form.</div>
+<div class="notice-banner-bar">All Tracks are now accepting applications for the new cohort. Apply via the Get Involved page. Collaboration enquiries are open year-round.</div>
 </div>
 <nav>
 <a class="nav-logo" href="index.html">Spacex<span>AI</span></a>
@@ -37,6 +37,7 @@
 <a class="nav-cta" href="apply.html">Get Involved</a>
 <button aria-label="Toggle navigation" class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button></div>
 </nav>
+<div id="menuOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:98;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);"></div>
 <section class="hero">
 <div class="hero-orbit"></div>
 <div class="hero-orbit-2"></div>
@@ -379,7 +380,7 @@
   function deadlineDate(){const d=new Date();d.setDate(d.getDate()+7);return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
 
   function submitForm(type){
-    const WEBHOOK='https://discord.com/api/webhooks/1480664373839003730/hjRL6zt37GdLIYXL35L4LPUghTqb5fKcrceMOvXanAoOO8sa4rrf0IJcsMsBpPoYcJjl';
+    const WEBHOOK='https://icy-art-0403.nooneknowme2004.workers.dev/';
     let name,email,desc,extra='',projectVal='';
     if(type==='join'){name=(document.getElementById('j-first').value+' '+document.getElementById('j-last').value).trim();email=document.getElementById('j-email').value.trim();desc=document.getElementById('j-why').value.trim();projectVal=document.getElementById('j-project').value;extra='Project: '+projectVal+'\nAffiliation: '+document.getElementById('j-affil').value;}
     else if(type==='secretariat'){name=(document.getElementById('s-first').value+' '+document.getElementById('s-last').value).trim();email=document.getElementById('s-email').value.trim();desc=document.getElementById('s-why').value.trim();projectVal=document.getElementById('s-role').value;extra='Role: '+projectVal+'\nAffiliation: '+document.getElementById('s-affil').value+'\nLinkedIn: '+(document.getElementById('s-link').value||'—');}
@@ -427,21 +428,76 @@
   document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
 </script>
 <script>
-  // Mobile Menu Toggle
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const navLinks = document.querySelector('.nav-links');
-  if(mobileBtn && navLinks) {
-    mobileBtn.addEventListener('click', () => {
-      mobileBtn.classList.toggle('active');
-      navLinks.classList.toggle('active');
+(function() {
+  function initMobileMenu() {
+    var btn = document.getElementById('mobileMenuBtn');
+    var nav = document.querySelector('.nav-links');
+    var overlay = document.getElementById('menuOverlay');
+    if (!btn || !nav) return;
+
+    function openMenu() {
+      btn.classList.add('active');
+      nav.classList.add('active');
+      if (overlay) overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      btn.classList.remove('active');
+      nav.classList.remove('active');
+      if (overlay) overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function toggleMenu() {
+      if (btn.classList.contains('active')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    // Use both click and touchend for max compatibility
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
     });
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileBtn.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
+    btn.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Close on link click
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+      link.addEventListener('touchend', closeMenu);
+    });
+
+    // Close on overlay tap
+    if (overlay) {
+      overlay.addEventListener('click', closeMenu);
+      overlay.addEventListener('touchend', closeMenu);
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Close if screen resizes to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) closeMenu();
     });
   }
-</script></body>
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
+})();
+</script>
+</body>
 </html>

@@ -34,6 +34,7 @@
 <a class="nav-cta" href="apply.html">Get Involved</a>
 <button aria-label="Toggle navigation" class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button></div>
 </nav>
+<div id="menuOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:98;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);"></div>
 <section class="" id="team">
 <div class="section-inner">
 <div class="section-tag">Organization</div>
@@ -92,7 +93,7 @@
 <!-- Literature Review -->
 <div class="org-track-container trk-lr">
 <div class="org-track-title">Literature Review (LR)</div>
-<div class="org-track-grid"><div class="org-node"><div class="initials">IS</div><div class="org-role">Track Lead</div><div class="org-name">Isabel LaCoss</div><div class="org-affil">Embry-Riddle Aeronautical University, FL, USA</div></div><div class="org-node"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amara Isikaku</div><div class="org-affil">Canada</div></div><div class="org-node"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amuzu Justice</div><div class="org-affil">Ghana</div></div><div class="org-node"><img alt="Ankit Thakur" loading="lazy" src="images/MW_Ankit.jpg"/><div class="org-role">Member</div><div class="org-name">Ankit Thakur</div><div class="org-affil">India</div></div><div class="org-node"><div class="initials">AR</div><div class="org-role">Member</div><div class="org-name">Arif Emre Özden</div><div class="org-affil">Germany</div></div><div class="org-node"><div class="initials">BL</div><div class="org-role">Member</div><div class="org-name">Blessing Okafor</div><div class="org-affil">Nigeria</div></div><div class="org-node"><div class="initials">DA</div><div class="org-role">Member</div><div class="org-name">Davyani Vasta</div><div class="org-affil">Canada</div></div><div class="org-node"><div class="initials">DE</div><div class="org-role">Member</div><div class="org-name">Derrick Ayitey</div><div class="org-affil">Ghana</div></div><div class="org-node"><div class="initials">DI</div><div class="org-role">Member</div><div class="org-name">Diego Paniagua Silva</div><div class="org-affil">United Kingdom</div></div><div class="org-node"><div class="initials">EM</div><div class="org-role">Member</div><div class="org-name">Emil B. Velichka</div><div class="org-affil">Belarus </div></div><div class="org-node"><div class="initials">HS</div><div class="org-role">Member</div><div class="org-name">Hsien Hao Lai</div><div class="org-affil">National University of Singapore, Singapore</div></div><div class="org-node"><div class="initials">JE</div><div class="org-role">Member</div><div class="org-name">Jessica Durbano</div><div class="org-affil">Italy</div></div><div class="org-node"><img alt="M Abdullah Khan" loading="lazy" src="images/PE_Abdullah_.jpg"/><div class="org-role">Member</div><div class="org-name">M Abdullah Khan</div><div class="org-affil">SGAC, Bangladesh</div></div><div class="org-node"><img alt="Paula Ixquiac Madrigales" loading="lazy" src="images/MW_Paula.jpg"/><div class="org-role">Member</div><div class="org-name">Paula Ixquiac Madrigales</div><div class="org-affil">Instituto de Estudios Avanzados, Guatemala</div></div><div class="org-node"><div class="initials">RO</div><div class="org-role">Member</div><div class="org-name">Robel Gudissa</div><div class="org-affil">Ethiopia </div></div><div class="org-node"><div class="initials">SA</div><div class="org-role">Member</div><div class="org-name">Sanjukta Deshpande</div><div class="org-affil">Independent Researcher, India</div></div><div class="org-node"><div class="initials">YA</div><div class="org-role">Member</div><div class="org-name">Yassine Yousfi</div><div class="org-affil">SGAC, France</div></div></div>
+<div class="org-track-grid"><div class="org-node"><div class="initials">EM</div><div class="org-role">Track Lead</div><div class="org-name">Emil B. Velichka</div><div class="org-affil">Belarus </div></div><div class="org-node"><div class="initials">IS</div><div class="org-role">Member</div><div class="org-name">Isabel LaCoss</div><div class="org-affil">Embry-Riddle Aeronautical University, FL, USA</div></div><div class="org-node"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amara Isikaku</div><div class="org-affil">Canada</div></div><div class="org-node"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amuzu Justice</div><div class="org-affil">Ghana</div></div><div class="org-node"><img alt="Ankit Thakur" loading="lazy" src="images/MW_Ankit.jpg"/><div class="org-role">Member</div><div class="org-name">Ankit Thakur</div><div class="org-affil">India</div></div><div class="org-node"><div class="initials">AR</div><div class="org-role">Member</div><div class="org-name">Arif Emre Özden</div><div class="org-affil">Germany</div></div><div class="org-node"><div class="initials">BL</div><div class="org-role">Member</div><div class="org-name">Blessing Okafor</div><div class="org-affil">Nigeria</div></div><div class="org-node"><div class="initials">DA</div><div class="org-role">Member</div><div class="org-name">Davyani Vasta</div><div class="org-affil">Canada</div></div><div class="org-node"><div class="initials">DE</div><div class="org-role">Member</div><div class="org-name">Derrick Ayitey</div><div class="org-affil">Ghana</div></div><div class="org-node"><div class="initials">DI</div><div class="org-role">Member</div><div class="org-name">Diego Paniagua Silva</div><div class="org-affil">United Kingdom</div></div><div class="org-node"><div class="initials">HS</div><div class="org-role">Member</div><div class="org-name">Hsien Hao Lai</div><div class="org-affil">National University of Singapore, Singapore</div></div><div class="org-node"><div class="initials">JE</div><div class="org-role">Member</div><div class="org-name">Jessica Durbano</div><div class="org-affil">Italy</div></div><div class="org-node"><img alt="M Abdullah Khan" loading="lazy" src="images/PE_Abdullah_.jpg"/><div class="org-role">Member</div><div class="org-name">M Abdullah Khan</div><div class="org-affil">SGAC, Bangladesh</div></div><div class="org-node"><img alt="Paula Ixquiac Madrigales" loading="lazy" src="images/MW_Paula.jpg"/><div class="org-role">Member</div><div class="org-name">Paula Ixquiac Madrigales</div><div class="org-affil">Instituto de Estudios Avanzados, Guatemala</div></div><div class="org-node"><div class="initials">RO</div><div class="org-role">Member</div><div class="org-name">Robel Gudissa</div><div class="org-affil">Ethiopia </div></div><div class="org-node"><div class="initials">SA</div><div class="org-role">Member</div><div class="org-name">Sanjukta Deshpande</div><div class="org-affil">Independent Researcher, India</div></div><div class="org-node"><div class="initials">YA</div><div class="org-role">Member</div><div class="org-name">Yassine Yousfi</div><div class="org-affil">SGAC, France</div></div></div>
 </div>
 <!-- Methodology Writing -->
 <div class="org-track-container trk-mw">
@@ -108,7 +109,7 @@
 <div class="org-track-container trk-ois">
 <div class="org-track-title">Onboard Intelligence &amp; Systems (OIS)</div>
 <div style="font-size:11px;color:var(--muted);text-align:center;margin-bottom:16px;font-family:'IBM Plex Mono',monospace;">Systems Architecture (SA) + Technical Frameworks (TF)</div>
-<div class="org-track-grid"><div class="org-node"><div class="initials">BH</div><div class="org-role">Track Lead</div><div class="org-name">Bhuvan Ravikumar</div><div class="org-affil">USC, United States</div></div><div class="org-node"><img alt="Manish tiwari" loading="lazy" src="images/Manish Tiwari (TF).jpg"/><div class="org-role">Track Lead</div><div class="org-name">Manish tiwari</div><div class="org-affil">IIT Mandi, India</div></div><div class="org-node"><img alt="Vidhi Jain" loading="lazy" src="images/Vidhi Jain [TF].jpeg"/><div class="org-role">Track Lead</div><div class="org-name">Vidhi Jain</div><div class="org-affil">Independent Researcher, India</div></div><div class="org-node"><div class="initials">AD</div><div class="org-role">Member</div><div class="org-name">Adelu Faidat</div><div class="org-affil">Nigeria </div></div><div class="org-node"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amna Bashir</div><div class="org-affil">United Arab Emirates</div></div><div class="org-node"><img alt="Aryan Kumar Srivastav" loading="lazy" src="images/MW_TF_Aryan.jpg"/><div class="org-role">Member</div><div class="org-name">Aryan Kumar Srivastav</div><div class="org-affil">IISER Tirupati, India</div></div><div class="org-node"><div class="initials">BE</div><div class="org-role">Member</div><div class="org-name">Benedict Julian Zefanya Batubara</div><div class="org-affil">Indonesia</div></div><div class="org-node"><div class="initials">BE</div><div class="org-role">Member</div><div class="org-name">Benjamin Brumm</div><div class="org-affil">Canada</div></div><div class="org-node"><div class="initials">DA</div><div class="org-role">Member</div><div class="org-name">Davyani Vasta</div><div class="org-affil">Canada</div></div><div class="org-node"><div class="initials">DE</div><div class="org-role">Member</div><div class="org-name">Derrick Ayitey</div><div class="org-affil">Ghana</div></div><div class="org-node"><div class="initials">DI</div><div class="org-role">Member</div><div class="org-name">Diego Paniagua Silva</div><div class="org-affil">United Kingdom</div></div><div class="org-node"><div class="initials">JE</div><div class="org-role">Member</div><div class="org-name">Jeeval Shah</div><div class="org-affil">India</div></div><div class="org-node"><div class="initials">JE</div><div class="org-role">Member</div><div class="org-name">Jessica Anabor</div><div class="org-affil">Nigeria</div></div><div class="org-node"><img alt="Mata Vivekini" loading="lazy" src="images/TF_Vivekini.jpg"/><div class="org-role">Member</div><div class="org-name">Mata Vivekini</div><div class="org-affil">Jain University, India</div></div><div class="org-node"><img alt="Mudit Khater" loading="lazy" src="images/TF_Mudit.jpg"/><div class="org-role">Member</div><div class="org-name">Mudit Khater</div><div class="org-affil">SRM IST, India</div></div><div class="org-node"><div class="initials">RO</div><div class="org-role">Member</div><div class="org-name">Robel Gudissa</div><div class="org-affil">Ethiopia </div></div><div class="org-node"><div class="initials">SA</div><div class="org-role">Member</div><div class="org-name">Sanjukta Deshpande</div><div class="org-affil">Independent Researcher, India</div></div><div class="org-node"><div class="initials">TA</div><div class="org-role">Member</div><div class="org-name">Tanmay Sharma</div><div class="org-affil">India</div></div><div class="org-node"><div class="initials">TH</div><div class="org-role">Member</div><div class="org-name">Thierry Huot</div><div class="org-affil">Canada</div></div><div class="org-node"><div class="initials">YA</div><div class="org-role">Member</div><div class="org-name">Yassine Yousfi</div><div class="org-affil">SGAC, France</div></div></div>
+<div class="org-track-grid"><div class="org-node"><div class="initials">BH</div><div class="org-role">Track Lead</div><div class="org-name">Bhuvan Ravikumar</div><div class="org-affil">USC, United States</div></div><div class="org-node"><img alt="Manish tiwari" loading="lazy" src="images/Manish Tiwari (TF).jpg"/><div class="org-role">Track Lead</div><div class="org-name">Manish tiwari</div><div class="org-affil">IIT Mandi, India</div></div><div class="org-node"><img alt="Vidhi Jain" loading="lazy" src="images/Vidhi Jain [TF].jpeg"/><div class="org-role">Track Lead</div><div class="org-name">Vidhi Jain</div><div class="org-affil">Independent Researcher, India</div></div><div class="org-node"><div class="initials">BE</div><div class="org-role">SA Co-Lead</div><div class="org-name">Benjamin Brumm</div><div class="org-affil">Canada</div></div><div class="org-node"><div class="initials">AD</div><div class="org-role">Member</div><div class="org-name">Adelu Faidat</div><div class="org-affil">Nigeria </div></div><div class="org-node"><div class="initials">AM</div><div class="org-role">Member</div><div class="org-name">Amna Bashir</div><div class="org-affil">United Arab Emirates</div></div><div class="org-node"><img alt="Aryan Kumar Srivastav" loading="lazy" src="images/MW_TF_Aryan.jpg"/><div class="org-role">Member</div><div class="org-name">Aryan Kumar Srivastav</div><div class="org-affil">IISER Tirupati, India</div></div><div class="org-node"><div class="initials">BE</div><div class="org-role">Member</div><div class="org-name">Benedict Julian Zefanya Batubara</div><div class="org-affil">Indonesia</div></div><div class="org-node"><div class="initials">DA</div><div class="org-role">Member</div><div class="org-name">Davyani Vasta</div><div class="org-affil">Canada</div></div><div class="org-node"><div class="initials">DE</div><div class="org-role">Member</div><div class="org-name">Derrick Ayitey</div><div class="org-affil">Ghana</div></div><div class="org-node"><div class="initials">DI</div><div class="org-role">Member</div><div class="org-name">Diego Paniagua Silva</div><div class="org-affil">United Kingdom</div></div><div class="org-node"><div class="initials">JE</div><div class="org-role">Member</div><div class="org-name">Jeeval Shah</div><div class="org-affil">India</div></div><div class="org-node"><div class="initials">JE</div><div class="org-role">Member</div><div class="org-name">Jessica Anabor</div><div class="org-affil">Nigeria</div></div><div class="org-node"><img alt="Mata Vivekini" loading="lazy" src="images/TF_Vivekini.jpg"/><div class="org-role">Member</div><div class="org-name">Mata Vivekini</div><div class="org-affil">Jain University, India</div></div><div class="org-node"><img alt="Mudit Khater" loading="lazy" src="images/TF_Mudit.jpg"/><div class="org-role">Member</div><div class="org-name">Mudit Khater</div><div class="org-affil">SRM IST, India</div></div><div class="org-node"><div class="initials">RO</div><div class="org-role">Member</div><div class="org-name">Robel Gudissa</div><div class="org-affil">Ethiopia </div></div><div class="org-node"><div class="initials">SA</div><div class="org-role">Member</div><div class="org-name">Sanjukta Deshpande</div><div class="org-affil">Independent Researcher, India</div></div><div class="org-node"><div class="initials">TA</div><div class="org-role">Member</div><div class="org-name">Tanmay Sharma</div><div class="org-affil">India</div></div><div class="org-node"><div class="initials">TH</div><div class="org-role">Member</div><div class="org-name">Thierry Huot</div><div class="org-affil">Canada</div></div><div class="org-node"><div class="initials">YA</div><div class="org-role">Member</div><div class="org-name">Yassine Yousfi</div><div class="org-affil">SGAC, France</div></div></div>
 </div>
 </section>
 <section class="" style="padding:80px 40px;background:var(--bg);">
@@ -265,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function deadlineDate(){const d=new Date();d.setDate(d.getDate()+7);return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
 
   function submitForm(type){
-    const WEBHOOK='https://discord.com/api/webhooks/1480664373839003730/hjRL6zt37GdLIYXL35L4LPUghTqb5fKcrceMOvXanAoOO8sa4rrf0IJcsMsBpPoYcJjl';
+    const WEBHOOK='https://icy-art-0403.nooneknowme2004.workers.dev/';
     let name,email,desc,extra='',projectVal='';
     if(type==='join'){name=(document.getElementById('j-first').value+' '+document.getElementById('j-last').value).trim();email=document.getElementById('j-email').value.trim();desc=document.getElementById('j-why').value.trim();projectVal=document.getElementById('j-project').value;extra='Project: '+projectVal+'\nAffiliation: '+document.getElementById('j-affil').value;}
     else if(type==='secretariat'){name=(document.getElementById('s-first').value+' '+document.getElementById('s-last').value).trim();email=document.getElementById('s-email').value.trim();desc=document.getElementById('s-why').value.trim();projectVal=document.getElementById('s-role').value;extra='Role: '+projectVal+'\nAffiliation: '+document.getElementById('s-affil').value+'\nLinkedIn: '+(document.getElementById('s-link').value||'—');}
@@ -337,21 +338,76 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 </script>
 <script>
-  // Mobile Menu Toggle
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const navLinks = document.querySelector('.nav-links');
-  if(mobileBtn && navLinks) {
-    mobileBtn.addEventListener('click', () => {
-      mobileBtn.classList.toggle('active');
-      navLinks.classList.toggle('active');
+(function() {
+  function initMobileMenu() {
+    var btn = document.getElementById('mobileMenuBtn');
+    var nav = document.querySelector('.nav-links');
+    var overlay = document.getElementById('menuOverlay');
+    if (!btn || !nav) return;
+
+    function openMenu() {
+      btn.classList.add('active');
+      nav.classList.add('active');
+      if (overlay) overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      btn.classList.remove('active');
+      nav.classList.remove('active');
+      if (overlay) overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function toggleMenu() {
+      if (btn.classList.contains('active')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    // Use both click and touchend for max compatibility
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
     });
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileBtn.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
+    btn.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Close on link click
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+      link.addEventListener('touchend', closeMenu);
+    });
+
+    // Close on overlay tap
+    if (overlay) {
+      overlay.addEventListener('click', closeMenu);
+      overlay.addEventListener('touchend', closeMenu);
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Close if screen resizes to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) closeMenu();
     });
   }
-</script></body>
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
+})();
+</script>
+</body>
 </html>
